@@ -1,3 +1,3 @@
 function nv --description 'alias nv=nvim'
-	nvim  $argv;
+    nvim  $argv;
 end

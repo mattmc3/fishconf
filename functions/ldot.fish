@@ -1,3 +1,3 @@
 function ldot --description 'Show hidden dot files'
-	ls -ld .*
+    ls -ld .*
 end

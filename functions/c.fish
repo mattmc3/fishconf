@@ -1,3 +1,3 @@
 function c --description 'alias c clear'
-	clear
+    clear
 end

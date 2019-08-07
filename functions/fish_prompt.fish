@@ -1,6 +1,6 @@
 # Defined in /usr/local/Cellar/fish/3.0.2/share/fish/functions/fish_prompt.fish @ line 5
 function fish_prompt --description 'Write out the prompt'
-	set -l color_cwd
+    set -l color_cwd
     set -l prefix
     set -l suffix
     switch "$USER"

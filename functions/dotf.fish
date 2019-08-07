@@ -1,3 +1,3 @@
 function dotf --description 'Change directory to dotfiles project'
-	cd "$DOTFILES"
+    cd "$DOTFILES"
 end
