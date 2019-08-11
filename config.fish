@@ -22,6 +22,8 @@ set -q MY_PROJECTS_DIR; or set -x MY_PROJECTS_DIR ~/Projects
 # http://fishshell.com/docs/current/tutorial.html#tut_path
 set fish_function_path $HOME/bin $fish_function_path
 
+set -gx PATH $PATH $XDG_DATA_HOME/npm/bin
+
 # local overrides {{{
 set fish_function_path $DOTFILES.local/fish/functions.local $fish_function_path
 [ -f $DOTFILES.local/fish/config.local.fish ] ;and source $DOTFILES.local/fish/config.local.fish
