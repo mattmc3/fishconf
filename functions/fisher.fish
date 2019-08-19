@@ -1,4 +1,4 @@
-set -g fisher_version 3.2.7
+set -g fisher_version 3.2.9
 
 function fisher -a cmd -d "fish package manager"
     set -q XDG_CACHE_HOME; or set XDG_CACHE_HOME ~/.cache
@@ -115,7 +115,7 @@ function _fisher_ls
 end
 
 function _fisher_fmt
-    command sed "s|^[[:space:]]*||;s|^$fisher_config/||;s|^~|$HOME|;s|^\.\/*|$PWD/|;s|^github\.com/||;s|^https*:/*||;s|/*\$||"
+    command sed "s|^[[:space:]]*||;s|^$fisher_config/||;s|^~|$HOME|;s|^\.\/*|$PWD/|;s|^https*:/*||;s|^github\.com/||;s|/*\$||"
 end
 
 function _fisher_help
@@ -300,7 +300,7 @@ function _fisher_fetch
                 if test ! -z \"$branch\"
                      command git clone $url $fisher_config/$pkg --branch $branch --depth 1 2>/dev/null
                      or echo fisher: cannot clone \"$url\" -- is this a valid url\? >&2
-                else if command curl $curl_opts -Ss $url 2>&1 | command tar -xzf- -C $fisher_config/$pkg 2>/dev/null
+                else if command curl $curl_opts -Ss -w \"\" $url 2>&1 | command tar -xzf- -C $fisher_config/$pkg 2>/dev/null
                     command rm -Rf $fisher_cache/$pkg
                     command mv -f $fisher_config/$pkg/* $fisher_cache/$pkg
                     command rm -Rf $fisher_config/$pkg
