@@ -1,4 +1,4 @@
-set -q DOTFILES; or set -gx DOTFILES ~/.dotfiles
+set -q DOTFILES; or set -gx DOTFILES ~/.config/dotfiles
 
 # no greeting
 set fish_greeting
