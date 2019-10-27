@@ -1,2 +1,5 @@
 fisher/
 fish_variables
+*.local
+*.local.fish
+*.local/
