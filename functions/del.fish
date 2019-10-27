@@ -1,3 +1,3 @@
 function del --description 'alias del safe-rm'
-    trash -rfv $argv;
+    safe-rm $argv;
 end

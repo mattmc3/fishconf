@@ -15,4 +15,4 @@ set -q MY_PROJECTS_DIR; or set -x MY_PROJECTS_DIR ~/Projects
 # http://fishshell.com/docs/current/tutorial.html#tut_path
 set fish_function_path $HOME/bin $fish_function_path
 
-set -gx PATH $PATH $XDG_DATA_HOME/npm/bin
+set -gx PATH $HOME/bin $PATH $XDG_DATA_HOME/npm/bin
