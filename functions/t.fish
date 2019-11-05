@@ -1,3 +1,3 @@
-function t --description 'alias t todo.sh -d ~/.config/todotxt/config'
+function t --description 'todo.sh shortcut'
     todo.sh -d ~/.config/todotxt/config $argv;
 end

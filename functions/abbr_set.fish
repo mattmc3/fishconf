@@ -1,6 +1,6 @@
 function abbr_set --description 'Set common abbreviations'
     # git {{{
-    abbr -a g 'git'
+    # abbr -a g 'git'
     abbr -a gad 'git add'
     abbr -a gbn 'git rev-parse --abbrev-ref HEAD'
     abbr -a gcl 'git clean'
