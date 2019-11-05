@@ -1,3 +1,3 @@
 function ds
-	date +%Y-%m-%d
+    date +%Y-%m-%d
 end
