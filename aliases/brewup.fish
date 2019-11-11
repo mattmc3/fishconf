@@ -1,4 +1,4 @@
 # Defined in - @ line 1
-function brewup --description 'alias brewup brew update ;and brew upgrade'
-    brew update ;and brew upgrade $argv;
+function brewup --description 'alias brewup brew update && brew upgrade'
+    brew update && brew upgrade $argv;
 end

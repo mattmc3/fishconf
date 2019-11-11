@@ -9,11 +9,11 @@ end
 
 if not test -f $_Z_DATA
     set -l zdir (dirname $_Z_DATA)
-    test -d $zdir; or mkdir -p -m 700 $zdir
+    test -d $zdir || mkdir -p -m 700 $zdir
     touch $_Z_DATA
 end
 
 function __z_on_variable_pwd --on-variable PWD
-    status --is-command-substitution; and return
+    status --is-command-substitution && return
     z --add $PWD
 end

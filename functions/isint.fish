@@ -1,3 +1,3 @@
 function isint
-    [ "$argv" -eq "$argv" ] ^/dev/null; and return 0; or return 1
+    [ "$argv" -eq "$argv" ] ^/dev/null && return 0 || return 1
 end

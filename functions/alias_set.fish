@@ -17,7 +17,7 @@ function alias_set --description 'Set common aliases'
     alias ymddash 'ds date +%Y-%m-%d'
 
     # brew
-    alias brewup 'brew update ;and brew upgrade'
+    alias brewup 'brew update && brew upgrade'
     alias caskup 'brew cu -af'
 
     # git
@@ -33,7 +33,7 @@ function alias_set --description 'Set common aliases'
     alias ldot 'ls -ld .*'
 
     # networking
-    alias dnsflush 'dscacheutil -flushcache; and killall -HUP mDNSResponder'
+    alias dnsflush 'dscacheutil -flushcache && killall -HUP mDNSResponder'
     alias ping 'ping -c 5'
     alias pinging ping
     alias speedtest 'wget -O /dev/null http://speed.transip.nl/10mb.bin'

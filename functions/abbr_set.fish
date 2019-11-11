@@ -13,14 +13,14 @@ function abbr_set --description 'Set common abbreviations'
     abbr -a glg 'git log'
     abbr -a glog "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
     abbr -a gpll 'git pull'
-    abbr -a gpristine 'git reset --hard ;and git clean -fdx'
+    abbr -a gpristine 'git reset --hard && git clean -fdx'
     abbr -a gpsh 'git push'
     abbr -a gpsuo 'git push --set-upstream origin (git rev-parse --abbrev-ref HEAD)'
     abbr -a grm 'git rm'
     abbr -a grv 'git remote -v'
     abbr -a gsh 'git stash'
     abbr -a gst 'git status -sb'
-    abbr -a gwho 'echo "user.name:" (git config user.name) ;and echo "user.email:" (git config user.email)'
+    abbr -a gwho 'echo "user.name:" (git config user.name) && echo "user.email:" (git config user.email)'
     # }}}
 
     # golang {{{
