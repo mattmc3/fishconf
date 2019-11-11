@@ -8,6 +8,6 @@ for file in $fisher_path/conf.d/*.fish
     builtin source $file 2> /dev/null
 end
 
-if not test -L $fisher_path/fishfile ;and test -f $XDG_CONFIG_HOME/fish/fish_bundle
-    ln -sf $XDG_CONFIG_HOME/fish/fish_bundle $fisher_path/fishfile
-end
+# if not test -L $fisher_path/fishfile && test -f $XDG_CONFIG_HOME/fish/fish_bundle
+#     ln -sf $XDG_CONFIG_HOME/fish/fish_bundle $fisher_path/fishfile
+# end
