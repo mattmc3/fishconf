@@ -9,6 +9,9 @@ trim_trailing_whitespace = true
 indent_style = tab
 indent_size = 4
 
+[*.{makefiles,Makefile,MAKEFILE}]
+indent_style = tab
+
 [*.{md,markdown}]
 # Don't trim end spacing because unfortunately Markdown uses that
 indent_style = space

@@ -1,8 +1,8 @@
 function title --description 'Change current terminal title'
     if [ (count $argv) -lt 1 ]
-      echo "You need to specify a title to set"
-      return 1
-  end
+        echo "You need to specify a title to set"
+        return 1
+    end
 
-  echo "function fish_title; echo \"$argv\"; end" | source -
+    echo "function fish_title; echo \"$argv\"; end" | source -
 end

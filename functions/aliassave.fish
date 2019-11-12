@@ -12,7 +12,7 @@ function aliassave --description 'Save the current definition of all specified a
 
     # save new aliases
     for a in $aliases
-        functions $a > $aliasdir/"$a".fish
+        functions $a >$aliasdir/"$a".fish
 
         # could use fish_indent, but I only care about tabs
         # fish_indent -w $aliasdir/"$a".fish
