@@ -1,0 +1,12 @@
+[submodule "plugins/macos"]
+	path = plugins/macos
+	url = git@github.com:mattmc3/fish-macos.git
+[submodule "plugins/cd-ls"]
+	path = plugins/cd-ls
+	url = git@github.com:mattmc3/fish-cd-ls.git
+[submodule "plugins/python"]
+	path = plugins/python
+	url = git@github.com:mattmc3/fish-python.git
+[submodule "plugins/up"]
+	path = plugins/up
+	url = git@github.com:mattmc3/fish-up.git
