@@ -16,10 +16,6 @@ function alias_set --description 'Set common aliases'
     alias ymd 'ds date +%Y%m%d'
     alias ymddash 'ds date +%Y-%m-%d'
 
-    # brew
-    alias brewup 'brew update && brew upgrade'
-    alias caskup 'brew cu -af'
-
     # git
     alias g.log 'git log --oneline --decorate --graph --all'
 
@@ -33,16 +29,9 @@ function alias_set --description 'Set common aliases'
     alias ldot 'ls -ld .*'
 
     # networking
-    alias dnsflush 'dscacheutil -flushcache && killall -HUP mDNSResponder'
     alias ping 'ping -c 5'
     alias pinging ping
     alias speedtest 'wget -O /dev/null http://speed.transip.nl/10mb.bin'
-
-    # python
-    alias juno 'jupyter notebook'
-    alias py python3
-    alias py2 python2
-    alias py3 python3
 
     # xdg support
     alias gpg 'command gpg2 --homedir "$GNUPGHOME"'
