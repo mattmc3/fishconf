@@ -4,5 +4,5 @@ My fish configuration
 # Installation
 
 ```fish
-git clone git@github.com:mattmc3/dotfiles.fish ~/.config/fish
+git clone --recursive git@github.com:mattmc3/dotfiles.fish ~/.config/fish
 ```
