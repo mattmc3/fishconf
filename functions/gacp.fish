@@ -21,7 +21,6 @@ function gacp --description 'git add/commit/push all-in-one'
     end
 
     git add .
-    git add --all
     git commit -am "$argv"
     git push
 end
