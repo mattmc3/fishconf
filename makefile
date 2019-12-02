@@ -2,7 +2,7 @@
 .PHONY: help formatted submodules
 .DEFAULT_GOAL := help
 
-formatted:
+pretty:
 	find . \( -type f -or -type l \) -name '*.fish' ! -name 'fisher.fish' ! -path './fisher/*' ! -path './aliases/*' -exec fish_indent -w {} \;
 
 submodules:
@@ -12,5 +12,5 @@ help:
 	@echo "help"
 	@echo "    shows this message"
 	@echo ""
-	@echo "formatted"
+	@echo "pretty"
 	@echo "    Run fish_indent against all fish files. "
