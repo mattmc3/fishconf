@@ -8,9 +8,9 @@ function gacp --description 'git add/commit/push all-in-one'
         echo "gacp: Expecting commit message" >&2
         return 1
     end
-    if curbranch == "master"
+    if test "$curbranch" = "master"
         while true
-            read -l -P "You are about to add/commit/push to master. Are you sure? [y/N] " confirm
+            read -l -P "You are about to add/commit/push to master. Are you sure? [y/n] " confirm
             switch $confirm
                 case Y y
                     break
