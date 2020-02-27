@@ -1,4 +1,4 @@
-set -g fisher_version 3.2.9
+set -g fisher_version 3.2.10
 
 function fisher -a cmd -d "fish package manager"
     set -q XDG_CACHE_HOME; or set XDG_CACHE_HOME ~/.cache
@@ -39,7 +39,7 @@ function fisher -a cmd -d "fish package manager"
     end
 
     # 2019-10-22: temp code, migrates fishfile from old path back to $fish_config
-    if test -e "$fisher_path/fishfile" && test ! -e "$fishfile"
+    if test -e "$fisher_path/fishfile"; and test ! -e "$fishfile"
         command mv -f "$fisher_path/fishfile" "$fishfile"
     end
 
@@ -267,7 +267,7 @@ function _fisher_fetch
     set -l out_pkgs
     set -l next_pkgs
     set -l local_pkgs
-    set -q fisher_user_api_token && set -l curl_opts -u $fisher_user_api_token
+    set -q fisher_user_api_token; and set -l curl_opts -u $fisher_user_api_token
 
     for pkg in $argv
         switch $pkg
@@ -325,7 +325,7 @@ function _fisher_fetch
 
     if set -q pkg_jobs[1]
         while for job in $pkg_jobs
-                contains -- $job (_fisher_jobs) && break
+                contains -- $job (_fisher_jobs); and break
             end
         end
         for pkg in $next_pkgs
@@ -397,13 +397,13 @@ function _fisher_rm -a pkg
         set -l filename (command basename $target .fish)
         switch $src
             case $pkg/conf.d\*
-                test "$filename.fish" = "$target" && emit "$filename"_uninstall
+                test "$filename.fish" = "$target"; and emit "$filename"_uninstall
                 set target conf.d/$target
             case $pkg/completions\*
-                test "$filename.fish" = "$target" && complete -ec $filename
+                test "$filename.fish" = "$target"; and complete -ec $filename
                 set target completions/$target
             case $pkg/{,functions}\*
-                test "$filename.fish" = "$target" && functions -e $filename
+                test "$filename.fish" = "$target"; and functions -e $filename
                 switch $target
                     case uninstall.fish
                         source $src
