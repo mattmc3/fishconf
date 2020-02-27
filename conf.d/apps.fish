@@ -8,12 +8,16 @@ set -q ATOM_HOME || set -gx ATOM_HOME "$XDG_CONFIG_HOME/atom"
 set -q DOCKER_CONFIG || set -gx DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
 set -q MACHINE_STORAGE_PATH || set -gx MACHINE_STORAGE_PATH "$XDG_DATA_HOME/docker-machine"
 
+# emacs
+set -gx PATH $PATH ~/.emacs.d/bin
+
 # gnupg
 set -q GNUPGHOME || set -gx GNUPGHOME "$XDG_CONFIG_HOME/gnupg"
 
 # golang
 set -gx GLOBALGOPATH "$HOME/Projects/golang"
 set -gx GOPATH "$GLOBALGOPATH"
+set -gx PATH $PATH "$GLOBALGOPATH/bin"
 
 # groovy
 set -q GROOVY_HOME || set -gx GROOVY_HOME "/usr/local/opt/groovy/libexec"
@@ -62,9 +66,8 @@ set -q PSQL_HISTORY || set -gx PSQL_HISTORY "$XDG_CACHE_HOME/pg/psql_history"
 set -q PGPASSFILE || set -gx PGPASSFILE "$XDG_CONFIG_HOME/pg/pgpass"
 set -q PGSERVICEFILE || set -gx PGSERVICEFILE "$XDG_CONFIG_HOME/pg/pg_service.conf"
 
-
 # ruby
-set -gx PATH "/usr/local/opt/ruby/bin" $PATH
+set -gx PATH $PATH "/usr/local/opt/ruby/bin"
 set -q GEM_HOME || set -gx GEM_HOME "$XDG_DATA_HOME/gem"
 set -q GEM_SPEC_CACHE || set -gx GEM_SPEC_CACHE "$XDG_DATA_HOME/gem"
 set -q BUNDLE_USER_CONFIG || set -gx BUNDLE_USER_CONFIG "$XDG_CONFIG_HOME/bundle"

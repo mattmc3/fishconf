@@ -20,3 +20,4 @@ set -q XDG_VIDEOS_DIR || set -gx XDG_VIDEOS_DIR $HOME/Videos
 ## Misc
 # add aliases to fish_function_path
 set fish_function_path $XDG_CONFIG_HOME/fish/aliases $fish_function_path
+set -gx PATH "/usr/local/sbin" "/usr/local/bin" "/usr/sbin" "/usr/bin" "/bin"
