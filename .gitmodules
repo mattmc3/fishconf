@@ -7,9 +7,6 @@
 [submodule "plugins/up"]
 	path = plugins/up
 	url = git@github.com:mattmc3/fish-up.git
-[submodule "plugins/git"]
-	path = plugins/git
-	url = git@github.com:mattmc3/fish-git.git
 [submodule "plugins/prompt"]
 	path = plugins/prompt
 	url = git@github.com:mattmc3/fish-prompt.git
