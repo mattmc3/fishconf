@@ -1,3 +1,0 @@
-[submodule "plugins/up"]
-	path = plugins/up
-	url = git@github.com:mattmc3/fish-up.git
