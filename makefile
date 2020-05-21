@@ -1,5 +1,5 @@
 # makefile
-.PHONY: help formatted submodules
+.PHONY: help pretty submodules
 .DEFAULT_GOAL := help
 
 pretty:
