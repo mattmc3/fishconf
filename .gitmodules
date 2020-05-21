@@ -1,6 +1,3 @@
-[submodule "plugins/python"]
-	path = plugins/python
-	url = git@github.com:mattmc3/fish-python.git
 [submodule "plugins/up"]
 	path = plugins/up
 	url = git@github.com:mattmc3/fish-up.git
