@@ -3,3 +3,4 @@ fish_variables
 *.local
 *.local.fish
 *.local/
+fishingline/
