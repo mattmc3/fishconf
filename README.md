@@ -1,4 +1,4 @@
-# fishcfg
+# fishconf
 
 My fish configuration
 
@@ -7,6 +7,7 @@ My fish configuration
 * Supports local/private configuration as a git submodule.
 * Better alias handling using alias_set/aliassave functions.
 * Fisher for package management
+* Tons of useful functions and abbreviations
 
 ## Plugins
 
@@ -19,7 +20,7 @@ Third party:
 
 My plugins:
 
-* [fish-aquarium] - Fish aquarium is a github workspace with all my public published fish plugins
+* [fishingline] - Fishing line is a github workspace with all my publicly published fish plugins
 
 ## Prompts
 
@@ -38,7 +39,7 @@ fisher
 [brew-completions]: https://github.com/laughedelic/brew-completions
 [done]: https://github.com/franciscolourenco/done]
 [fish_logo]: https://github.com/laughedelic/fish_logo
-[fish-aquarium]: https://github.com/fish-aquarium
+[fishingline]: https://github.com/fishingline
 [fish-colored-man]: https://github.com/decors/fish-colored-man
 [fzf]: https://github.com/jethrokuan/fzf
 [pure]: https://github.com/rafaelrinaldi/pure
