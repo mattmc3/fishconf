@@ -12,17 +12,17 @@ function g.url --description 'Creates a git URL'
         set -g DEFAULT_GIT_SERVER "github.com"
     end
 
-    set -q _flag_p && set protocol $_flag_p; or set protocol "git"
-    set -q _flag_s && set server $_flag_s; or set server $DEFAULT_GIT_SERVER
-    set -q _flag_u && set user $_flag_u; or set user (git config user.name)
-    set -q _flag_r && set repo $_flag_r; or set repo $argv
+    set -q _flag_p; and set protocol $_flag_p; or set protocol "git"
+    set -q _flag_s; and set server $_flag_s; or set server $DEFAULT_GIT_SERVER
+    set -q _flag_u; and set user $_flag_u; or set user (git config user.name)
+    set -q _flag_r; and set repo $_flag_r; or set repo $argv
 
     # optionally, repo can be in the form protocol/server/user/repo
     set repo_parts (string split "/" "$repo")
-    test (count $repo_parts) -eq 4 && set protocol $repo_parts[1] && set repo_parts $repo_parts[2..-1]
-    test (count $repo_parts) -eq 3 && set server $repo_parts[1] && set repo_parts $repo_parts[2..-1]
-    test (count $repo_parts) -eq 2 && set user $repo_parts[1] && set repo_parts $repo_parts[2..-1]
-    test (count $repo_parts) -eq 1 && set repo $repo_parts[1]
+    test (count $repo_parts) -eq 4; and set protocol $repo_parts[1]; and set repo_parts $repo_parts[2..-1]
+    test (count $repo_parts) -eq 3; and set server $repo_parts[1]; and set repo_parts $repo_parts[2..-1]
+    test (count $repo_parts) -eq 2; and set user $repo_parts[1]; and set repo_parts $repo_parts[2..-1]
+    test (count $repo_parts) -eq 1; and set repo $repo_parts[1]
 
     # expand server abbreviations
     switch $server
