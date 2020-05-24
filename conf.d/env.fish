@@ -1,15 +1,15 @@
-set -q DOTFILES || set -gx DOTFILES ~/.config/dotfiles
+set -q DOTFILES; or set -gx DOTFILES ~/.config/dotfiles
 
 # no greeting
 set fish_greeting
 
 # apps
-set -q PAGER || set -gx PAGER less
-set -q VISUAL || set -gx VISUAL code
-set -q EDITOR || set -gx EDITOR vim
+set -q PAGER; or set -gx PAGER less
+set -q VISUAL; or set -gx VISUAL code
+set -q EDITOR; or set -gx EDITOR vim
 
 # my vars
-set -q MY_PROJECTS_DIR || set -x MY_PROJECTS_DIR ~/Projects
+set -q PROJECTS; or set -x PROJECTS ~/Projects
 
 # path
 # http://fishshell.com/docs/current/tutorial.html#tut_path

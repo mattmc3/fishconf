@@ -3,7 +3,7 @@ function g.url --description 'Creates a git URL'
     set -l usage "usage: "(status function)" $options"
 
     argparse --name=(status function) $options -- $argv
-    if [ $status -ne 0 ] || set -q _flag_help
+    if [ $status -ne 0 ]; or set -q _flag_help
         echo $usage
         return
     end
@@ -12,10 +12,10 @@ function g.url --description 'Creates a git URL'
         set -g DEFAULT_GIT_SERVER "github.com"
     end
 
-    set -q _flag_p && set protocol $_flag_p || set protocol "git"
-    set -q _flag_s && set server $_flag_s || set server $DEFAULT_GIT_SERVER
-    set -q _flag_u && set user $_flag_u || set user (git config user.name)
-    set -q _flag_r && set repo $_flag_r || set repo $argv
+    set -q _flag_p && set protocol $_flag_p; or set protocol "git"
+    set -q _flag_s && set server $_flag_s; or set server $DEFAULT_GIT_SERVER
+    set -q _flag_u && set user $_flag_u; or set user (git config user.name)
+    set -q _flag_r && set repo $_flag_r; or set repo $argv
 
     # optionally, repo can be in the form protocol/server/user/repo
     set repo_parts (string split "/" "$repo")
@@ -48,7 +48,7 @@ function g.url --description 'Creates a git URL'
 
     # remove .git suffix
     set repo (string replace -i -r '\.git$' '' $repo)
-    [ -n "$repo" ] || set repo "your-repo-name-here"
+    [ -n "$repo" ]; or set repo "your-repo-name-here"
 
     echo "$url$user/$repo.git"
 end
