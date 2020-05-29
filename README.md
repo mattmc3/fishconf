@@ -30,8 +30,9 @@ My plugins:
 ## Installation
 
 ```fish
-git clone --recursive git@github.com:mattmc3/fishcfg ~/.config/fish
+git clone --recursive git@github.com:mattmc3/fishconf ~/.config/fish
 fish
+fish_config
 fisher
 ```
 
