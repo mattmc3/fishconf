@@ -1,3 +1,0 @@
-[submodule "local"]
-	path = local
-	url = git@github.com:mattmc3/fishconf.local
