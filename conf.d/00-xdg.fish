@@ -1,6 +1,3 @@
-# Initial fish setup
-set -q fish_config; or set -gx fish_config $HOME/.config/fish
-
 ## XDG
 # See https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 
@@ -19,8 +16,4 @@ set -q XDG_DOCUMENTS_DIR; or set -gx XDG_DOCUMENTS_DIR $HOME/Documents
 set -q XDG_MUSIC_DIR; or set -gx XDG_MUSIC_DIR $HOME/Music
 set -q XDG_PICTURES_DIR; or set -gx XDG_PICTURES_DIR $HOME/Pictures
 set -q XDG_VIDEOS_DIR; or set -gx XDG_VIDEOS_DIR $HOME/Videos
-
-## Misc
-# add aliases to fish_function_path
-set fish_function_path $XDG_CONFIG_HOME/fish/aliases $fish_function_path
-set -gx PATH "/usr/local/sbin" "/usr/local/bin" "/usr/sbin" "/usr/bin" "/bin"
+set -q XDG_PROJECTS_DIR; or set -gx XDG_PROJECTS_DIR $HOME/Projects
