@@ -4,3 +4,4 @@ fisher/
 *.local.fish
 *.local/
 fishingline/
+plugins/
