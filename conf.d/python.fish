@@ -5,4 +5,4 @@ if not set -q VENV_HOME
         set -gx VENV_HOME ~/.local/share/venvs
     end
 end
-[ -d $VENV_HOME ] || mkdir -p "$VENV_HOME"
+test -d $VENV_HOME; or mkdir -p "$VENV_HOME"

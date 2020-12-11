@@ -7,6 +7,7 @@ set -q fish_config; or set -gx fish_config $HOME/.config/fish
 # path
 set -gx PATH \
     "$HOME/bin" \
+    "/opt/homebrew/bin" \
     "/usr/local/sbin" \
     "/usr/local/bin" \
     "/usr/sbin" \
