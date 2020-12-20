@@ -1,5 +1,5 @@
 fisher/
-#fish_variables
+fish_variables
 *.local
 *.local.fish
 *.local/
