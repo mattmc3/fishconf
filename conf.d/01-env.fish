@@ -5,6 +5,7 @@ set -q DOTFILES; or set -gx DOTFILES ~/.config/dotfiles
 set -gx PATH \
     "$HOME/bin" \
     "/opt/homebrew/bin" \
+    "/opt/homebrew/sbin" \
     "/usr/local/sbin" \
     "/usr/local/bin" \
     "/usr/sbin" \
