@@ -1,5 +1,5 @@
 function fished
-    cd ~/.config/fish
+    cd $__fish_config_dir
     if set -q VISUAL
         $VISUAL .
     else if set -q EDITOR
