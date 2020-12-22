@@ -4,6 +4,7 @@ set -gx PATH $PATH ~/.emacs.d/bin
 # golang
 set -gx GLOBALGOPATH "$HOME/Projects/golang"
 set -gx GOPATH "$GLOBALGOPATH"
+set -gx PATH $PATH "/usr/local/opt/go/libexec/bin"
 set -gx PATH $PATH "$GLOBALGOPATH/bin"
 
 # groovy
@@ -20,6 +21,9 @@ alias j15 "set -q JAVA_HOME (/usr/libexec/java_home -v 15); java -version"
 
 # lpass
 set -q LPASS_AGENT_TIMEOUT; or set -gx LPASS_AGENT_TIMEOUT 0
+
+# npm
+set -gx PATH $PATH "/usr/local/share/npm/bin"
 
 # ruby
 set -gx PATH $PATH "/usr/local/opt/ruby/bin"
