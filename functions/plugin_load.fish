@@ -1,6 +1,6 @@
 function plugin_load -a plugin -d "Load a plugin"
     if not test -d $plugin
-        echo "Plugin directory argument missing or does not exist"
+        echo >&2 "Plugin directory argument missing or does not exist"
         return 1
     end
     set plugin (realpath $plugin)
