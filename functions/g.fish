@@ -1,7 +1,10 @@
-function g --description 'git with argv, or git status with no argv'
-    if [ (count $argv) -gt 0 ]
-        git $argv
-    else
-        git status
+function g -a subcommand --description 'git wrapper with some nice extras'
+    switch $subcommand
+        case ''
+            git status -sb
+        #case clone
+        #    g.clone $argv[2..-1]
+        case '*'
+            command git $argv
     end
 end
