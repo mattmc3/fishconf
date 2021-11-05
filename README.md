@@ -2,7 +2,7 @@
 
 My fish shell configuration
 
-## Install
+## Installation
 
 ```fish
 # get the repo
@@ -22,14 +22,6 @@ fish_config
 * [pure]
 * [spacefish]
 
-## Installation
-
-```fish
-git clone --recursive git@github.com:mattmc3/fishconf ~/.config/fish
-fish
-fish_config
-fisher
-```
 
 [fishingline]: https://github.com/fishingline
 [fzf]: https://github.com/jethrokuan/fzf
