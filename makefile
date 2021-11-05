@@ -3,7 +3,7 @@
 .DEFAULT_GOAL := help
 
 pretty:
-	find . \( -type f -or -type l \) -name '*.fish' ! -name 'fisher.fish' ! -path './fisher/*' ! -path './aliases/*' -exec fish_indent -w {} \;
+	fish -c "fish_prettify"
 
 submodules:
 	git submodule update --recursive --remote
