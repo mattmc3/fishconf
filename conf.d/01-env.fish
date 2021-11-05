@@ -4,13 +4,13 @@ set -q DOTFILES; or set -gx DOTFILES ~/.config/dotfiles
 # path (app specific paths in the apps.fish file)
 set -gx PATH \
     "$HOME/bin" \
-    "/opt/homebrew/bin" \
-    "/opt/homebrew/sbin" \
-    "/usr/local/sbin" \
-    "/usr/local/bin" \
-    "/usr/sbin" \
-    "/usr/bin" \
-    "/bin"
+    /opt/homebrew/bin \
+    /opt/homebrew/sbin \
+    /usr/local/sbin \
+    /usr/local/bin \
+    /usr/sbin \
+    /usr/bin \
+    /bin
 
 # no greeting
 set fish_greeting

@@ -4,12 +4,12 @@ set -gx PATH $PATH ~/.emacs.d/bin
 # golang
 set -gx GLOBALGOPATH "$HOME/Projects/golang"
 set -gx GOPATH "$GLOBALGOPATH"
-set -gx PATH $PATH "/usr/local/opt/go/libexec/bin"
+set -gx PATH $PATH /usr/local/opt/go/libexec/bin
 set -gx PATH $PATH "$GLOBALGOPATH/bin"
 
 # groovy
-set -q GROOVY_HOME; or set -gx GROOVY_HOME "/usr/local/opt/groovy/libexec"
-set -q GROOVY_TURN_OFF_JAVA_WARNINGS; or set -gx GROOVY_TURN_OFF_JAVA_WARNINGS "true"
+set -q GROOVY_HOME; or set -gx GROOVY_HOME /usr/local/opt/groovy/libexec
+set -q GROOVY_TURN_OFF_JAVA_WARNINGS; or set -gx GROOVY_TURN_OFF_JAVA_WARNINGS true
 
 # homebrew
 set -gx HOMEBREW_NO_ANALYTICS 1
@@ -23,7 +23,7 @@ alias j15 "set -q JAVA_HOME (/usr/libexec/java_home -v 15); java -version"
 set -q LPASS_AGENT_TIMEOUT; or set -gx LPASS_AGENT_TIMEOUT 0
 
 # npm
-set -gx PATH $PATH "/usr/local/share/npm/bin"
+set -gx PATH $PATH /usr/local/share/npm/bin
 
 # ruby
-set -gx PATH $PATH "/usr/local/opt/ruby/bin"
+set -gx PATH $PATH /usr/local/opt/ruby/bin

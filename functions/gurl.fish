@@ -1,5 +1,5 @@
 function g.url --description 'Creates a git URL'
-    set -l options 'h/help' 'p/protocol=' 's/server=' 'u/user=' 'r/repo='
+    set -l options h/help 'p/protocol=' 's/server=' 'u/user=' 'r/repo='
     set -l usage "usage: "(status function)" $options"
 
     argparse --name=(status function) $options -- $argv
@@ -12,7 +12,7 @@ function g.url --description 'Creates a git URL'
         set -g DEFAULT_GIT_SERVER "github.com"
     end
 
-    set -q _flag_p; and set protocol $_flag_p; or set protocol "git"
+    set -q _flag_p; and set protocol $_flag_p; or set protocol git
     set -q _flag_s; and set server $_flag_s; or set server $DEFAULT_GIT_SERVER
     set -q _flag_u; and set user $_flag_u; or set user (git config user.name)
     set -q _flag_r; and set repo $_flag_r; or set repo $argv
@@ -26,20 +26,20 @@ function g.url --description 'Creates a git URL'
 
     # expand server abbreviations
     switch $server
-        case 'bb'
+        case bb
             set server "bitbucket.org"
-        case 'gh'
+        case gh
             set server "github.com"
-        case 'gl'
+        case gl
             set server "gitlab.com"
     end
 
     # complete the url
     # https://gitsite.com/user/repo.git or git@gitsite.com:user/repo.git
     switch $protocol
-        case 'ssl' 'https'
+        case ssl https
             set url "https://$server/"
-        case 'ssh' 'git'
+        case ssh git
             set url "git@$server:"
         case '*'
             echo "Bad protocol value provided: $protocol" >&2
@@ -48,7 +48,7 @@ function g.url --description 'Creates a git URL'
 
     # remove .git suffix
     set repo (string replace -i -r '\.git$' '' $repo)
-    [ -n "$repo" ]; or set repo "your-repo-name-here"
+    [ -n "$repo" ]; or set repo your-repo-name-here
 
     echo "$url$user/$repo.git"
 end

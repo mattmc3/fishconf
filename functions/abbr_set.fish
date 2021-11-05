@@ -9,7 +9,7 @@ function abbr_set --description 'Set common abbreviations'
     abbr -a gcob 'git checkout -b '
     abbr -a gcod 'git checkout develop'
     abbr -a gcom 'git checkout master'
-    abbr -a get 'git'
+    abbr -a get git
     abbr -a glg 'git log'
     abbr -a glog "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
     abbr -a gpll 'git pull'
