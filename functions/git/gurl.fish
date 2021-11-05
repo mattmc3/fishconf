@@ -1,4 +1,4 @@
-function g.url --description 'Creates a git URL'
+function gurl --description 'Creates a git URL'
     set -l options h/help 'p/protocol=' 's/server=' 'u/user=' 'r/repo='
     set -l usage "usage: "(status function)" $options"
 
