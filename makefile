@@ -3,7 +3,7 @@
 .DEFAULT_GOAL := help
 
 pretty:
-	fish -c "fish_prettify"
+	fish -c "fish_indent -w (string match --invert --entire ./fisher/ ./**/*.fish)"
 
 submodules:
 	git submodule update --recursive --remote
