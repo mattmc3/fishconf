@@ -16,7 +16,7 @@ function pj --description "Project jump"
     for d in $PROJECTS/**/.git/
         set prjlist $prjlist (string replace -a -r '('$PROJECTS'/)|(/\.git/$)' '' $d)
     end
-    set selection (echo $prjlist | tr ' ' '\n' | sort | fzf --reverse)
+    set selection (echo $prjlist | tr ' ' '\n' | sort | fzf --layout=reverse-list)
     if [ -d $PROJECTS/$selection ]
         cd $PROJECTS/$selection
     end
