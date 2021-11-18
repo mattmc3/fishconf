@@ -5,3 +5,4 @@ fish_variables
 *.local/
 fishingline/
 plugins/
+!functions/plugins/
