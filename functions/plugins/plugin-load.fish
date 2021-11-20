@@ -3,7 +3,7 @@ function plugin-load -a plugin -d "Load a plugin"
         echo >&2 "Plugin directory argument missing or does not exist"
         return 1
     end
-    set plugin (realpath $plugin)
+    #set plugin (realpath $plugin)
     if test -d $plugin/completions #; and not contains $plugin/completions $fish_complete_path
         set fish_complete_path $fish_complete_path[1] $plugin/completions $fish_complete_path[2..-1]
     end
