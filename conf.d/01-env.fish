@@ -1,5 +1,6 @@
 # dotfiles
-set -q DOTFILES; or set -gx DOTFILES ~/.config/dotfiles
+set -q DOTFILES; or set -U DOTFILES ~/.config/dotfiles
+set -q ZDOTDIR; or set -U ZDOTDIR ~/.config/zsh
 
 # path (app specific paths in the apps.fish file)
 set -gx PATH \

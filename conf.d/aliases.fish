@@ -3,6 +3,7 @@ alias c=clear
 alias h=history
 alias l='ls -GF'
 alias v=vim
+alias nv=nvim
 
 # better built-ins
 alias grep='command grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
@@ -40,3 +41,12 @@ alias nv=nvim
 alias tarls='tar -tvf'
 alias untar='tar -xf'
 alias zz=exit
+
+# editors
+alias te='$EDITOR .'
+alias ide='$VISUAL .'
+
+# quick dirs
+alias dotf='cd $DOTFILES'
+alias zdot='cd $ZDOTDIR'
+alias fconf='cd $__fish_config_dir'
