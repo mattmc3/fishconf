@@ -24,9 +24,6 @@ set -q EDITOR; or set -gx EDITOR vim
 # where I store my projects
 set -q PROJECTS; or set -x PROJECTS ~/Projects
 
-# add aliases to fish_function_path
-set fish_function_path $fish_function_path $XDG_CONFIG_HOME/fish/aliases
-
 # add function subdirs to fish_function_path
 for d in $__fish_config_dir/functions/*/
     set fish_function_path $d $fish_function_path
