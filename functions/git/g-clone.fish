@@ -1,4 +1,4 @@
-function clone --description 'git clone simplified'
+function g.clone --description 'git clone simplified'
     set -q XDG_PROJECTS_DIR; or set XDG_PROJECTS_DIR $HOME/Projects
 
     if test (count $argv) -lt 1
@@ -50,7 +50,7 @@ function clone --description 'git clone simplified'
     argparse --stop-nonopt --name=(status function) $clone_options -- $argv
     # if parsing was successful and we're only left with <repo> <dir> or <repo>
     if test $status -ne 0 || test (count $argv) -eq 0 || test (count $argv) -gt 2
-        echo "clone: Invalid command args. `man git-clone` for proper usage." >&2
+        echo "g-clone: Invalid command args. `man git-clone` for proper usage." >&2
         return 1
     end
 
@@ -67,7 +67,7 @@ function clone --description 'git clone simplified'
     end
 
     if not set -l parsed_repo (parse_giturl $repo)
-        echo "clone: Unrecognized repo format: $repo." >&2
+        echo "g-clone: Unrecognized repo format: $repo." >&2
         return 1
     end
 
@@ -76,7 +76,7 @@ function clone --description 'git clone simplified'
     end
 
     if test -d $repodir/.git
-        echo "clone: Repo already cloned. Taking you there now..." >&2
+        echo "g-clone: Repo already cloned. Taking you there now..." >&2
     else
         git clone $origargs $parsed_repo[1] $repodir
     end
@@ -90,34 +90,3 @@ function clone --description 'git clone simplified'
         eval (cd $repodir/$parsed_repo[-1])
     end
 end
-
-
-# string match -q -r '((?<gituser>[^\/:]+?)\/)?(?<reponame>[^\/]+?)(?:\.git)?$' $repo
-# if test $status -ne 0
-#     echo "clone: Invalid repo format: $repo." >&2
-#     return 1
-# end
-# test -n "$gituser" || set gituser $GIT_USER
-
-
-
-# set -l repo_parts (string split / --max 1 --right $repo)
-# set -l reponame $repo_parts[-1]
-
-
-# if not string match -q -r "^(https://|git@)" $repo
-#     set -l repo_parts (string split / --max 1 --right $repo)
-#     if test -z "$repodir"
-#         set repodir $XDG_PROJECTS_DIR/$repo_parts[-1]
-#     end
-
-#     echo "repo parts: $repo_parts"
-#     echo "repo: $repo"
-#     echo "repodir: $repodir"
-#     echo "GIT_DOMAIN: $GIT_DOMAIN"
-#     if test (count $repo_parts) -eq 1
-#         set repo "git@$GIT_DOMAIN:$GIT_USER/$repo"
-#     else
-#         set repo "git@$GIT_DOMAIN:$repo"
-#     end
-# end

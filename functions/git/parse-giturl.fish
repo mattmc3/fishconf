@@ -1,6 +1,6 @@
-function parse_giturl -a giturl --description 'parse a git url into protocol, domain, user, repo_name'
+function parse-giturl -a giturl --description 'parse a git url into protocol, domain, user, repo_name'
     if test (count $argv) -lt 1
-        echo "parse_giturl: Expecting a git url argument" >&2
+        echo "parse-giturl: Expecting a git url argument" >&2
         return 1
     end
 

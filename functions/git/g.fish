@@ -3,7 +3,7 @@ function g -a subcommand --description 'git wrapper with some nice extras'
         case ''
             git status -sb
         case clone
-            clone $argv[2..-1]
+            g-clone $argv[2..-1]
         case '*'
             command git $argv
     end
