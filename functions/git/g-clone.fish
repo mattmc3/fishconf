@@ -1,4 +1,4 @@
-function g.clone --description 'git clone simplified'
+function g-clone --description 'git clone simplified'
     set -q XDG_PROJECTS_DIR; or set XDG_PROJECTS_DIR $HOME/Projects
 
     if test (count $argv) -lt 1
@@ -66,7 +66,7 @@ function g.clone --description 'git clone simplified'
         set origargs $origargs[1..-3]
     end
 
-    if not set -l parsed_repo (parse_giturl $repo)
+    if not set -l parsed_repo (parse-giturl $repo)
         echo "g-clone: Unrecognized repo format: $repo." >&2
         return 1
     end
