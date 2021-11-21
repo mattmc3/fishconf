@@ -1,6 +1,9 @@
 set plugins \
     mattmc3/xdg-basedir.fish \
     mattmc3/macos.fish \
+    mattmc3/up.fish \
+    mattmc3/iwd.fish \
+    mattmc3/magic-enter.fish \
     decors/fish-colored-man \
     decors/fish-lscolors \
     jethrokuan/z \
