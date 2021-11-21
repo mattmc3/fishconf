@@ -22,6 +22,20 @@ runs fish 10 times and presents the timings.
 The latest benchmark run shows that we load a new shell pretty fast.
 
 ```fish
+» # MacBook Air (M1, 2020)
+» for i in (seq 1 10); /usr/bin/time fish -i -c exit; end
+        0.02 real         0.01 user         0.01 sys
+        0.01 real         0.01 user         0.00 sys
+        0.01 real         0.00 user         0.00 sys
+        0.01 real         0.00 user         0.00 sys
+        0.01 real         0.00 user         0.00 sys
+        0.01 real         0.00 user         0.00 sys
+        0.01 real         0.00 user         0.00 sys
+        0.01 real         0.00 user         0.00 sys
+        0.01 real         0.00 user         0.00 sys
+        0.01 real         0.00 user         0.00 sys
+
+» # MacBook Pro 2.6 GHz 6-Core Intel Core i7
 » for i in (seq 1 10); /usr/bin/time fish -i -c exit; end
         0.03 real         0.01 user         0.01 sys
         0.03 real         0.01 user         0.01 sys
