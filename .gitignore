@@ -6,3 +6,4 @@ fish_variables
 fishingline/
 plugins/
 !functions/plugins/
+fishprof.txt
