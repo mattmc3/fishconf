@@ -10,17 +10,36 @@ test -d ~/.config/fish && mv ~/.config/fish ~/.config/fish.bak
 git clone git@github.com:mattmc3/fishconf ~/.config/fish
 fish
 
-# update plugins
-fisher update
-
-# select color scheme - I like Nord
+# select color scheme - I like Nord or Tomorrow Night
 fish_config
 ```
 
-## Prompts
+## Performance
 
-* [pure]
-* [spacefish]
+A snappy shell is very important to me. My config includes a `benchmark` function that
+runs fish 10 times and presents the timings.
+
+The latest benchmark run shows that we load a new shell pretty fast.
+
+```fish
+» for i in (seq 1 10); /usr/bin/time fish -i -c exit; end
+        0.03 real         0.01 user         0.01 sys
+        0.03 real         0.01 user         0.01 sys
+        0.03 real         0.01 user         0.01 sys
+        0.03 real         0.01 user         0.01 sys
+        0.03 real         0.01 user         0.01 sys
+        0.03 real         0.01 user         0.01 sys
+        0.03 real         0.01 user         0.01 sys
+        0.03 real         0.01 user         0.01 sys
+        0.03 real         0.01 user         0.01 sys
+        0.03 real         0.01 user         0.01 sys
+```
+
+You can also profile fish's startup with the following command:
+
+```fish
+fish --profile-startup=$__fish_config_dir/fishprof.txt -c "exit"
+```
 
 
 [fishingline]: https://github.com/fishingline
