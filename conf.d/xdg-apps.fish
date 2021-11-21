@@ -11,7 +11,7 @@ set -gx MACHINE_STORAGE_PATH $XDG_DATA_HOME/docker-machine
 
 # gnupg
 set -gx GNUPGHOME $XDG_CONFIG_HOME/gnupg
-alias gpg='command gpg --homedir "$GNUPGHOME"'
+alias gpg 'command gpg --homedir "$GNUPGHOME"'
 
 # jupyter
 set -gx JUPYTER_CONFIG_DIR $XDG_CONFIG_HOME/jupyter
