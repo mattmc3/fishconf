@@ -1,4 +1,5 @@
 if not set -q MY_ABBR_SET
+    # set -e MY_ABBR_SET
     set -U MY_ABBR_SET true
 
     abbr -a -- - 'cd -'
@@ -11,7 +12,13 @@ if not set -q MY_ABBR_SET
     abbr -a untar 'tar -xv'
     abbr -a zz exit
 
+    # quick nav
+    abbr -a fconf 'cd $__fish_config_dir'
+    abbr -a fdot 'cd $__fish_config_dir'
+    abbr -a zdot 'cd $ZDOTDIR'
+
     # git
+    # abbr -a clone 'git clone git@github.com:mattmc3/'
     abbr -a gad 'git add'
     abbr -a gbn 'git rev-parse --abbrev-ref HEAD'
     abbr -a gcl 'git clean'
