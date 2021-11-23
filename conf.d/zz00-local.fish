@@ -1,8 +1,7 @@
 # local settings
-set -e fish_config_local
-if test -d $HOME/.config/fish/local
-    plugin-load $HOME/.config/fish/local
+if ! test -d $__fish_config_dir/local && test -d $DOTFILES.local/fish
+    ln -s $DOTFILES.local/fish $__fish_config_dir/local
 end
-if test -d $DOTFILES.local/fish
-    plugin-load $DOTFILES.local/fish
+if test -d $__fish_config_dir/local
+    plugin-load $__fish_config_dir/local
 end

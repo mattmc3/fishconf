@@ -7,3 +7,6 @@ fishingline/
 plugins/
 !functions/plugins/
 fishprof*.txt
+local/
+local
+
