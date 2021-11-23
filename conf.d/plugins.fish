@@ -1,6 +1,9 @@
 ### plugins
 set -q GIT_PLUGIN_LOCATION; or set -U GIT_PLUGIN_LOCATION "git@github.com:"
 set plugins (cat $__fish_config_dir/fish_plugins)
+set -l plugin_complete_path
+set -l plugin_function_path
+set -l plugin_confd_path
 
 # clone plugins
 for repo in $plugins
@@ -12,15 +15,15 @@ for repo in $plugins
             echo "git clone failed for: $repo" >&2
             continue
         end
-        if test -d $plugin_dir/completions; and not contains $plugin_dir/completions $plugin_complete_path
-            set -U plugin_complete_path $plugin_complete_path $plugin_dir/completions
-        end
-        if test -d $plugin_dir/functions; and not contains $plugin_dir/functions $plugin_function_path
-            set -U plugin_function_path $plugin_function_path $plugin_dir/functions
-        end
-        if test -d $plugin_dir/conf.d; and not contains $plugin_dir/conf.d $plugin_confd_path
-            set -U plugin_confd_path $plugin_confd_path $plugin_dir/conf.d
-        end
+    end
+    if test -d $plugin_dir/completions
+        set plugin_complete_path $plugin_complete_path $plugin_dir/completions
+    end
+    if test -d $plugin_dir/functions
+        set plugin_function_path $plugin_function_path $plugin_dir/functions
+    end
+    if test -d $plugin_dir/conf.d
+        set plugin_confd_path $plugin_confd_path $plugin_dir/conf.d
     end
 end
 
