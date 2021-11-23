@@ -1,4 +1,4 @@
-function g-clone --description 'git clone simplified'
+function clone --description 'git clone simplified'
     set -q XDG_PROJECTS_DIR; or set XDG_PROJECTS_DIR $HOME/Projects
 
     if test (count $argv) -lt 1
