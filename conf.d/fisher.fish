@@ -1,5 +1,6 @@
 # ### fisher
 # # https://github.com/jorgebucaran/fisher#changing-the-installation-prefix
+# # https://github.com/kidonng/fisher_path.fish
 # set -g fisher_path $__fish_config_dir/fisher
 
 # set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..-1]
