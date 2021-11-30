@@ -50,7 +50,7 @@ function clone --description 'git clone simplified'
     argparse --stop-nonopt --name=(status function) $clone_options -- $argv
     # if parsing was successful and we're only left with <repo> <dir> or <repo>
     if test $status -ne 0 || test (count $argv) -eq 0 || test (count $argv) -gt 2
-        echo "g-clone: Invalid command args. `man git-clone` for proper usage." >&2
+        echo "clone: Invalid command args. `man git-clone` for proper usage." >&2
         return 1
     end
 
@@ -67,7 +67,7 @@ function clone --description 'git clone simplified'
     end
 
     if not set -l parsed_repo (parse-giturl $repo)
-        echo "g-clone: Unrecognized repo format: $repo." >&2
+        echo "clone: Unrecognized repo format: $repo." >&2
         return 1
     end
 
@@ -76,7 +76,7 @@ function clone --description 'git clone simplified'
     end
 
     if test -d $repodir/.git
-        echo "g-clone: Repo already cloned. Taking you there now..." >&2
+        echo "clone: Repo already cloned. Taking you there now..." >&2
     else
         git clone $origargs $parsed_repo[1] $repodir
     end
