@@ -11,4 +11,3 @@ if test "$my_prompt_initialized" != true
     set -g hydro_color_error red
     set -g hydro_multiline true
 end
-# plugin-load $PROJECTS/mattmc3/hydro

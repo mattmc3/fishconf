@@ -1,37 +1,41 @@
-# ### plugins
-# set -q GIT_PLUGIN_LOCATION; or set -U GIT_PLUGIN_LOCATION "git@github.com:"
-# set plugins (cat $__fish_config_dir/fish_plugins)
-# set -l plugin_complete_path
-# set -l plugin_function_path
-# set -l plugin_confd_path
+### modules
+# modules are plugins I develop locally, and want to give fisher access to without
+# having to commit to the remote every time
 
-# # clone plugins
-# for repo in $plugins
-#     set plugin_name (string split / --max 1 --fields 2 --right $repo)
-#     set plugin_dir $__fish_config_dir/plugins/$plugin_name
-#     if ! test -d $plugin_dir
-#         command git clone --depth 1 --recursive --shallow-submodules $GIT_PLUGIN_LOCATION$repo $plugin_dir
-#         if test $status -ne 0
-#             echo "git clone failed for: $repo" >&2
-#             continue
-#         end
-#     end
-#     if test -d $plugin_dir/completions
-#         set plugin_complete_path $plugin_complete_path $plugin_dir/completions
-#     end
-#     if test -d $plugin_dir/functions
-#         set plugin_function_path $plugin_function_path $plugin_dir/functions
-#     end
-#     if test -d $plugin_dir/conf.d
-#         set plugin_confd_path $plugin_confd_path $plugin_dir/conf.d
-#     end
-# end
+set -l modules (string match --invert -r '^(\#.*)?$' <$__fish_config_dir/fish_modules)
+set -l module_names (string replace -r '^.+\/([^\/]+)$' '\$1' $modules |
+                     string replace -r '\.fish$' '')
+# clone modules if necessary
+set cloned false
+for i in (seq (count $modules))
+    set -l repo $modules[$i]
+    set -l dest $__fish_config_dir/modules/$module_names[$i]
+    if not test -d $dest
+        command git clone --depth 1 --recursive --shallow-submodules git@github.com:$repo $dest
+        if test $status -ne 0
+            echo "git clone failed for: $repo" >&2
+            continue
+        else
+            set cloned true
+        end
+    end
+end
 
-# # load plugins
-# set fish_complete_path $fish_complete_path[1] $plugin_complete_path $fish_complete_path[2..-1]
-# set fish_function_path $fish_function_path[1] $plugin_function_path $fish_function_path[2..-1]
-# for confd in $plugin_confd_path
-#     for f in $confd/*.fish
-#         builtin source "$f"
-#     end
-# end
+### fisher
+# https://github.com/jorgebucaran/fisher#changing-the-installation-prefix
+# https://github.com/kidonng/fisher_path.fish
+set -g fisher_path $__fish_config_dir/fisher
+
+set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..]
+set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_complete_path[2..]
+
+if not test -d $fisher_path
+    git clone --depth 1 https://github.com/jorgebucaran/fisher.git $fisher_path
+    set cloned true
+end
+
+test $cloned = true && fisher update
+
+for file in $fisher_path/conf.d/*.fish
+    builtin source $file 2>/dev/null
+end
