@@ -1,4 +1,4 @@
-function abbr-erase-all --description 'Erase all abbr'
+function abbr-reset --description 'Reset abbreviations'
     while true
         read -l -P "This will erase all your abbreviations. You sure? [y/N] " confirm
         switch $confirm
@@ -11,5 +11,5 @@ function abbr-erase-all --description 'Erase all abbr'
     for abbr_name in (abbr -l)
         abbr -e $abbr_name
     end
-    set -q MY_ABBR_SET && set -e MY_ABBR_SET
+    abbr-set
 end
