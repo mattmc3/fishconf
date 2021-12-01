@@ -16,6 +16,7 @@ if not set -q MY_ABBR_SET
     abbr -a fconf 'cd $__fish_config_dir'
     abbr -a fdot 'cd $__fish_config_dir'
     abbr -a zdot 'cd $ZDOTDIR'
+    abbr -a dotf 'cd $DOTFILES'
 
     # git
     # abbr -a clone 'git clone git@github.com:mattmc3/'
