@@ -11,5 +11,6 @@ function abbr-reset --description 'Reset abbreviations'
     for abbr_name in (abbr -l)
         abbr -e $abbr_name
     end
+    source $__fish_config_dir/functions/abbr-set.fish
     abbr-set
 end
