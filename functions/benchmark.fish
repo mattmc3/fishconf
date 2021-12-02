@@ -1,6 +1,10 @@
-function benchmark --description 'benchmark fish'
-    echo "running fish 10 times..."
+function benchmark \
+    --description 'benchmark a shell' \
+    --argument-names shellname
+
+    test -n "$shellname" || set shellname fish
+    echo "running $shellname 10 times..."
     for i in (seq 10)
-        /usr/bin/time fish -i -c exit
+        /usr/bin/time $shellname -i -c exit
     end
 end
