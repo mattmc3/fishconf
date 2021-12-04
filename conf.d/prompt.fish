@@ -1,5 +1,5 @@
-if test "$my_prompt_initialized" != true
-    set -g my_prompt_initialized true
+if test "$hydro_prompt_initialized" != true
+    set -g hydro_prompt_initialized true
     set -g hydro_symbol_prompt "»"
     set -g hydro_symbol_git_dirty "*"
     set -g hydro_symbol_git_ahead "⇡"
