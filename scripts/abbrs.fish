@@ -16,6 +16,11 @@ abbr -a -U -- fdot 'cd $__fish_config_dir'
 abbr -a -U -- zdot 'cd $ZDOTDIR'
 abbr -a -U -- dotf 'cd $DOTFILES'
 
+# date/time
+abbr -a -U -- ds 'date +%Y-%m-%d'
+abbr -a -U -- ts 'date +%Y-%m-%dT%H:%M:%SZ'
+abbr -a -U -- yyyymmdd 'date +%Y%m%d'
+
 # git
 # abbr -a -U -- gad 'git add'
 # abbr -a -U -- gbn 'git rev-parse --abbrev-ref HEAD'
