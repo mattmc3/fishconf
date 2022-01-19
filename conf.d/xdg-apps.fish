@@ -11,7 +11,7 @@ set -gx MACHINE_STORAGE_PATH $XDG_DATA_HOME/docker-machine
 
 # gnupg
 set -gx GNUPGHOME $XDG_CONFIG_HOME/gnupg
-alias gpg 'command gpg --homedir "$GNUPGHOME"'
+# alias gpg 'command gpg --homedir "$GNUPGHOME"'
 
 # jupyter
 set -gx JUPYTER_CONFIG_DIR $XDG_CONFIG_HOME/jupyter
@@ -59,7 +59,7 @@ set -gx SCREENRC $XDG_CONFIG_HOME/screen/screenrc
 set -gx SQLITE_HISTORY $XDG_DATA_HOME/sqlite_history
 
 # tmux
-alias tmux 'command tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
+# alias tmux 'command tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
 
 # todo-txt
 set -gx TODOTXT_CFG_FILE $XDG_CONFIG_HOME/todo-txt/config
@@ -70,7 +70,7 @@ set -gx VAGRANT_ALIAS_FILE $XDG_DATA_HOME/vagrant/aliases
 
 # wget
 set -gx WGETRC $XDG_CONFIG_HOME/wget/wgetrc
-alias wget 'command wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+# alias wget 'command wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
 # z
 set -gx _Z_DATA $XDG_DATA_HOME/z/data
