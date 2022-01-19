@@ -1,10 +1,9 @@
-decors/fish-colored-man
 decors/fish-lscolors
 jethrokuan/z
 jorgebucaran/fishtape
 laughedelic/fish_logo
-$__fish_config_dir/modules/iwd
-$__fish_config_dir/modules/hydro
-$__fish_config_dir/modules/up
-$__fish_config_dir/modules/magic-enter
-$__fish_config_dir/modules/macos
+mattmc3/iwd.fish
+mattmc3/up.fish
+mattmc3/magic-enter.fish
+mattmc3/macos.fish
+jorgebucaran/hydro
