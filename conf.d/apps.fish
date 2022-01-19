@@ -1,5 +1,5 @@
 # emacs
-set -gx PATH $PATH ~/.emacs.d/bin
+set -gx PATH $PATH ~/.config/emacs/bin
 
 # golang
 set -gx GLOBALGOPATH "$HOME/Projects/golang"
