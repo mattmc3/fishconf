@@ -1,13 +1,20 @@
 abbr -a -U -- - 'cd -'
-abbr -a -U -- la 'ls -la'
-abbr -a -U -- ldot 'ls -ld .*'
-abbr -a -U -- ll 'ls -lGFh'
-abbr -a -U -- lsa 'ls -aGF'
 abbr -a -U -- nv nvim
 abbr -a -U -- up 'cd ..'
 abbr -a -U -- tarls 'tar -tvf'
 abbr -a -U -- untar 'tar -xv'
 abbr -a -U -- zz exit
+
+# single key
+abbr -a -U -- c clear
+abbr -a -U -- h history
+abbr -a -U -- l 'ls -GF'
+
+# better ls
+abbr -a -U -- la 'ls -la'
+abbr -a -U -- ldot 'ls -ld .*'
+abbr -a -U -- ll 'ls -lGFh'
+abbr -a -U -- lsa 'ls -aGF'
 
 # quick nav
 abbr -a -U -- fconf 'cd $__fish_config_dir'

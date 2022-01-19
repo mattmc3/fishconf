@@ -1,7 +1,7 @@
-function abbrman
-    set -q abbrsfile; or set -U abbrsfile $__fish_config_dir/scripts/abbrs.fish
+function abbrman -d 'Manage my abbreviations'
+    set -q abbrfile; or set -g abbrfile $__fish_config_dir/scripts/abbrs.fish
 
-    if not test -f $abbrsfile
+    if not test -f $abbrfile
         echo >&2 "Cannot find abbrs file" && return 1
     end
     if test (count $argv) -eq 0
@@ -13,7 +13,7 @@ function abbrman
             _abbr_diff $argv[2..]
         case reset
             _abbr_reset $argv[2..]
-        case 'set'
+        case set
             _abbr_set $argv[2..]
         case *
             echo >&2 "Unrecognized command '$argv[1]'" && return 1
@@ -21,13 +21,13 @@ function abbrman
 end
 
 function _abbr_diff --description 'Diff abbrs'
-    # dump abbreviations to a temp file
-    set tmp1 (mktemp -t abbr-diff-abbrset)
-    string match --regex --entire '^\s*abbr' <$abbrsfile |
-    sort >$tmp1
+    # dump session abbreviations to a temp file
+    set tmp1 (mktemp -t abbr-diff-session)
+    string match --regex --entire '^\s*abbr' <$abbrfile |
+        sort >$tmp1
 
-    # dump env abbrs to temp file
-    set tmp2 (mktemp -t abbr-diff-fishabbr)
+    # dump config abbrs to temp file
+    set tmp2 (mktemp -t abbr-diff-config)
     abbr >$tmp2
 
     # show diff
@@ -52,9 +52,9 @@ function _abbr_reset --description 'Reset abbreviations'
     for abbr_name in (abbr --list)
         abbr -e $abbr_name
     end
-    source $abbrsfile
+    source $abbrfile
 end
 
 function _abbr_set --description 'Set abbreviations'
-    source $abbrsfile
+    source $abbrfile
 end
