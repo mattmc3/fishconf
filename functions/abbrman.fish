@@ -1,11 +1,12 @@
 function abbrman -d 'Manage my abbreviations'
-    set -q abbrfile; or set -g abbrfile $__fish_config_dir/scripts/abbrs.fish
+    set -q abbrfile; or set -g abbrfile $__fish_config_dir/conf.d/abbrs.fish
 
     if not test -f $abbrfile
         echo >&2 "Cannot find abbrs file" && return 1
     end
     if test (count $argv) -eq 0
         echo >&2 "Expecting argument"
+        echo >&2 "usage: abbrman {diff,reset,set,erase}"
         return 1
     end
     switch $argv[1]
@@ -15,6 +16,8 @@ function abbrman -d 'Manage my abbreviations'
             _abbr_reset $argv[2..]
         case set
             _abbr_set $argv[2..]
+        case erase
+            _abbr_erase $argv[2..]
         case *
             echo >&2 "Unrecognized command '$argv[1]'" && return 1
     end
@@ -38,9 +41,9 @@ function _abbr_diff --description 'Diff abbrs'
     end
 end
 
-function _abbr_reset --description 'Reset abbreviations'
+function _abbr_erase --description 'Erase all abbreviations'
     while true
-        set message "Reset abbreviations to contents of abbrs.fish? [y/N] "
+        set message "Erase all abbreviations? [y/N] "
         read --local --prompt-str=$message confirm
         switch $confirm
             case Y y
@@ -52,9 +55,14 @@ function _abbr_reset --description 'Reset abbreviations'
     for abbr_name in (abbr --list)
         abbr -e $abbr_name
     end
-    source $abbrfile
 end
 
 function _abbr_set --description 'Set abbreviations'
+    set -e _abbrs_initialized
     source $abbrfile
+end
+
+function _abbr_reset --description 'Reset abbreviations'
+    _abbr_erase || return 1
+    _abbr_set
 end

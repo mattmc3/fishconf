@@ -1,3 +1,5 @@
+set -q _abbrs_initialized && exit || set -U _abbrs_initialized true
+
 abbr -a -U -- - 'cd -'
 abbr -a -U -- nv nvim
 abbr -a -U -- up 'cd ..'
@@ -8,7 +10,7 @@ abbr -a -U -- zz exit
 # single key
 abbr -a -U -- c clear
 abbr -a -U -- h history
-abbr -a -U -- l 'ls -GF'
+abbr -a -U -- l 'ls -UF'
 
 # better ls
 abbr -a -U -- la 'ls -la'
@@ -39,11 +41,11 @@ abbr -a -U -- yyyymmdd 'date +%Y%m%d'
 # abbr -a -U -- gcom 'git checkout master'
 # abbr -a -U -- get git
 # abbr -a -U -- glg 'git log'
-# abbr -a -U -- glog git\ log\ --graph\ --pretty=\'\%Cred\%h\%Creset\ -\%C\(auto\)\%d\%Creset\ \%s\ \%Cgreen\(\%ad\)\ \%C\(bold\ blue\)\<\%an\>\%Creset\'\ --date=short
+# abbr -a -U -- glog git\ log\ --Uraph\ --pretty=\'\%Cred\%h\%Creset\ -\%C\(auto\)\%d\%Creset\ \%s\ \%Cgreen\(\%ad\)\ \%C\(bold\ blue\)\<\%an\>\%Creset\'\ --date=short
 # abbr -a -U -- gpll 'git pull'
 # abbr -a -U -- gpristine 'git reset --hard && git clean -fdx'
 # abbr -a -U -- gpsh 'git push'
-# abbr -a -U -- gpsuo 'git push --set-upstream origin (git rev-parse --abbrev-ref HEAD)'
+# abbr -a -U -- gpsuo 'git push --set-Upstream origin (git rev-parse --abbrev-ref HEAD)'
 # abbr -a -U -- grm 'git rm'
 # abbr -a -U -- grv 'git remote -v'
 # abbr -a -U -- gsh 'git stash'

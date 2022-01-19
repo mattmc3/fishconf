@@ -1,4 +1,4 @@
 # Defined via `source`
-function ls --description 'alias ls ls -GF'
-    command ls -GF $argv
+function ls --description 'alias ls ls -G'
+    command ls -G $argv
 end
