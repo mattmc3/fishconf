@@ -6,6 +6,7 @@ set -q fisher_path || set -g fisher_path $__fish_config_dir/fisher
 
 if not test -d $fisher_path
     git clone --depth 1 https://github.com/jorgebucaran/fisher.git $fisher_path
+    source $fisher_path/functions/fisher.fish
     fisher update
 end
 
