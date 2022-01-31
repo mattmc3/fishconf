@@ -6,9 +6,13 @@ function pj --description "Project jump"
 
     # determine the project home
     set -q PROJECTS || set PROJECTS ~/Projects
-    set prjlist (realpath $PROJECTS/**/.git/..)
+    set prjlist (string replace $PROJECTS/ "" (realpath $PROJECTS/**/.git/..))
     set selection (printf "%s\n" $prjlist | sort | fzf --layout=reverse-list --query="$argv")
     if [ -d $PROJECTS/$selection ]
         cd $PROJECTS/$selection
+    else if [ -d $selection ]
+        cd $selection
+    else
+        echo $PROJECTS/$selection
     end
 end
