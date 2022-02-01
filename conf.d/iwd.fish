@@ -1,0 +1,1 @@
+set -g IWD $PWD
