@@ -27,7 +27,7 @@ set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx HOMEBREW_CASK_OPTS "--appdir=/Applications"
 
 # java
-set -q JAVA_HOME; or set -gx JAVA_HOME "/Library/Java/JavaVirtualMachines/adoptopenjdk-15.jdk/Contents/Home"
+set -q JAVA_HOME; or set -gx JAVA_HOME "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"
 # alias j15 "set -q JAVA_HOME (/usr/libexec/java_home -v 15); java -version"
 
 # jupyter
