@@ -8,5 +8,5 @@ function fbench \
         /usr/bin/time fish -i -c exit
     end
     echo "Writing fish profile file to $__fish_config_dir/fishprof.txt"
-    fish --profile-startup=$__fish_config_dir/fishprof.txt -c "exit"
+    fish --profile-startup=$__fish_config_dir/fishprof.txt -c exit
 end

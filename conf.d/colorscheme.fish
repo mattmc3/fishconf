@@ -1,1 +1,1 @@
-test "$colorscheme" = "tokyo_night" || colorscheme_tokyo_night
+test "$colorscheme" = tokyo_night || colorscheme_tokyo_night
