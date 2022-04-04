@@ -32,14 +32,20 @@ set -q ZDOTDIR || set -U ZDOTDIR ~/.config/zsh
 
 # path (app specific paths in the apps.fish file)
 set -gx PATH \
-    "$HOME/bin" \
-    /opt/homebrew/bin \
-    /opt/homebrew/sbin \
     /usr/local/sbin \
     /usr/local/bin \
     /usr/sbin \
     /usr/bin \
     /bin
+
+if [ -d /opt/homebrew ]
+    set -gx PATH \
+        /opt/homebrew/bin \
+        /opt/homebrew/sbin \
+        $PATH
+end
+
+[ -d $HOME/bin ] && set -gx PATH $HOME/bin $PATH
 
 # no greeting
 set fish_greeting

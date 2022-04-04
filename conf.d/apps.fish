@@ -1,7 +1,12 @@
 # https://wiki.archlinux.org/index.php/XDG_Base_Directory
 
 # emacs
-set -gx PATH $PATH ~/.config/emacs/bin
+if [ -d $HOME/.config/emacs/bin ]
+    set -gx PATH $PATH $HOME/.config/emacs/bin
+end
+if [ -d $HOME/.emacs.d/bin ]
+    set -gx PATH $PATH $HOME/.emacs.d/bin
+end
 
 # golang
 set -gx GLOBALGOPATH "$HOME/Projects/golang"
