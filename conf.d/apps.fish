@@ -10,7 +10,7 @@ set -gx PATH $PATH /usr/local/opt/go/libexec/bin
 set -gx PATH $PATH "$GLOBALGOPATH/bin"
 
 # gnupg
-set -gx GNUPGHOME $XDG_CONFIG_HOME/gnupg
+set -gx GNUPGHOME $XDG_DATA_HOME/gnupg
 # alias gpg 'command gpg --homedir "$GNUPGHOME"'
 
 # groovy
