@@ -1,10 +1,10 @@
 # https://wiki.archlinux.org/index.php/XDG_Base_Directory
 
 # emacs
-if [ -d $HOME/.config/emacs/bin ]
+if [ -e $HOME/.config/emacs/bin ]
     set -gx PATH $PATH $HOME/.config/emacs/bin
 end
-if [ -d $HOME/.emacs.d/bin ]
+if [ -e $HOME/.emacs.d/bin ]
     set -gx PATH $PATH $HOME/.emacs.d/bin
 end
 
