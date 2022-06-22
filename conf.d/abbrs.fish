@@ -23,7 +23,6 @@ abbr -a -U -- fconf 'cd $__fish_config_dir'
 abbr -a -U -- fishconf 'cd $__fish_config_dir'
 abbr -a -U -- fdot 'cd $__fish_config_dir'
 abbr -a -U -- zdot 'cd $ZDOTDIR'
-abbr -a -U -- dotf 'cd $DOTFILES'
 
 # date/time
 abbr -a -U -- ds 'date +%Y-%m-%d'
