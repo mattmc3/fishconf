@@ -2,7 +2,6 @@ set -q _abbrs_initialized && exit || set -U _abbrs_initialized true
 
 abbr -a -U -- - 'cd -'
 abbr -a -U -- nv nvim
-abbr -a -U -- up 'cd ..'
 abbr -a -U -- tarls 'tar -tvf'
 abbr -a -U -- untar 'tar -xv'
 abbr -a -U -- zz exit
