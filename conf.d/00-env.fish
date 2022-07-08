@@ -59,11 +59,7 @@ set -q EDITOR || set -gx EDITOR vim
 set -q PROJECTS || set -x PROJECTS ~/Projects
 
 # add function subdirs to fish_function_path
-for d in $__fish_config_dir/functions/*/
-    set fish_function_path (string trim -c / -r $d) $fish_function_path
-end
+set fish_function_path $fish_function_path $__fish_config_dir/functions/*/
 
-# add completion subdirs to fish_function_path
-for d in $__fish_config_dir/completions/*/
-    set fish_complete_path (string trim -c / -r $d) $fish_complete_path
-end
+# add completion subdirs to fish_completion_path
+set fish_complete_path $fish_complete_path $__fish_config_dir/completions/*/
