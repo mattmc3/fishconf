@@ -1,6 +1,7 @@
-jorgebucaran/hydro
-mattmc3/iwd.fish
-mattmc3/up.fish
-mattmc3/magic-enter.fish
 $DOTFILES.local/fish
 jethrokuan/z
+jorgebucaran/hydro@addons
+mattmc3/magic-enter.fish
+mattmc3/iwd.fish
+mattmc3/up.fish
+mattmc3/macos.fish
