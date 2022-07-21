@@ -1,4 +1,4 @@
-function pj --description "Project jump"
+function prj --description "Project jump"
     if ! command -v fzf >/dev/null
         echo >&2 "fzf command not found"
         return 1
@@ -6,7 +6,8 @@ function pj --description "Project jump"
 
     # determine the project home
     set -q PROJECTS || set PROJECTS ~/Projects
-    set prjlist (string replace $PROJECTS/ "" (realpath $PROJECTS/**/.git/..))
+    set -l gitprj $PROJECTS/*/.git/.. $PROJECTS/*/*/.git/..
+    set prjlist (string replace $PROJECTS/ "" (realpath $gitprj))
     set selection (printf "%s\n" $prjlist | sort | fzf --layout=reverse-list --query="$argv")
     if [ -d $PROJECTS/$selection ]
         cd $PROJECTS/$selection
