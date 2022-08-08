@@ -10,7 +10,8 @@ function fisher_init \
     end
 
     if not test -d $fisher_path
-        git clone --depth 1 https://github.com/jorgebucaran/fisher.git $fisher_path
+        #git clone --depth 1 https://github.com/jorgebucaran/fisher.git $fisher_path
+        git clone --depth 1 --branch custom https://github.com/mattmc3/fisher $fisher_path
         fisher update
     end
 

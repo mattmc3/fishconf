@@ -1,6 +1,13 @@
 $DOTFILES.local/fish
+
+# 3rd party plugins
 jethrokuan/z
+
+# use my own hydro prompt
+# jorgebucaran/hydro
 mattmc3/hydro@custom
+
+# my plugins
 mattmc3/magic-enter.fish
 mattmc3/iwd.fish
 mattmc3/up.fish
