@@ -1,8 +1,5 @@
 $DOTFILES.local/fish
 
-# 3rd party plugins
-jethrokuan/z
-
 # use my own hydro prompt
 # jorgebucaran/hydro
 mattmc3/hydro@custom
@@ -13,3 +10,7 @@ mattmc3/iwd.fish
 mattmc3/up.fish
 mattmc3/macos.fish
 mattmc3/python.fish
+
+# 3rd party plugins
+jethrokuan/z
+decors/fish-colored-man
