@@ -1,4 +1,4 @@
-function code --wraps='open -W -b com.microsoft.VSCode' --description 'alias code open -W -b com.microsoft.VSCode'
+function code --wraps='open -b com.microsoft.VSCode' --description 'alias code open -b com.microsoft.VSCode'
     # https://github.com/fish-shell/fish-shell/issues/9127
-    open -W -b com.microsoft.VSCode $argv;
+    open -b com.microsoft.VSCode $argv;
 end
