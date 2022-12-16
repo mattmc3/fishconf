@@ -1,12 +1,7 @@
 fisher/
 fish_variables
 *.local
-*.local.fish
+*.local.*
 *.local/
-fishingline/
-plugins/
-!functions/plugins/
-fishprof*.txt
 local/
-local
-modules/
+fishprof*.txt
