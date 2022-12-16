@@ -1,16 +1,9 @@
 $DOTFILES.local/fish
-
-# use my own hydro prompt
-# jorgebucaran/hydro
-mattmc3/hydro@custom
-
-# my plugins
-mattmc3/magic-enter.fish
-mattmc3/iwd.fish
-mattmc3/up.fish
-mattmc3/macos.fish
-mattmc3/python.fish
-
-# 3rd party plugins
+$my_plugins_path/git
+$my_plugins_path/macos
+$my_plugins_path/python
+$my_plugins_path/themes
 jethrokuan/z
 decors/fish-colored-man
+jorgebucaran/fisher
+jorgebucaran/hydro

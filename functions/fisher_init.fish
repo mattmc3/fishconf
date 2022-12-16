@@ -1,7 +1,8 @@
 function fisher_init \
     --description "Initialize fisher"
 
-    set -q fisher_path || set -g fisher_path $__fish_config_dir/fisher
+    set -q fisher_path || set -U fisher_path $__fish_config_dir/fisher
+    set -q my_plugins_path || set -U my_plugins_path $__fish_config_dir/plugins
 
     if test "$fisher_paths_initialized" != true
         set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..]
@@ -10,8 +11,7 @@ function fisher_init \
     end
 
     if not test -d $fisher_path
-        #git clone --depth 1 https://github.com/jorgebucaran/fisher.git $fisher_path
-        git clone --depth 1 --branch custom https://github.com/mattmc3/fisher $fisher_path
+        git clone --depth 1 https://github.com/jorgebucaran/fisher.git $fisher_path
         fisher update
     end
 
