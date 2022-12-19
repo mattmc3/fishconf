@@ -3,7 +3,7 @@ function gurl --description 'Creates a git URL'
     set -l usage "usage: "(status function)" $options"
 
     argparse --name=(status function) $options -- $argv
-    if [ $status -ne 0 ]; or set -q _flag_help
+    if test $status -ne 0 || set -q _flag_help
         echo $usage
         return
     end
