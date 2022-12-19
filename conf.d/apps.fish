@@ -16,7 +16,7 @@ set -gx PATH $PATH "$GLOBALGOPATH/bin"
 
 # gnupg
 set -gx GNUPGHOME $XDG_DATA_HOME/gnupg
-# alias gpg 'command gpg --homedir "$GNUPGHOME"'
+alias gpg 'command gpg --homedir "$GNUPGHOME"'
 
 # groovy
 set -q GROOVY_HOME; or set -gx GROOVY_HOME /usr/local/opt/groovy/libexec
@@ -28,7 +28,6 @@ set -gx HOMEBREW_CASK_OPTS "--appdir=/Applications"
 
 # java
 set -q JAVA_HOME; or set -gx JAVA_HOME "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"
-# alias j15 "set -q JAVA_HOME (/usr/libexec/java_home -v 15); java -version"
 
 # jupyter
 set -gx JUPYTER_CONFIG_DIR $XDG_CONFIG_HOME/jupyter
@@ -77,14 +76,14 @@ set -gx SCREENRC $XDG_CONFIG_HOME/screen/screenrc
 set -gx SQLITE_HISTORY $XDG_DATA_HOME/sqlite_history
 
 # tmux
-# alias tmux 'command tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
+alias tmux 'command tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
 
 # todo-txt
 set -gx TODOTXT_CFG_FILE $XDG_CONFIG_HOME/todo-txt/config
 
 # wget
 set -gx WGETRC $XDG_CONFIG_HOME/wget/wgetrc
-# alias wget 'command wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+alias wget 'command wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
 # z
 set -gx _Z_DATA $XDG_DATA_HOME/z/data
