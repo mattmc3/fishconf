@@ -38,14 +38,14 @@ set -gx PATH \
     /usr/bin \
     /bin
 
-if [ -d /opt/homebrew ]
+if test -d /opt/homebrew
     set -gx PATH \
         /opt/homebrew/bin \
         /opt/homebrew/sbin \
         $PATH
 end
 
-[ -d $HOME/bin ] && set -gx PATH $HOME/bin $PATH
+test -d $HOME/bin && set -gx PATH $HOME/bin $PATH
 
 # no greeting
 set fish_greeting

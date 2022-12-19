@@ -48,7 +48,7 @@ function gurl --description 'Creates a git URL'
 
     # remove .git suffix
     set repo (string replace -i -r '\.git$' '' $repo)
-    [ -n "$repo" ]; or set repo your-repo-name-here
+    test -n "$repo" || set repo your-repo-name-here
 
     echo "$url$user/$repo.git"
 end

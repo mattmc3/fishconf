@@ -9,9 +9,9 @@ function prj --description "Project jump"
     set -l gitprj $PROJECTS/*/.git/.. $PROJECTS/*/*/.git/..
     set prjlist (string replace $PROJECTS/ "" (realpath $gitprj))
     set selection (printf "%s\n" $prjlist | sort | fzf --layout=reverse-list --query="$argv")
-    if [ -d $PROJECTS/$selection ]
+    if test -d $PROJECTS/$selection
         cd $PROJECTS/$selection
-    else if [ -d $selection ]
+    else if test -d $selection
         cd $selection
     else
         echo $PROJECTS/$selection
