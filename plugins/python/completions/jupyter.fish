@@ -1,7 +1,7 @@
 function __fish_jupyter_subcommands
-	if type -q -f jupyter
-		jupyter -h | tr ' ' '\n' | sed -e '1,/subcommands\:/d'
-	end
+    if type -q -f jupyter
+        jupyter -h | tr ' ' '\n' | sed -e '1,/subcommands\:/d'
+    end
 end
 
 complete -x -c jupyter -a "(__fish_jupyter_subcommands)"
