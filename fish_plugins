@@ -1,9 +1,9 @@
-$DOTFILES.local/fish
+$dotfiles.local/fish
 $my_plugins_path/git
 $my_plugins_path/macos
 $my_plugins_path/python
 $my_plugins_path/themes
 jethrokuan/z
 decors/fish-colored-man
-jorgebucaran/fisher
 jorgebucaran/hydro
+jorgebucaran/fisher

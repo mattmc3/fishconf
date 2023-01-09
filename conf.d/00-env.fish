@@ -27,7 +27,7 @@ if not set -q XDG_DESKTOP_DIR
 end
 
 # dotfiles
-set -q DOTFILES || set -U DOTFILES ~/.config/dotfiles
+set -q dotfiles || set -U dotfiles ~/.config/dotfiles
 set -q ZDOTDIR || set -U ZDOTDIR ~/.config/zsh
 
 # path (app specific paths in the apps.fish file)
