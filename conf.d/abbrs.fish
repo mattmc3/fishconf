@@ -1,4 +1,4 @@
-set -q _abbrs_initialized && exit || set -U _abbrs_initialized true
+set -q _abbrs_initialized && exit || set -Ux _abbrs_initialized true
 
 abbr -a -U -- - 'cd -'
 abbr -a -U -- nv nvim

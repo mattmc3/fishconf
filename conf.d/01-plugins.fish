@@ -1,5 +1,5 @@
-set -q fisher_path || set -U fisher_path $__fish_config_dir/.fisher
-set -q my_plugins_path || set -U my_plugins_path $__fish_config_dir/plugins
+set -q fisher_path || set -Ux fisher_path $__fish_config_dir/.fisher
+set -q my_plugins_path || set -Ux my_plugins_path $__fish_config_dir/plugins
 
 if test "$fisher_paths_initialized" != true
     set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..]

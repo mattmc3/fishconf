@@ -7,28 +7,28 @@
 
 # User level dirs
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
-set -q XDG_CACHE_HOME || set -U XDG_CACHE_HOME $HOME/.cache
-set -q XDG_CONFIG_HOME || set -U XDG_CONFIG_HOME $HOME/.config
-set -q XDG_DATA_HOME || set -U XDG_DATA_HOME $HOME/.local/share
-set -q XDG_RUNTIME_DIR || set -U XDG_RUNTIME_DIR $HOME/.xdg
+set -q XDG_CACHE_HOME || set -Ux XDG_CACHE_HOME $HOME/.cache
+set -q XDG_CONFIG_HOME || set -Ux XDG_CONFIG_HOME $HOME/.config
+set -q XDG_DATA_HOME || set -Ux XDG_DATA_HOME $HOME/.local/share
+set -q XDG_RUNTIME_DIR || set -Ux XDG_RUNTIME_DIR $HOME/.xdg
 
 # https://wiki.archlinux.org/index.php/XDG_user_directories
 if not set -q XDG_DESKTOP_DIR
     switch (uname)
         case Darwin
-            set -q XDG_DESKTOP_DIR || set -U XDG_DESKTOP_DIR $HOME/Desktop
-            set -q XDG_DOCUMENTS_DIR || set -U XDG_DOCUMENTS_DIR $HOME/Documents
-            set -q XDG_DOWNLOAD_DIR || set -U XDG_DOWNLOAD_DIR $HOME/Downloads
-            set -q XDG_MUSIC_DIR || set -U XDG_MUSIC_DIR $HOME/Music
-            set -q XDG_PICTURES_DIR || set -U XDG_PICTURES_DIR $HOME/Pictures
-            set -q XDG_VIDEOS_DIR || set -U XDG_VIDEOS_DIR $HOME/Videos
-            set -q XDG_PROJECTS_DIR || set -U XDG_PROJECTS_DIR $HOME/Projects
+            set -q XDG_DESKTOP_DIR || set -Ux XDG_DESKTOP_DIR $HOME/Desktop
+            set -q XDG_DOCUMENTS_DIR || set -Ux XDG_DOCUMENTS_DIR $HOME/Documents
+            set -q XDG_DOWNLOAD_DIR || set -Ux XDG_DOWNLOAD_DIR $HOME/Downloads
+            set -q XDG_MUSIC_DIR || set -Ux XDG_MUSIC_DIR $HOME/Music
+            set -q XDG_PICTURES_DIR || set -Ux XDG_PICTURES_DIR $HOME/Pictures
+            set -q XDG_VIDEOS_DIR || set -Ux XDG_VIDEOS_DIR $HOME/Videos
+            set -q XDG_PROJECTS_DIR || set -Ux XDG_PROJECTS_DIR $HOME/Projects
     end
 end
 
 # dotfiles
-set -q dotfiles || set -U dotfiles ~/.config/dotfiles
-set -q ZDOTDIR || set -U ZDOTDIR ~/.config/zsh
+set -q dotfiles || set -Ux dotfiles ~/.config/dotfiles
+set -q ZDOTDIR || set -Ux ZDOTDIR ~/.config/zsh
 
 # path (app specific paths in the apps.fish file)
 set -gx PATH \
