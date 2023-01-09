@@ -2,8 +2,8 @@ $dotfiles.local/fish
 $my_plugins_path/git
 $my_plugins_path/macos
 $my_plugins_path/python
-$my_plugins_path/themes
 jethrokuan/z
 decors/fish-colored-man
 jorgebucaran/hydro
 jorgebucaran/fisher
+$__fish_config_dir/plugins/themer
