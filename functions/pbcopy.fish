@@ -3,7 +3,7 @@ function pbcopy -d 'Copy things'
         case Darwin
             command pbcopy $argv
         case Cygwin
-            tee > /dev/clipboard
+            tee >/dev/clipboard
         case *
             if type xclip &>/dev/null
                 xclip -selection clipboard -in
