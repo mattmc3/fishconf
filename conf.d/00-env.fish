@@ -36,6 +36,7 @@ set -gx PATH \
     /usr/local/bin \
     /usr/sbin \
     /usr/bin \
+    $__fish_config_dir/bin \
     /bin
 
 if test -d /opt/homebrew
