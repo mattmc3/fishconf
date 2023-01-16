@@ -44,6 +44,10 @@ if test -d /opt/homebrew
         /opt/homebrew/bin \
         /opt/homebrew/sbin \
         $PATH
+
+    set -gx MANPATH \
+        /opt/homebrew/share/man \
+        $MANPATH
 end
 
 test -d $HOME/bin && set -gx PATH $HOME/bin $PATH
