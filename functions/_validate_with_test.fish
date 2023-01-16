@@ -10,7 +10,7 @@ function _validate_with_test --description argparse\ validator\ for\ \'test\ \[T
     test (count $argv) -eq 1 || return 2
 
     # argparse file tests
-    set -l options 'b' 'c' 'd' 'e' 'f' 'g' 'G' 'k' 'L' 'O' 'p' 'r' 's' 'S' 't' 'u' 'w' 'x'
+    set -l options b c d e f g G k L O p r s S t u w x
     argparse -n _validate_with_test $options -- $argv
     or return 2
 
