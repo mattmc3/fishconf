@@ -28,6 +28,9 @@ abbr -a -U -- ds 'date +%Y-%m-%d'
 abbr -a -U -- ts 'date +%Y-%m-%dT%H:%M:%SZ'
 abbr -a -U -- yyyymmdd 'date +%Y%m%d'
 
+# macOS
+abbr -a -U -- brewup 'brew update && brew upgrade'
+
 # git
 # abbr -a -U -- gad 'git add'
 # abbr -a -U -- gbn 'git rev-parse --abbrev-ref HEAD'
