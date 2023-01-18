@@ -6,3 +6,7 @@ if not set -q VENV_HOME
     end
 end
 test -d $VENV_HOME || mkdir -p "$VENV_HOME"
+
+# python
+set -gx PYLINTHOME $XDG_CACHE_HOME/pylint
+set -gx WORKON_HOME $XDG_DATA_HOME/venvs
