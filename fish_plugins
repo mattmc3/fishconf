@@ -1,4 +1,4 @@
-$dotfiles.local/fish
+$dotfiles/local/fish
 $my_plugins_path/git
 $my_plugins_path/macos
 $my_plugins_path/python
