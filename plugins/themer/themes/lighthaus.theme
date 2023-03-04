@@ -1,0 +1,76 @@
+# name: 'Lighthaus'
+# preferred_background: 18191e
+
+# Lighthaus Color theme for Fish Shell
+# GIT: https://github.com/lighthaus-theme/fish
+# Author: Adhiraj Sirohi (https://github.com/brutuski)
+#         Vasundhara Sharma (https://github.com/vasundhasauras)
+
+# Copyright © 2021-Present Lighthaus Theme
+# Copyright © 2021-Present Adhiraj Sirohi
+# Copyright © 2021-Present Vasundhara Sharma
+
+# LIGHTHAUS COLORS
+# color-palette {
+#   black:    #18191e;
+#   brblack:  #8e8d8d;
+#   red:      #fc2929;
+#   brred:    #ff5050;
+#   green:    #44b273;
+#   brgreen:  #50c16e;
+#   orange:   #e25600;
+#   brorange: #ed722e;
+#   blue:     #1d918b;
+#   brblue:   #47a8a1;
+#   purple:   #d16bb7;
+#   brpurple: #d68eb2;
+#   cyan:     #00bfa4;
+#   brcyan:   #5ad1aa;
+#   white:    #cccccc;
+#   brwhite:  #fffade;
+#   fg:       #ffee79;
+#   sel_fg:   #ff4d00;
+#   sel_bg:   #090b26;
+#   bold:     #ffff00;
+# }
+
+fish_color_normal ffee79
+fish_color_command 50c16e
+fish_color_quote 5ad1aa
+fish_color_redirection ffee79
+fish_color_end ed722e
+fish_color_error fc2929
+fish_color_param ed722e
+fish_color_comment cccccc
+fish_color_match e25600
+fish_color_search_match ffff00
+fish_color_operator 00bfa4
+fish_color_escape 47a8a1
+fish_color_cwd 5ad1aa
+fish_color_autosuggestion 8e8d8d
+fish_color_user 50c16e
+fish_color_host 47a8a1
+fish_color_cancel ff5050
+fish_color_cwd_root fc2929
+fish_color_history_current --bold
+fish_color_host_remote e25600
+fish_color_keyword 1d918b
+fish_color_option 00bfa4
+fish_color_selection cccccc --bold --background=8e8d8d
+fish_color_status fc2929
+fish_color_valid_path --underline
+
+fish_pager_color_prefix 47a8a1
+fish_pager_color_completion 5ad1aa
+fish_pager_color_description cccccc
+fish_pager_color_progress 8e8d8d
+fish_pager_color_secondary 8e8d8d
+fish_pager_color_background
+fish_pager_color_secondary_background
+fish_pager_color_secondary_completion
+fish_pager_color_secondary_description
+fish_pager_color_secondary_prefix
+fish_pager_color_selected_background -r
+fish_pager_color_selected_completion
+fish_pager_color_selected_description
+fish_pager_color_selected_prefix
