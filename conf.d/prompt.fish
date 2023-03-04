@@ -12,5 +12,5 @@
 # set -g hydro_multiline true
 # set -g fish_prompt_pwd_dir_length -1
 
-set STARSHIP_CONFIG $XDG_CONFIG_HOME/starship/fish.toml
+set -gx STARSHIP_CONFIG $XDG_CONFIG_HOME/starship/fish.toml
 starship init fish | source
