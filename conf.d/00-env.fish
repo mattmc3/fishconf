@@ -1,15 +1,12 @@
 ## XDG
 # See https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 
-# System level dirs
-# set -q XDG_DATA_DIRS || set -gx XDG_DATA_DIRS /usr/share /usr/local/share
-# set -q XDG_CONFIG_DIRS || set -gx XDG_CONFIG_DIRS /etc/xdg
-
 # User level dirs
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 set -q XDG_CACHE_HOME || set -Ux XDG_CACHE_HOME $HOME/.cache
 set -q XDG_CONFIG_HOME || set -Ux XDG_CONFIG_HOME $HOME/.config
 set -q XDG_DATA_HOME || set -Ux XDG_DATA_HOME $HOME/.local/share
+set -q XDG_STATE_HOME || set -Ux XDG_STATE_HOME $HOME/.local/state
 set -q XDG_RUNTIME_DIR || set -Ux XDG_RUNTIME_DIR $HOME/.xdg
 
 # https://wiki.archlinux.org/index.php/XDG_user_directories
@@ -36,7 +33,7 @@ set -gx PATH \
     /usr/local/bin \
     /usr/sbin \
     /usr/bin \
-    $__fish_config_dir/bin \
+    $HOME/bin \
     /bin
 
 if test -d /opt/homebrew
@@ -49,8 +46,6 @@ if test -d /opt/homebrew
         /opt/homebrew/share/man \
         $MANPATH
 end
-
-test -d $HOME/bin && set -gx PATH $HOME/bin $PATH
 
 # no greeting
 set fish_greeting
