@@ -1,8 +1,7 @@
 .fisher/
 fisher/
 themes
-themes/
-!functions/themes
+!**/themes/
 fish_variables
 *.local
 *.local.*
