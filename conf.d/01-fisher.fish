@@ -22,3 +22,7 @@ for file in $fisher_path/conf.d/*.fish
         builtin source $file
     end
 end
+
+if ! test -e $__fish_config_dir/themes; and test -e $fisher_path/themes
+    ln -s $fisher_path/themes $__fish_config_dir/themes
+end
