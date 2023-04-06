@@ -1,8 +1,4 @@
 $dotfiles/local/fish
-$my_plugins_path/git
-$my_plugins_path/macos
-$my_plugins_path/python
-$my_plugins_path/xdg
 $my_plugins_path/themer
 jethrokuan/z
 decors/fish-colored-man
