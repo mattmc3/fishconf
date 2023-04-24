@@ -10,10 +10,9 @@ end
 if not test -d $fisher_path
     functions -e fisher &>/dev/null
     mkdir -p $fisher_path
-
     curl -sL https://git.io/fisher | source
-    fisher install jorgebucaran/fisher
     fisher update
+    #fisher install jorgebucaran/fisher
 end
 
 for file in $fisher_path/conf.d/*.fish
