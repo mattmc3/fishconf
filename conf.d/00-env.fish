@@ -52,7 +52,7 @@ set fish_greeting
 
 # apps
 set -q PAGER || set -gx PAGER less
-set -q VISUAL || set -gx VISUAL open -W -b com.microsoft.VSCode
+set -q VISUAL || set -gx VISUAL code
 set -q EDITOR || set -gx EDITOR vim
 
 # where I store my projects
