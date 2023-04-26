@@ -1,4 +1,4 @@
-set -q _abbrs_initialized && exit || set -Ux _abbrs_initialized true
+set -q MY_ABBRS_INITIALIZED && return
 
 abbr -a -- - 'cd -'
 abbr -a -- nv nvim
@@ -69,3 +69,5 @@ abbr -a -- gops 'cd $GOPATH/src'
 abbr -a -- gor 'go run'
 abbr -a -- got 'go test'
 abbr -a -- gov 'go vet'
+
+set -g MY_ABBRS_INITIALIZED true
