@@ -14,6 +14,13 @@ end
 function reel -a cmd --description "Deal with repos"
     # reel main function
     set argv $argv[2..-1]
+
+    if not test -t 0
+        while read -l line
+            set argv $argv $line
+        end
+    end
+
     switch "$cmd"
         case home
             echo $REEL_HOME
