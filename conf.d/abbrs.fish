@@ -29,7 +29,9 @@ abbr -a -- ts 'date +%Y-%m-%dT%H:%M:%SZ'
 abbr -a -- yyyymmdd 'date +%Y%m%d'
 
 # macOS
-abbr -a -- brewup 'brew update && brew upgrade'
+abbr -a -- brewup 'brew update && brew upgrade && brew cleanup'
+abbr -a -- brewinfo 'brew leaves | xargs brew desc --eval-all'
+abbr -a -- bic 'brew install --cask'
 
 # git
 # abbr -a -- gad 'git add'

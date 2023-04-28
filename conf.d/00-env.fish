@@ -63,3 +63,6 @@ set fish_function_path $fish_function_path $__fish_config_dir/functions/*/
 
 # add completion subdirs to fish_completion_path
 set fish_complete_path $fish_complete_path $__fish_config_dir/completions/*/
+
+# initial working directory
+set -g IWD $PWD

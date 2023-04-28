@@ -22,6 +22,6 @@ for file in $fisher_path/conf.d/*.fish
     end
 end
 
-if not test -e $__fish_config_dir/themes; and test -e $fisher_path/themes
-    ln -s $fisher_path/themes $__fish_config_dir
-end
+# if not test -e $__fish_config_dir/themes; and test -e $fisher_path/themes
+#     ln -s $fisher_path/themes $__fish_config_dir
+# end
