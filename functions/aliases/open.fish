@@ -1,7 +1,7 @@
-function o -d 'Open things'
+function open -d 'Open things'
     switch (uname)
         case Darwin
-            open $argv
+            command open $argv
         case Cygwin
             cygstart $argv
         case *

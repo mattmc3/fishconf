@@ -10,9 +10,9 @@ right_format = """$git_branch${custom.git_status_dirty}$git_status$cmd_duration$
 command_timeout=2000
 
 [character]
-success_symbol = "[❯](cyan)[❯](blue)"
+success_symbol = "[❯](blue)[❯](purple)"
 error_symbol = "[❯](yellow)[❯](red)"
-vicmd_symbol = "[❮](cyan)[❮](blue)"
+vicmd_symbol = "[❮](purple)[❮](blue)"
 
 [python]
 format = '\($virtualenv\) '
