@@ -16,6 +16,9 @@ function new_mac_setup --description 'Set up a new mac'
     # move to left
     defaults write com.apple.dock orientation left
 
+    # Don't keep a spot for recent apps
+    defaults write com.apple.dock show-recents -bool false
+
     #
     # Finder
     #
