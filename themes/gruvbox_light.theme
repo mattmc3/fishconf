@@ -1,0 +1,55 @@
+# name: 'gruvbox light'
+# preferred_background: fbf1c7
+
+# color-palette {
+#   background: #fbf1c7;
+#   foreground: #3c3836;
+#   selection:  #d5c4a1;
+#   comment:    #a89984;
+#   red:        #9d0006;
+#   orange:     #af3a03;
+#   yellow:     #b57614;
+#   green:      #79740e;
+#   purple:     #8f3f71;
+#   cyan:       #427b58;
+#   blue:       #076678;
+# }
+
+fish_color_autosuggestion 8f3f71
+fish_color_cancel -r
+fish_color_command 9d0006
+fish_color_comment a89984
+fish_color_cwd 79740e
+fish_color_cwd_root 9d0006
+fish_color_end af3a03
+fish_color_error 9d0006
+fish_color_escape 076678
+fish_color_history_current --bold
+fish_color_host normal
+fish_color_host_remote b57614
+fish_color_keyword 9d0006
+fish_color_match --background=076678
+fish_color_normal 3c3836
+fish_color_operator 427b58
+fish_color_option 8f3f71
+fish_color_param 3c3836
+fish_color_quote b8bb26
+fish_color_redirection 3c3836
+fish_color_search_match --background=d5c4a1
+fish_color_selection --background=d5c4a1
+fish_color_status 9d0006
+fish_color_user 79740e
+fish_color_valid_path --underline
+fish_pager_color_background
+fish_pager_color_completion 3c3836
+fish_pager_color_description 8f3f71
+fish_pager_color_prefix 427b58
+fish_pager_color_progress 8f3f71
+fish_pager_color_secondary_background
+fish_pager_color_secondary_completion
+fish_pager_color_secondary_description
+fish_pager_color_secondary_prefix
+fish_pager_color_selected_background -r
+fish_pager_color_selected_completion
+fish_pager_color_selected_description
+fish_pager_color_selected_prefix
