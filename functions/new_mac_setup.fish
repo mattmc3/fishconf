@@ -49,6 +49,20 @@ function new_mac_setup --description 'Set up a new mac'
     defaults write -g KeyRepeat -int 2
 
     #
+    # Mouse
+    #
+
+    # Accessibility > Display > Cursor : Increase pointer size
+    sudo defaults write com.apple.universalaccess mouseDriverCursorSize 1.8
+
+    #
+    # Security & Privacy
+    #
+
+    # Turn Firewall on
+    # sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
+
+    #
     # Screenshots
     #
 
