@@ -8,7 +8,7 @@ case hydro
     set -g hydro_symbol_git_behind "⇣"
     # set -g hydro_pre_prompt "\n"
 
-    set -g hydro_color_git magenta
+    set -g hydro_color_git black
     set -g hydro_color_prompt blue
     set -g hydro_color_pwd green
     set -g hydro_color_error red
