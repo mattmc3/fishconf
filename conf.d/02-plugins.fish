@@ -1,5 +1,6 @@
-set -q fisher_path || set -Ux fisher_path $__fish_config_dir/.fisher
-set -q my_plugins_path || set -Ux my_plugins_path $__fish_config_dir/plugins
+# Setup Fisher
+set -q fisher_path || set -gx fisher_path $__fish_config_dir/.fisher
+set -q my_plugins_path || set -gx my_plugins_path $__fish_config_dir/plugins
 
 if test "$fisher_paths_initialized" != true
     set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..]
@@ -25,3 +26,5 @@ end
 # if not test -e $__fish_config_dir/themes; and test -e $fisher_path/themes
 #     ln -s $fisher_path/themes $__fish_config_dir
 # end
+
+plugin-load hydro_prompt

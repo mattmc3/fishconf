@@ -1,4 +1,8 @@
-set -q MY_ABBRS_INITIALIZED && return
+#
+# abbrs
+#
+
+set -q MY_ABBRS_INITIALIZED; and return
 
 abbr -a -- - 'cd -'
 abbr -a -- nv nvim
@@ -72,4 +76,5 @@ abbr -a -- gor 'go run'
 abbr -a -- got 'go test'
 abbr -a -- gov 'go vet'
 
+# no need to run over-and-over
 set -g MY_ABBRS_INITIALIZED true
