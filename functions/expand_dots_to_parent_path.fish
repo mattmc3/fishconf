@@ -1,4 +1,4 @@
-function expand-dot-to-parent-directory-path -d 'expand ... to ../.. etc'
+function expand_dots_to_parent_path -d 'expand ... to ../.. etc'
     # Get commandline up to cursor
     set -l cmd (commandline --cut-at-cursor)
 
@@ -10,4 +10,3 @@ function expand-dot-to-parent-directory-path -d 'expand ... to ../.. etc'
             commandline --insert '.'
     end
 end
-bind . expand-dot-to-parent-directory-path
