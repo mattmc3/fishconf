@@ -11,7 +11,7 @@ function new_mac_setup --description 'Set up a new mac'
     defaults write com.apple.dock minimize-to-application -bool true
 
     # Change minimize/maximize window effect from genie to scale
-    defaults write com.apple.dock mineffect -string "scale"
+    defaults write com.apple.dock mineffect -string scale
 
     # move to left
     defaults write com.apple.dock orientation left
@@ -95,20 +95,20 @@ function new_mac_setup --description 'Set up a new mac'
     set --local macapps \
         "Activity Monitor" \
         "Address Book" \
-        "Calendar" \
-        "cfprefsd" \
-        "Contacts" \
-        "Dock" \
-        "Finder" \
-        "Mail" \
-        "Messages" \
-        "Photos" \
-        "Safari" \
-        "SystemUIServer" \
-        "Terminal" \
-        "iCal"
+        Calendar \
+        cfprefsd \
+        Contacts \
+        Dock \
+        Finder \
+        Mail \
+        Messages \
+        Photos \
+        Safari \
+        SystemUIServer \
+        Terminal \
+        iCal
     for app in $macapps
-        killall $app &> /dev/null
+        killall $app &>/dev/null
     end
     return 0
 end
