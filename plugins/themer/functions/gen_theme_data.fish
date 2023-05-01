@@ -8,7 +8,6 @@ function gen_theme_data \
     end
 
     # get iterm2 color scheme repo (it has a bunch of themes in alacritty yaml format)
-    set -q XDG_CACHE_HOME || set -U XDG_CACHE_HOME $HOME/.cache
     set -l cachedir $XDG_CACHE_HOME/repos
     set -l repo mbadolato/iTerm2-Color-Schemes
     set -l repodir $cachedir/iterm2cs
