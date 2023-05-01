@@ -14,7 +14,7 @@ set -gx LESSHISTFILE $XDG_DATA_HOME/shell/lesshst
 # node
 set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
 set -gx NPM_CONFIG_CACHE $XDG_CACHE_HOME/npm
-set -gx PATH $PATH /usr/local/share/npm/bin
+test -e /usr/local/share/npm/bin && set -gx PATH $PATH /usr/local/share/npm/bin
 set -gx NVM_DIR $XDG_DATA_HOME/nvm
 set -gx NODE_REPL_HISTORY $XDG_DATA_HOME/node/node_repl_history
 
@@ -33,7 +33,7 @@ set -gx GEM_SPEC_CACHE $XDG_DATA_HOME/gem
 set -gx BUNDLE_USER_CONFIG $XDG_CONFIG_HOME/bundle
 set -gx BUNDLE_USER_CACHE $XDG_CACHE_HOME/bundle
 set -gx BUNDLE_USER_PLUGIN $XDG_DATA_HOME/bundle
-set -gx PATH $PATH /usr/local/opt/ruby/bin
+test -e /usr/local/opt/ruby/bin && set -gx PATH $PATH /usr/local/opt/ruby/bin
 
 # screenrc
 set -gx SCREENRC $XDG_CONFIG_HOME/screen/screenrc
