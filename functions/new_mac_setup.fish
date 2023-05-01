@@ -1,5 +1,13 @@
 function new_mac_setup --description 'Set up a new mac'
     #
+    # Homebrew
+    #
+
+    if not type -q brew
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    end
+
+    #
     # Dock
     #
 
