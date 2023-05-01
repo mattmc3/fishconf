@@ -1,5 +1,4 @@
-set -q XDG_DATA_HOME || set -Ux XDG_DATA_HOME $HOME/.local/share
-set -q REEL_HOME || set -Ux REEL_HOME $XDG_DATA_HOME/reel
+set -q REEL_HOME || set -gx REEL_HOME $XDG_DATA_HOME/reel
 
 function __reel_update -a repo
     set -l repodir $REEL_HOME/$repo
@@ -15,9 +14,13 @@ function reel -a cmd --description "Deal with repos"
     # reel main function
     set argv $argv[2..-1]
 
+    # piped/redirected input
     if not test -t 0
         while read -l line
-            set argv $argv $line
+            set line (string replace -r '#.*$' "" $line | string trim)
+            if [ $line != "" ]
+                set argv $argv $line
+            end
         end
     end
 
@@ -37,25 +40,32 @@ function reel -a cmd --description "Deal with repos"
             wait
             echo "Update complete."
         case rm
-            if not string match --quiet "$HOME/*" "$REEL_HOME"
-                echo "Reel home not set correctly '$REEL_HOME'." >&2
-                return 1
-            else if test -d $REEL_HOME/$argv
-                command rm -rf -- $REEL_HOME/$argv
-            else
-                echo "Repo not found '$argv'."
+            set err 0
+            for repo in $argv
+                if not string match --quiet "$HOME/*" "$REEL_HOME"
+                    echo "Reel home not set correctly '$REEL_HOME'." >&2
+                    return 1
+                else if [ -d $REEL_HOME/$repo ]
+                    command rm -rf -- $REEL_HOME/$repo
+                else
+                    echo "Repo not found '$repo'."
+                    set err 1
+                end
             end
+            return $err
         case in
-            set --local plugin
+            set err 1
             for repo in $argv
                 set -l plugindir $REEL_HOME/$repo
                 if not test -d $plugindir
                     echo "Cloning $repo..."
                     command git clone --quiet --depth 1 --recursive --shallow-submodules \
                         https://github.com/$repo $plugindir &
+                    set err 0
                 end
             end
             wait
+            return $err
         case \*
             echo >&2 "reel: unknown command '"$cmd"'"
             return 1

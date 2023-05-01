@@ -5,15 +5,15 @@ function prj --description "Project jump"
     end
 
     # determine the project home
-    set -q PROJECTS || set PROJECTS ~/Projects
-    set -l gitprj $PROJECTS/*/.git/.. $PROJECTS/*/*/.git/..
-    set prjlist (string replace $PROJECTS/ "" (realpath $gitprj))
-    set selection (printf "%s\n" $prjlist | sort | fzf --layout=reverse-list --query="$argv")
-    if test -d $PROJECTS/$selection
-        cd $PROJECTS/$selection
-    else if test -d $selection
-        cd $selection
+    set -q MY_PROJECTS || set MY_PROJECTS ~/Projects
+    set gitprj $MY_PROJECTS/**/.git/
+    set gitprj (path resolve $gitprj/..)
+
+    set prjlist (string replace $MY_PROJECTS/ "" $gitprj)
+    set selection (printf '%s\n' $prjlist | sort | fzf --layout=reverse-list --query="$argv")
+    if test -d $MY_PROJECTS/$selection
+        cd $MY_PROJECTS/$selection
     else
-        echo $PROJECTS/$selection
+        echo $MY_PROJECTS/$selection
     end
 end
