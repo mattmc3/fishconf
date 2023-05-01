@@ -1,5 +1,0 @@
-decors/fish-colored-man
-jethrokuan/z
-jorgebucaran/hydro
-mbadolato/iTerm2-Color-Schemes
-rupa/z

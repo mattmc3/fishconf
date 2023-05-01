@@ -1,5 +1,5 @@
-$DOTFILES/local/fish
 jethrokuan/z
 decors/fish-colored-man
+
+# prompt
 jorgebucaran/hydro
-jorgebucaran/fisher
