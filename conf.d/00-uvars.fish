@@ -64,7 +64,10 @@ end
 set -Ux HOMEBREW_NO_ANALYTICS 1
 
 # theme
-set -U MY_THEME tokyonight_night
+set -Ux MY_THEME tokyonight_night
+
+# Reel plugins
+set -Ux REEL_HOME $XDG_DATA_HOME/reel
 
 # Add my bin directory too.
 fish_add_path ~/bin
