@@ -7,11 +7,11 @@ and return
 
 # XDG base dirs
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
-set -U XDG_CACHE_HOME $HOME/.cache
-set -U XDG_CONFIG_HOME $HOME/.config
-set -U XDG_DATA_HOME $HOME/.local/share
-set -U XDG_STATE_HOME $HOME/.local/state
-set -U XDG_RUNTIME_DIR $HOME/.xdg
+set -Ux XDG_CACHE_HOME $HOME/.cache
+set -Ux XDG_CONFIG_HOME $HOME/.config
+set -Ux XDG_DATA_HOME $HOME/.local/share
+set -Ux XDG_STATE_HOME $HOME/.local/state
+set -Ux XDG_RUNTIME_DIR $HOME/.xdg
 
 for xdg_dir in \
     $XDG_CACHE_HOME \
@@ -24,22 +24,22 @@ for xdg_dir in \
 end
 
 # XDG apps
-set -U SQLITE_HISTORY $XDG_DATA_HOME/sqlite_history
-set -U LESSHISTFILE $XDG_DATA_HOME/lesshst
-set -U GNUPGHOME $XDG_DATA_HOME/gnupg
+set -Ux SQLITE_HISTORY $XDG_DATA_HOME/sqlite_history
+set -Ux LESSHISTFILE $XDG_DATA_HOME/lesshst
+set -Ux GNUPGHOME $XDG_DATA_HOME/gnupg
 
 # Common shell variables
 switch (uname -s)
     case Darwin
-        set -U BROWSER open
+        set -Ux BROWSER open
 end
 
-set -U PAGER less
-set -U VISUAL code
-set -U EDITOR vim
+set -Ux PAGER less
+set -Ux VISUAL code
+set -Ux EDITOR vim
 
 # My special dirs
-set -U MY_PROJECTS $HOME/Projects
+set -Ux MY_PROJECTS $HOME/Projects
 set -U my_plugins_path $__fish_config_dir/plugins
 
 # Man pages paths
@@ -61,7 +61,7 @@ else if [ -e /usr/local/bin/brew ]
 end
 
 # Other homebrew vars
-set -U HOMEBREW_NO_ANALYTICS 1
+set -Ux HOMEBREW_NO_ANALYTICS 1
 
 # theme
 set -U MY_THEME tokyonight_night
