@@ -1,0 +1,12 @@
+{
+  "colorize.colorized_colors": [
+    "HEXA"
+  ],
+  "colorize.languages": [
+    "fish",
+    "properties"
+  ],
+  "files.associations": {
+    "*.theme": "fish"
+  }
+}
