@@ -32,11 +32,6 @@ abbr -a -- ds 'date +%Y-%m-%d'
 abbr -a -- ts 'date +%Y-%m-%dT%H:%M:%SZ'
 abbr -a -- yyyymmdd 'date +%Y%m%d'
 
-# macOS
-abbr -a -- brewup 'brew update && brew upgrade && brew cleanup'
-abbr -a -- brewinfo 'brew leaves | xargs brew desc --eval-all'
-abbr -a -- bic 'brew install --cask'
-
 # git
 # abbr -a -- gad 'git add'
 # abbr -a -- gbn 'git rev-parse --abbrev-ref HEAD'
@@ -59,22 +54,6 @@ abbr -a -- bic 'brew install --cask'
 # abbr -a -- gst 'git status -sb'
 abbr -a -- gclone 'git clone git@github.com:mattmc3/'
 abbr -a -- gwhoami 'echo "user.name:" (git config user.name) && echo "user.email:" (git config user.email)'
-
-# golang
-abbr -a -- gob 'go build'
-abbr -a -- goc 'go clean'
-abbr -a -- god 'go doc'
-abbr -a -- gof 'go fmt'
-abbr -a -- gofa 'go fmt ./...'
-abbr -a -- gog 'go get'
-abbr -a -- goi 'go install'
-abbr -a -- gol 'go list'
-abbr -a -- gop 'cd $GOPATH'
-abbr -a -- gopb 'cd $GOPATH/bin'
-abbr -a -- gops 'cd $GOPATH/src'
-abbr -a -- gor 'go run'
-abbr -a -- got 'go test'
-abbr -a -- gov 'go vet'
 
 # no need to run over-and-over
 set -g MY_ABBRS_INITIALIZED true

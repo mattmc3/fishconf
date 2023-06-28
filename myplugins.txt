@@ -1,8 +1,0 @@
-jethrokuan/z
-decors/fish-colored-man
-
-# prompt
-jorgebucaran/hydro
-
-# themes
-mbadolato/iTerm2-Color-Schemes

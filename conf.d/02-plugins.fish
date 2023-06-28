@@ -27,4 +27,4 @@ end
 #     ln -s $fisher_path/themes $__fish_config_dir
 # end
 
-plugin-load hydro_prompt
+#plugin-load hydro_prompt
