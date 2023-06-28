@@ -18,5 +18,10 @@ else if [ -e /usr/local/bin/brew ]
     set -gx HOMEBREW_PREFIX /usr/local
 end
 
+# Add homebrew completions
+if [ -e $HOMEBREW_PREFIX/share/fish/completions ]
+    set -a fish_complete_path $HOMEBREW_PREFIX/share/fish/completions
+end
+
 # Other homebrew vars
 set -gx HOMEBREW_NO_ANALYTICS 1
