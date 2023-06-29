@@ -2,6 +2,12 @@
 # env - set environment vars
 #
 
+# XDG
+if not set -q XDG_BASEDIRS_SET
+    set_xdg_basedirs
+    set -Ux XDG_BASEDIRS_SET true
+end
+
 # disable new user greeting
 set fish_greeting
 
