@@ -38,6 +38,17 @@ set fish_function_path (path resolve $__fish_config_dir/functions/*/) $fish_func
 # add completion subdirs to fish_completion_path
 set fish_complete_path (path resolve $__fish_config_dir/completions/*/) $fish_complete_path
 
+# Man pages paths
+set -q MANPATH || set -gx MANPATH ''
+for manpath in
+    $__fish_data_dir/man \
+    /opt/homebrew/share/man \
+    /usr/local/share/man \
+    /usr/share/man
+
+    test -d $manpath && set -a MANPATH $manpath
+end
+
 # XDG apps
 set -gx SQLITE_HISTORY $XDG_DATA_HOME/sqlite_history
 set -gx LESSHISTFILE $XDG_DATA_HOME/lesshst

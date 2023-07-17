@@ -1,21 +1,23 @@
-# eval (brew shellenv)
+type -q brew || return 1
 
-# Man pages paths
-if test (count $MANPATH) -eq 0
-    set -gx MANPATH /usr/local/share/man
-else
-    set -gx MANPATH /usr/local/share/man $MANPATH
+if test (type -p brew) = "/opt/homebrew/bin/brew"
+    #eval (brew shellenv)
+    set -gx HOMEBREW_PREFIX "/opt/homebrew";
+    set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar";
+    set -gx HOMEBREW_REPOSITORY "/opt/homebrew";
+    set -q PATH; or set PATH ''; set -gx PATH "/opt/homebrew/bin" "/opt/homebrew/sbin" $PATH;
+    set -q MANPATH; or set MANPATH ''; set -gx MANPATH "/opt/homebrew/share/man" $MANPATH;
+    set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/opt/homebrew/share/info" $INFOPATH;
 end
 
-# We always want /usr/local/bin dirs, but on Apple Silicon we also need
-# /opt/homebrew/bin dirs
-fish_add_path /usr/local/bin /usr/local/sbin
-if [ -e /opt/homebrew/bin/brew ]
-    set -gx HOMEBREW_PREFIX /opt/homebrew
-    fish_add_path $HOMEBREW_PREFIX/bin $HOMEBREW_PREFIX/sbin
-    set -gx MANPATH $HOMEBREW_PREFIX/share/man $MANPATH
-else if [ -e /usr/local/bin/brew ]
-    set -gx HOMEBREW_PREFIX /usr/local
+set -q MANPATH || set -gx MANPATH ''
+
+# Add keg-only apps
+for app in ruby curl
+    if test -d $HOMEBREW_PREFIX/opt/$app/bin
+        fish_add_path $HOMEBREW_PREFIX/opt/$app/bin
+        set MANPATH $HOMEBREW_PREFIX/opt/$app/share/man $MANPATH
+    end
 end
 
 # Add homebrew completions
