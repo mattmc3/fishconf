@@ -6,11 +6,10 @@ function prj --description "Project jumper"
 
     # determine the project home
     set -q MY_PROJECTS || set -l MY_PROJECTS ~/Projects
-    set -l gitprj $MY_PROJECTS/**/.git/
-    set gitprj (path resolve $gitprj/..)
+    set -l prjfolders (path dirname $MY_PROJECTS/**/.git)
 
     # use fzf to navigate to a project
-    set -l prjlist (string replace $MY_PROJECTS/ "" $gitprj)
+    set -l prjlist (string replace $MY_PROJECTS/ "" $prjfolders)
     set -l selection (printf '%s\n' $prjlist | sort | fzf --layout=reverse-list --query="$argv")
     test $status -eq 0 || return $status
     echo "Navigating to '$selection'."
