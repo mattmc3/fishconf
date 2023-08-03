@@ -16,7 +16,7 @@ abbr -a -- h history
 abbr -a -- l 'ls -UF'
 
 # better ls
-abbr -a -- la 'ls -la'
+abbr -a -- la 'ls -lah'
 abbr -a -- ldot 'ls -ld .*'
 abbr -a -- ll 'ls -lGFh'
 abbr -a -- lsa 'ls -aGF'
