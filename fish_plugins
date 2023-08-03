@@ -1,3 +1,5 @@
-$DOTFILES/local/fish
 jethrokuan/z
 jorgebucaran/fisher
+
+# prompts
+jorgebucaran/hydro
