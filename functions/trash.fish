@@ -4,7 +4,7 @@ function trash -d "Move a specified file to the Trash"
         return 1
     end
 
-    if test (uname -s) != "Darwin"
+    if test (uname -s) != Darwin
         echo >&2 "trash: macOS not detected."
         return 1
     end
@@ -20,9 +20,10 @@ function trash -d "Move a specified file to the Trash"
         end
     end
 
-    if test (count $files) -eq 0; then
+    if test (count $files) -eq 0
+        then
         echo >&2 'usage: trash <files...>'
-        return 64  # match rm's return code
+        return 64 # match rm's return code
     end
 
     osascript 2>&1 >/dev/null -e "tell app \"Finder\" to move { "(string join ", " $files)" } to trash"

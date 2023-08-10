@@ -18,8 +18,8 @@ set -gx EDITOR vim
 
 # Browser
 switch (uname -s)
-case Darwin
-    set -gx BROWSER open
+    case Darwin
+        set -gx BROWSER open
 end
 
 # dotfiles
@@ -42,9 +42,9 @@ set fish_complete_path (path resolve $__fish_config_dir/completions/*/) $fish_co
 set -q MANPATH || set -gx MANPATH ''
 for manpath in
     $__fish_data_dir/man \
-    /opt/homebrew/share/man \
-    /usr/local/share/man \
-    /usr/share/man
+        /opt/homebrew/share/man \
+        /usr/local/share/man \
+        /usr/share/man
 
     test -d $manpath && set -a MANPATH $manpath
 end

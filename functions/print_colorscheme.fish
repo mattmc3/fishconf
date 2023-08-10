@@ -14,7 +14,7 @@ function print_colorscheme \
     end
 
     set --local colornames black red green yellow blue magenta cyan white \
-                           brblack brred brgreen bryellow brblue brmagenta brcyan brwhite
+        brblack brred brgreen bryellow brblue brmagenta brcyan brwhite
     for i in (seq 1 (count $argv))
         set colorid (math "($i-1) % "(count $colornames)" + 1")
         set color $argv[$i]

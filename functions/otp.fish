@@ -33,7 +33,7 @@ function otp --description "One-time passwords"
     end
 
     # parse arguments
-    argparse --name=otp 'h/help' 'l/list' 'a/add' 'e/erase' -- $argv
+    argparse --name=otp h/help l/list a/add e/erase -- $argv
     or return
 
     if test -n "$_flag_help"

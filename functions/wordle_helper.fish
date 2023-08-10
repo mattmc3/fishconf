@@ -23,11 +23,11 @@ function __wordle_helper_usage -d "Print usage string for Fish Wordle Helper"
     echo
     echo "Example:"
     echo "\$ wordle_helper -y 23 SLATE | wordle_helper -y 245 CORAL | wordle_helper -y 12 -g 34 GALOP"
-    echo "AGLOW"
+    echo AGLOW
 end
 
 function wordle_helper -d "Show possible remaining guesses for a Wordle puzzle"
-    argparse --name wordle_helper 'h/help' 'g/green=+!_validate_wordle_score' \
+    argparse --name wordle_helper h/help 'g/green=+!_validate_wordle_score' \
         'y/yellow=+!_validate_wordle_score' -- $argv
     or return 1
 
