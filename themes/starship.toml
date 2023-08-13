@@ -8,9 +8,9 @@ format = """$python$directory$character"""
 right_format = """$status$cmd_duration$git_branch${custom.git_status_dirty}$git_status"""
 
 [character]
-success_symbol = "[❱](green)"
-error_symbol = "[❱](red)"
-vicmd_symbol = "[❮](cyan)"
+success_symbol = "[❯](white)[❯](green)"
+error_symbol = "[❯](yellow)[❯](red)"
+vicmd_symbol = "[❮](green❮](white)"
 
 [python]
 format = '\($virtualenv\) '
