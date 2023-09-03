@@ -15,5 +15,6 @@
 # set -g fish_prompt_pwd_dir_length 1
 
 # starship
+type -q starship || return 1
 set -gx STARSHIP_CONFIG $__fish_config_dir/themes/hydro.toml
 source (starship init fish --print-full-init | psub)
