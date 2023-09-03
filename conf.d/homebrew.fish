@@ -1,19 +1,13 @@
-type -q brew || return 1
-
-if test (type -p brew) = /opt/homebrew/bin/brew
-    #eval (brew shellenv)
+if test -e ~/brew/bin/brew
+    set -gx HOMEBREW_PREFIX $HOME/brew
+    fish_add_path -p /opt/homebrew/bin
+    eval ($HOMEBREW_PREFIX/bin/brew shellenv)
+else if test -e /opt/homebrew/bin/brew
     set -gx HOMEBREW_PREFIX /opt/homebrew
-    set -gx HOMEBREW_CELLAR /opt/homebrew/Cellar
-    set -gx HOMEBREW_REPOSITORY /opt/homebrew
-    set -q PATH; or set PATH ''
-    set -gx PATH /opt/homebrew/bin /opt/homebrew/sbin $PATH
-    set -q MANPATH; or set MANPATH ''
-    set -gx MANPATH /opt/homebrew/share/man $MANPATH
-    set -q INFOPATH; or set INFOPATH ''
-    set -gx INFOPATH /opt/homebrew/share/info $INFOPATH
+    eval ($HOMEBREW_PREFIX/bin/brew shellenv)
+else
+    return 1
 end
-
-set -q MANPATH || set -gx MANPATH ''
 
 # Add keg-only apps
 for app in ruby curl
@@ -24,7 +18,7 @@ for app in ruby curl
 end
 
 # Add homebrew completions
-if [ -e $HOMEBREW_PREFIX/share/fish/completions ]
+if test -e $HOMEBREW_PREFIX/share/fish/completions
     set -a fish_complete_path $HOMEBREW_PREFIX/share/fish/completions
 end
 
