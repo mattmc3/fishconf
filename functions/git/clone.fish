@@ -1,15 +1,15 @@
 function clone --description 'git clone simplified'
     set -q MY_PROJECTS; or set MY_PROJECTS $HOME/Projects
 
-    if test (count $argv) -lt 1
-        echo "clone: Expecting a repo argument" >&2
+    if test (count $argv) -eq 0
+        echo >&2 "clone: Expecting a repo argument"
         return 1
     end
 
     # either we have a URL, a user/repo, or just a repo
-    set --local giturl "$argv"
+    set --local giturl $argv[1]
     set --local parts (string split '/' $argv)
-    if [ (count $parts) -eq 1 ]
+    if test (count $parts) -eq 1
         set parts mattmc3 $parts
         set giturl "git@github.com:mattmc3/$argv"
     else if [ (count $parts) -eq 2 ]
