@@ -14,14 +14,13 @@
 set -q XDG_CONFIG_HOME; or set -Ux XDG_CONFIG_HOME $HOME/.config
 set -q XDG_DATA_HOME;   or set -Ux XDG_DATA_HOME $HOME/.local/share
 set -q XDG_CACHE_HOME;  or set -Ux XDG_CACHE_HOME $HOME/.cache
-for xdg_dir in $XDG_CONFIG_HOME $XDG_DATA_HOME $XDG_CACHE_HOME
-    test -d $xdg_dir; or mkdir -p $xdg_dir
+for xdgdir in $XDG_CONFIG_HOME $XDG_DATA_HOME $XDG_CACHE_HOME
+    test -d $xdgdir; or mkdir -p $xdgdir
 end
 
 # Set app vars.
 set -gx SQLITE_HISTORY $XDG_DATA_HOME/sqlite_history
 set -gx LESSHISTFILE $XDG_DATA_HOME/lesshst
-set -gx GNUPGHOME $XDG_DATA_HOME/gnupg
 
 #
 # Homebrew
