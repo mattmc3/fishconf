@@ -12,9 +12,10 @@
 # Set XDG basedirs.
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 set -q XDG_CONFIG_HOME; or set -Ux XDG_CONFIG_HOME $HOME/.config
-set -q XDG_DATA_HOME;   or set -Ux XDG_DATA_HOME $HOME/.local/share
-set -q XDG_CACHE_HOME;  or set -Ux XDG_CACHE_HOME $HOME/.cache
-for xdgdir in $XDG_CONFIG_HOME $XDG_DATA_HOME $XDG_CACHE_HOME
+set -q XDG_DATA_HOME; or set -Ux XDG_DATA_HOME $HOME/.local/share
+set -q XDG_CACHE_HOME; or set -Ux XDG_CACHE_HOME $HOME/.cache
+set -q __fish_cache_dir; or set -Ux __fish_cache_dir $XDG_CACHE_HOME/fish
+for xdgdir in $XDG_CONFIG_HOME $XDG_DATA_HOME $XDG_CACHE_HOME $__fish_cache_dir
     test -d $xdgdir; or mkdir -p $xdgdir
 end
 
@@ -27,10 +28,11 @@ set -gx LESSHISTFILE $XDG_DATA_HOME/lesshst
 #
 
 # Run 'brew shellenv | source' in reverse order.
-for brewcmd in (path filter /usr/local/bin/brew /opt/homebrew/bin/brew $HOME/brew/bin/brew)
-    $brewcmd shellenv | source
+set brewcmds (path filter /usr/local/bin/brew /opt/homebrew/bin/brew $HOME/brew/bin/brew)
+for brewcmd in $brewcmds
+    cachecmd $brewcmd shellenv | source
 end
-set -q HOMEBREW_PREFIX; or return 1
+set -e brewcmds brewcmd
 
 # Add keg-only apps
 for app in ruby curl sqlite
@@ -99,7 +101,7 @@ set fish_greeting
 
 # Initialize starship.
 set -q STARSHIP_CONFIG; or set -gx STARSHIP_CONFIG $__fish_config_dir/themes/mmc.toml
-starship init fish | source
+cachecmd starship init fish | source
 enable_transience
 
 #
@@ -107,7 +109,7 @@ enable_transience
 #
 
 # Initialize zoxide for fast jumping with 'z'.
-zoxide init fish | source
+cachecmd zoxide init fish | source
 
 # Set vars for dotfiles.
 set -q DOTFILES; or set -gx DOTFILES $XDG_CONFIG_HOME/dotfiles
