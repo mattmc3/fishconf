@@ -22,8 +22,17 @@ runs fish 10 times and presents the timings.
 The latest benchmark run shows that we load a new shell pretty fast.
 
 ```fish
-» # MacBook Air (M1, 2020)
-» for i in (seq 1 10); /usr/bin/time fish -i -c exit; end
+$ # MacBook Air (M3, 2024)
+$ set fprof (mktemp)
+$ fish --profile-startup=$fprof -c exit
+$ awk 'NR==1 || $3==">"{print}' $fprof | string replace $HOME '~'
+$ rm $fprof
+Time  Sum   Command
+238   3042  > builtin source /opt/homebrew/Cellar/fish/3.7.0/share/fish/config.fish
+11    11    > builtin source /opt/homebrew/etc/fish/config.fish
+141   8047  > builtin source ~/.config/fish/config.fish
+
+$ for i in (seq 1 10); /usr/bin/time fish -i -c exit; end
         0.02 real         0.01 user         0.01 sys
         0.01 real         0.01 user         0.00 sys
         0.01 real         0.00 user         0.00 sys
@@ -34,19 +43,6 @@ The latest benchmark run shows that we load a new shell pretty fast.
         0.01 real         0.00 user         0.00 sys
         0.01 real         0.00 user         0.00 sys
         0.01 real         0.00 user         0.00 sys
-
-» # MacBook Pro 2.6 GHz 6-Core Intel Core i7
-» for i in (seq 1 10); /usr/bin/time fish -i -c exit; end
-        0.03 real         0.01 user         0.01 sys
-        0.03 real         0.01 user         0.01 sys
-        0.03 real         0.01 user         0.01 sys
-        0.03 real         0.01 user         0.01 sys
-        0.03 real         0.01 user         0.01 sys
-        0.03 real         0.01 user         0.01 sys
-        0.03 real         0.01 user         0.01 sys
-        0.03 real         0.01 user         0.01 sys
-        0.03 real         0.01 user         0.01 sys
-        0.03 real         0.01 user         0.01 sys
 ```
 
 You can also profile fish's startup with the following command:
