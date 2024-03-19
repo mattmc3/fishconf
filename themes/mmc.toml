@@ -16,7 +16,7 @@ right_format = """$status$cmd_duration$git_branch${custom.git_status_dirty}$git_
 command_timeout=2000
 
 [character]
-success_symbol = "[❱](purple)"
+success_symbol = "[❱](fg:206)"
 error_symbol = "[❱](red)"
 vicmd_symbol = "[❰](cyan)"
 
