@@ -9,5 +9,5 @@ function fbench \
     end
     echo "Writing fish profile file to $outfile"
     fish --profile-startup=$outfile -c exit
-    head -n 2 $outfile
+    awk 'NR==1 || $3==">"{print}' $outfile
 end
