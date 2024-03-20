@@ -81,5 +81,6 @@ set -gx SQLITE_HISTORY $XDG_DATA_HOME/sqlite_history
 set -gx MY_PROJECTS $HOME/Projects
 set -gx my_plugins_path $__fish_config_dir/plugins
 
-# Add my bin directory to path.
+# Add bin directories to path.
+fish_add_path --prepend $HOME/.local/bin
 fish_add_path --prepend $HOME/bin
