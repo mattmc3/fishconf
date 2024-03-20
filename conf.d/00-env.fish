@@ -6,12 +6,18 @@
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 set_xdg_basedirs
 
-# Run 'brew shellenv | source' in reverse order.
-set brewcmds (path filter /usr/local/bin/brew /opt/homebrew/bin/brew $HOME/brew/bin/brew)
-for brewcmd in $brewcmds
-    cachecmd $brewcmd shellenv | source
+# Run 'brew shellenv | source' in order of preference.
+for brew_prefix in \
+    $HOME/.homebrew \
+    /opt/homebrew \
+    /usr/local
+
+    if test -e "$brew_prefix/bin/brew"
+        cachecmd "$brew_prefix/bin/brew" shellenv | source
+        break
+    end
 end
-set -e brewcmds brewcmd
+set -e brew_prefix
 
 # Add keg-only apps
 for app in ruby curl sqlite
