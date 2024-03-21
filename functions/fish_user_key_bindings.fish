@@ -3,6 +3,7 @@ function fish_user_key_bindings
     bind \cz 'fg 2>/dev/null; commandline -f repaint'
 
     # magic-enter
+    set --global MAGIC_ENTER_SHADOWED_BINDS (bind | string match -rg '^bind \\\\r (.+)$')
     bind \r magic-enter
 
     # expand ... to ../..
