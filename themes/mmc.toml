@@ -13,14 +13,29 @@ right_format = """$status$cmd_duration$git_branch${custom.git_status_dirty}$git_
 # Timeout for commands executed by starship (in milliseconds)
 command_timeout=2000
 
+# Set the color palette
+palette = "tokyonight"
+
+# Define custom colors
+[palettes.tokyonight]
+black = '#15161e'
+blue = '#7aa2f7'
+cyan = '#7dcfff'
+green = '#9ece6a'
+magenta = '#bb9af7'
+red = '#f7768e'
+white = '#a9b1d6'
+yellow = '#e0af68'
+pink = '#ff6ac1'
+
 [character]
-success_symbol = "[❱](fg:206)"
+success_symbol = "[❱](pink)"
 error_symbol = "[❱](red)"
 vicmd_symbol = "[❰](cyan)"
 
 [python]
 format = '[(\($virtualenv\) )]($style)'
-style = 'white'
+style = 'cyan'
 
 [directory]
 style = "blue"
@@ -31,7 +46,7 @@ fish_style_pwd_dir_length = 1
 # Right-side prompt items use left space padding
 [git_branch]
 format = ' [$branch]($style)'
-style = 'bold green'
+style = 'white'
 
 [git_status]
 format = "[( $ahead_behind$stashed)]($style)"
@@ -43,15 +58,15 @@ diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 
 [custom.git_status_dirty]
 when = 'test -n "$(git status --porcelain 2>/dev/null)"'
-symbol = "•"
-style = "white"
+symbol = "＊"  # • * ﹡ ＊ ✱
+style = "purple"
 format="[$symbol]($style)"
 shell = ["sh"]
 
 [shell]
-fish_indicator = '🐟'  # 󰈺 🐟 🐠
-powershell_indicator = '_'
-zsh_indicator = '󠀥%'
+fish_indicator = ' 🐟'  # 󰈺 🐟 🐠
+powershell_indicator = ' _'
+zsh_indicator = '󠀥 %'
 style = 'cyan bold'
 disabled = false
 
@@ -66,4 +81,4 @@ disabled = false
 pipestatus = true
 format = '[$symbol$int]($style)'
 symbol = '✘'
-pipestatus_format	= '\[$pipestatus\]($style)'
+pipestatus_format = '\[$pipestatus\]($style)'
