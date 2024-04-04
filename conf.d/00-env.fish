@@ -1,39 +1,19 @@
 #
-# env - set environment vars
+# env - Set environment vars.
 #
 
 # Set XDG basedirs.
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
-set_xdg_basedirs
+set -q XDG_CONFIG_HOME; or set -Ux XDG_CONFIG_HOME $HOME/.config
+set -q XDG_DATA_HOME; or set -Ux XDG_DATA_HOME $HOME/.local/share
+set -q XDG_STATE_HOME; or set -Ux XDG_STATE_HOME $HOME/.local/state
+set -q XDG_CACHE_HOME; or set -Ux XDG_CACHE_HOME $HOME/.cache
+mkdir -p $XDG_CONFIG_HOME $XDG_DATA_HOME $XDG_STATE_HOME $XDG_CACHE_HOME
 
-# Run 'brew shellenv | source' in order of preference.
-for brew_prefix in \
-    $HOME/.homebrew \
-    /opt/homebrew \
-    /usr/local
-
-    if test -e "$brew_prefix/bin/brew"
-        cachecmd "$brew_prefix/bin/brew" shellenv | source
-        break
-    end
-end
-set -e brew_prefix
-
-# Add keg-only apps
-for app in ruby curl sqlite
-    if test -d "$HOMEBREW_PREFIX/opt/$app/bin"
-        fish_add_path "$HOMEBREW_PREFIX/opt/$app/bin"
-        set MANPATH "$HOMEBREW_PREFIX/opt/$app/share/man" $MANPATH
-    end
-end
-
-# Add homebrew completions
-if test -e "$HOMEBREW_PREFIX/share/fish/completions"
-    set -a fish_complete_path "$HOMEBREW_PREFIX/share/fish/completions"
-end
-
-# Other homebrew vars.
-set -gx HOMEBREW_NO_ANALYTICS 1
+# Fish vars
+set -q __fish_cache_dir; or set -Ux __fish_cache_dir $XDG_CACHE_HOME/fish
+set -q __fish_plugins_dir; or set -Ux __fish_plugins_dir $__fish_config_dir/plugins
+test -d $__fish_cache_dir; or mkdir -p $__fish_cache_dir
 
 # Set editor variables.
 set -gx PAGER less
@@ -46,41 +26,21 @@ switch (uname -s)
         set -gx BROWSER open
 end
 
-# Set vars for dotfiles.
-set -q DOTFILES; or set -gx DOTFILES $XDG_CONFIG_HOME/dotfiles
-set -q ZDOTDIR; or set -g ZDOTDIR $XDG_CONFIG_HOME/zsh
+# Set vars for dotfiles and special dirs.
+set -g ZDOTDIR $XDG_CONFIG_HOME/zsh
+set -gx DOTFILES $HOME/.dotfiles
+set -gx MY_PROJECTS $HOME/Projects
+
+# Ensure manpath is set to something so we can add to it.
+set -q MANPATH; or set -gx MANPATH ''
 
 # Set initial working directory.
 set -g IWD $PWD
 
-# Colorize man pages.
-set -q LESS_TERMCAP_mb; or set -gx LESS_TERMCAP_mb (set_color -o blue)
-set -q LESS_TERMCAP_md; or set -gx LESS_TERMCAP_md (set_color -o cyan)
-set -q LESS_TERMCAP_me; or set -gx LESS_TERMCAP_me (set_color normal)
-set -q LESS_TERMCAP_so; or set -gx LESS_TERMCAP_so (set_color -b white black)
-set -q LESS_TERMCAP_se; or set -gx LESS_TERMCAP_se (set_color normal)
-set -q LESS_TERMCAP_us; or set -gx LESS_TERMCAP_us (set_color -u magenta)
-set -q LESS_TERMCAP_ue; or set -gx LESS_TERMCAP_ue (set_color normal)
-
-# Add more man page paths.
-set -q MANPATH; or set -gx MANPATH ''
-for manpath in (path filter $__fish_data_dir/man /usr/local/share/man /usr/share/man)
-    set -a MANPATH $manpath
-end
-
-# Allow subdirs for functions and completions.
-set fish_function_path (path resolve $__fish_config_dir/functions/*/) $fish_function_path
-set fish_complete_path (path resolve $__fish_config_dir/completions/*/) $fish_complete_path
+# Other homebrew vars.
+set -gx HOMEBREW_NO_ANALYTICS 1
 
 # XDG apps
 set -gx LESSHISTFILE $XDG_DATA_HOME/lesshst
 set -gx GNUPGHOME $XDG_DATA_HOME/gnupg
 set -gx SQLITE_HISTORY $XDG_DATA_HOME/sqlite_history
-
-# My special dirs
-set -gx MY_PROJECTS $HOME/Projects
-set -gx my_plugins_path $__fish_config_dir/plugins
-
-# Add bin directories to path.
-fish_add_path --prepend $HOME/.local/bin
-fish_add_path --prepend $HOME/bin
