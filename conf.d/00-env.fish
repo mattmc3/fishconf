@@ -41,6 +41,6 @@ set -g IWD $PWD
 set -gx HOMEBREW_NO_ANALYTICS 1
 
 # XDG apps
+set -q GNUPGHOME; or set -Ux GNUPGHOME $XDG_DATA_HOME/gnupg
 set -gx LESSHISTFILE $XDG_DATA_HOME/lesshst
-set -gx GNUPGHOME $XDG_DATA_HOME/gnupg
 set -gx SQLITE_HISTORY $XDG_DATA_HOME/sqlite_history
