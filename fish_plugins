@@ -1,3 +1,4 @@
 jorgebucaran/fisher
-$__fish_config_dir/plugins/macos
+mattmc3/homebrew.fish
+mattmc3/macos.fish
 $__fish_config_dir/plugins/python
