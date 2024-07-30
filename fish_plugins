@@ -3,3 +3,4 @@ mattmc3/homebrew.fish
 mattmc3/macos.fish
 $__fish_config_dir/plugins/python
 mattmc3/otp
+mattmc3/dict.fish
