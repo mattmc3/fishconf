@@ -6,8 +6,12 @@ set -q fisher_path || set -gx fisher_path $__fish_config_dir/.fisher
 set -q my_plugins_path || set -gx my_plugins_path $__fish_config_dir/plugins
 
 if test "$fisher_paths_initialized" != true
-    set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_function_path[2..]
-    set fish_complete_path $fish_complete_path[1] $fisher_path/completions $fish_complete_path[2..]
+    set --local idx (contains -i $__fish_config_dir/functions $fish_function_path || echo 1)
+    set fish_function_path $fish_function_path[1..$idx] $fisher_path/functions $fish_function_path[(math $idx + 1)..]
+
+    set --local idx (contains -i $__fish_config_dir/completions $fish_complete_path || echo 1)
+    set fish_complete_path $fish_complete_path[1..$idx] $fisher_path/completions $fish_complete_path[(math $idx + 1)..]
+
     set -g fisher_paths_initialized true
 end
 
