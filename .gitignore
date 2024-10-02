@@ -9,3 +9,4 @@ fish_variables
 *.local/
 local/
 fishprof*.txt
+.omf2/
