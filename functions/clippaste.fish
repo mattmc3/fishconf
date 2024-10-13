@@ -1,5 +1,5 @@
 function clippaste --description 'Paste data from clipboard'
-    set -l ostype (uname -s)
+    set --local ostype (uname -s)
     if test $ostype = Darwin
         pbpaste
     else

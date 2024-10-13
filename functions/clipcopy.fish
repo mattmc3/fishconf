@@ -1,5 +1,5 @@
 function clipcopy --description 'Copy data to clipboard'
-    set -l ostype (uname -s)
+    set --local ostype (uname -s)
     if test "$ostype" = Darwin
         if test (count $argv) -eq 0
             cat /dev/stdin | pbcopy
