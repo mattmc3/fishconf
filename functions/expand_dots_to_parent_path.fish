@@ -1,6 +1,6 @@
 function expand_dots_to_parent_path -d 'expand ... to ../.. etc'
     # Get commandline up to cursor
-    set -l cmd (commandline --cut-at-cursor)
+    set --local cmd (commandline --cut-at-cursor)
 
     # Match last line
     switch $cmd[-1]

@@ -7,10 +7,10 @@ if not set -q REPO_HOME
 end
 
 function __repo_update -a repo
-    set -l repodir $REPO_HOME/$repo
-    set -l oldsha (command git -C $repodir rev-parse --short HEAD)
+    set --local repodir $REPO_HOME/$repo
+    set --local oldsha (command git -C $repodir rev-parse --short HEAD)
     command git -C $repodir pull --quiet --ff --depth 1 --rebase --autostash
-    set -l newsha (command git -C $repodir rev-parse --short HEAD)
+    set --local newsha (command git -C $repodir rev-parse --short HEAD)
     if test $oldsha != $newsha
         echo "$repo updated: "(path basename $repodir)" ($oldsha->$newsha)"
     else
@@ -63,7 +63,7 @@ function repo -a cmd --description "Deal with git repos"
         case in
             set err 1
             for repo in $argv
-                set -l plugindir $REPO_HOME/$repo
+                set --local plugindir $REPO_HOME/$repo
                 if not test -d $plugindir
                     echo "Cloning $repo..."
                     command git clone --quiet --depth 1 --recursive --shallow-submodules \

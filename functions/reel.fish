@@ -4,17 +4,17 @@
 set -q reel_path || set -gx reel_path $__fish_config_dir/.reel
 
 function __reel_update -a repo
-    set -l plugindir $reel_path/plugins/(path basename $repo)
-    set -l oldsha (command git -C $plugindir rev-parse --short HEAD)
+    set --local plugindir $reel_path/plugins/(path basename $repo)
+    set --local oldsha (command git -C $plugindir rev-parse --short HEAD)
     command git -C $plugindir pull --quiet --ff --depth 1 --rebase --autostash
-    set -l newsha (command git -C $plugindir rev-parse --short HEAD)
+    set --local newsha (command git -C $plugindir rev-parse --short HEAD)
     if test $oldsha != $newsha
         echo "Repo updated: "(path basename $plugindir)" ($oldsha->$newsha)"
     end
 end
 
 function __reel_plugin_repo -a plugindir
-    set -l url_parts (
+    set --local url_parts (
         command git -C $plugindir config remote.origin.url |
         string replace ':' '/' |
         string split '/'
@@ -68,7 +68,7 @@ function reel -a cmd --description "A simple Fish plugin manager"
         case in
             set err 1
             for repo in $argv
-                set -l plugindir $reel_path/plugins/(path basename $repo)
+                set --local plugindir $reel_path/plugins/(path basename $repo)
                 if not test -d $plugindir
                     echo "Cloning $repo..."
                     command git clone --quiet --depth 1 --recursive --shallow-submodules \

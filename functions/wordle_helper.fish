@@ -5,7 +5,7 @@ function _validate_wordle_score -d "argparse validator for Wordle score args"
     # scores are in the format '12345' with digits representing the score position
     _validate_int; or return 1
     if not string match -qr '^[1-5]+$' -- $_flag_value
-        set -l msg (_ "%s: Value '%s' for flag '%s' contains out-of-range numbers. Expecting 1-5.\n")
+        set --local msg (_ "%s: Value '%s' for flag '%s' contains out-of-range numbers. Expecting 1-5.\n")
         printf $msg $_argparse_cmd $_flag_value $_flag_name >&2 && return 1
     end
 end

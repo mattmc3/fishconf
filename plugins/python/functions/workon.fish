@@ -13,7 +13,7 @@ function workon --description 'Python venv activation'
         set VIRTUAL_ENV $WORKON_HOME/$argv
     end
 
-    set -l activate_file $VIRTUAL_ENV/bin/activate.fish
+    set --local activate_file $VIRTUAL_ENV/bin/activate.fish
     if not test -f $activate_file
         echo "Missing venv activate file: $activate_file" >&2
         return 1

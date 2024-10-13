@@ -22,7 +22,7 @@ function mkvenv -d 'Create a new Python venv'
     end
 
     python3 -m venv $VIRTUAL_ENV
-    set -l ext
+    set --local ext
     for ext in '' '.fish'
         touch $VIRTUAL_ENV"/envvars"$ext
         echo 'source $VIRTUAL_ENV/envvars'$ext >>"$VIRTUAL_ENV/bin/activate"$ext
