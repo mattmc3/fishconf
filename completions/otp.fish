@@ -1,0 +1,6 @@
+complete -c otp --no-files --exclusive -s "l" -l "list" -d "List available OTP keys"
+complete -c otp --no-files --exclusive -s "h" -l "help" -d "Display OTP help"
+complete -c otp --no-files --exclusive -s "a" -l "add" -d "Add OTP key"
+complete -c otp --no-files --exclusive -s "r" -l "remove" -d "Remove OTP key" --arguments "(otp --list)"
+complete -c otp --no-files --exclusive -l "rekey" -d "Re-key all the OTPs"
+complete -c otp --no-files --arguments "(otp --list)"
