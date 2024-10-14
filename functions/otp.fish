@@ -76,6 +76,7 @@ function otp --description 'One-time passwords'
         read -s -l otp_secret --prompt-str="Enter the otp secret for '$argv': "
         command rm -f $otp_home/$argv.otp.asc
         echo $otp_secret | gpg $recipients --armor --encrypt --output $otp_home/$argv.otp.asc
+        otp $argv
     else if not test -e $otp_home/$argv.otp.asc
         echo >&2 "otp: Key not found '$argv'."
         return 1
