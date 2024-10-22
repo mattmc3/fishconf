@@ -10,3 +10,4 @@ fish_variables
 local/
 fishprof*.txt
 .omf2/
+.tackle/
