@@ -17,6 +17,3 @@ function colorize_hex -d 'Add background to hex code colors in a command'
     #commandline -f suppress-autosuggestion
     #echo $colorized_cmd
 end
-
-# ctrl-k to colorize
-bind \ck colorize_hex

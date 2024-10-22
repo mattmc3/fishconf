@@ -1,15 +1,1 @@
 jorgebucaran/fisher
-$__fish_config_dir/plugins/python
-mattmc3/dict.fish
-omf2/omf2
-omf2/core-plugin-pack
-~/.config/fish/.omf2/packs/omf2__core-plugin-pack/plugins/bang-commands
-~/.config/fish/.omf2/packs/omf2__core-plugin-pack/plugins/brew
-~/.config/fish/.omf2/packs/omf2__core-plugin-pack/plugins/colorize-man-pages
-~/.config/fish/.omf2/packs/omf2__core-plugin-pack/plugins/directory
-~/.config/fish/.omf2/packs/omf2__core-plugin-pack/plugins/extract
-~/.config/fish/.omf2/packs/omf2__core-plugin-pack/plugins/gitignore
-~/.config/fish/.omf2/packs/omf2__core-plugin-pack/plugins/macos
-~/.config/fish/.omf2/packs/omf2__core-plugin-pack/plugins/magic-enter
-~/.config/fish/.omf2/packs/omf2__core-plugin-pack/plugins/up
-~/.config/fish/.omf2/packs/omf2__core-plugin-pack/plugins/zoxide
