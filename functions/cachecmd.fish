@@ -1,20 +1,20 @@
 function cachecmd --description "Cache a command"
-    set --local cmdname (
+    set --local cmdfile (
         string join '-' $argv |
         string replace -a '/' '_' |
         string replace -r '^_' ''
-    )
-    set --local cachefile $XDG_CACHE_HOME/fish/$cmdname.fish
+    ).fish
+    set --local cachedir $XDG_CACHE_HOME/fish
     if not set -q XDG_CACHE_HOME
-        set cachefile $HOME/.cache/fish/$cmdname.fish
+        set cachedir $HOME/.cache/fish
     end
-    mkdir -p (path dirname $cachefile)
+    test -d $cachedir || mkdir -p $cachedir
 
     # Remove expired cache files.
-    find (path dirname $cachefile) -name (path basename $cachefile) -type f -mmin +1200 -delete
+    find $cachedir -name $cmdfile -type f -mmin +1200 -delete
 
-    if not test -f $cachefile
-        $argv >$cachefile
+    if not test -f $cachedir/$cmdfile
+        $argv >$cachedir/$cmdfile
     end
-    cat $cachefile
+    cat $cachedir/$cmdfile
 end
