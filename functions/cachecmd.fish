@@ -1,7 +1,8 @@
 function cachecmd --description "Cache a command"
     set --local cmdfile (
-        string join '-' $argv |
-        string replace -a '/' '_' |
+        string join '_' -- $argv |
+        string replace -ar '[/-]' '_' |
+        string replace -ar '_+' '_' |
         string replace -r '^_' ''
     ).fish
     set --local cachedir $XDG_CACHE_HOME/fish

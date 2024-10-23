@@ -23,12 +23,12 @@ set -g IWD $PWD
 
 # Initialize fuzzy finder.
 if type -q fzf
-    fzf --fish | source
+    cachecmd fzf --fish | source
 end
 
 # Initialize zoxide for fast jumping with 'z'.
 if type -q zoxide
-    zoxide init fish | source
+    cachecmd zoxide init fish | source
 end
 
 #
@@ -41,7 +41,7 @@ set fish_greeting
 # Initialize starship.
 if type -q starship
     set -gx STARSHIP_CONFIG $__fish_config_dir/themes/starship.toml
-    starship init fish | source
+    cachecmd starship init fish | source
     enable_transience
 end
 
