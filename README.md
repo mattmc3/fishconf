@@ -27,10 +27,10 @@ $ set fprof (mktemp)
 $ fish --profile-startup=$fprof -c exit
 $ awk 'NR==1 || $3==">"{print}' $fprof | string replace $HOME '~'
 $ rm $fprof
-Time  Sum   Command
-238   3042  > builtin source /opt/homebrew/Cellar/fish/3.7.0/share/fish/config.fish
-11    11    > builtin source /opt/homebrew/etc/fish/config.fish
-141   8047  > builtin source ~/.config/fish/config.fish
+Time    Sum     Command
+274     6595    > builtin source /opt/homebrew/Cellar/fish/3.7.1/share/fish/config.fish
+13      13      > builtin source /opt/homebrew/etc/fish/config.fish
+74      8572    > builtin source /Users/matt/.config/fish/config.fish
 
 $ for i in (seq 1 10); /usr/bin/time fish -i -c exit; end
         0.02 real         0.01 user         0.01 sys

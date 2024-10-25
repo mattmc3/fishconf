@@ -1,4 +1,4 @@
-# ~/.config/fish/conf.d runs first
+# conf.d runs first!
 
 # https://fishshell.com/docs/current/tutorial.html
 # https://github.com/jorgebucaran/fish-shell-cookbook
@@ -23,12 +23,18 @@ set -g IWD $PWD
 
 # Initialize fuzzy finder.
 if type -q fzf
-    cachecmd fzf --fish | source
+    if not test -r $__fish_cache_dir/fzf_init.fish
+        fzf --fish >$__fish_cache_dir/fzf_init.fish
+    end
+    source $__fish_cache_dir/fzf_init.fish
 end
 
 # Initialize zoxide for fast jumping with 'z'.
 if type -q zoxide
-    cachecmd zoxide init fish | source
+    if not test -r $__fish_cache_dir/zoxide_init.fish
+        zoxide init fish >$__fish_cache_dir/zoxide_init.fish
+    end
+    source $__fish_cache_dir/zoxide_init.fish
 end
 
 #
@@ -41,7 +47,10 @@ set fish_greeting
 # Initialize starship.
 if type -q starship
     set -gx STARSHIP_CONFIG $__fish_config_dir/themes/starship.toml
-    cachecmd starship init fish | source
+    if not test -r $__fish_cache_dir/starship_init.fish
+        starship init fish --print-full-init >$__fish_cache_dir/starship_init.fish
+    end
+    source $__fish_cache_dir/starship_init.fish
     enable_transience
 end
 

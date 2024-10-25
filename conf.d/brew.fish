@@ -1,12 +1,3 @@
-# If the brew path is owned by another user, wrap it so brew commands
-# are executed as the brew owner.
-set -gx HOMEBREW_OWNER (stat -f "%Su" $HOMEBREW_PREFIX)
-if test $HOMEBREW_OWNER != (whoami)
-    function brew --description 'Wrap brew with sudo for multi-user systems'
-        sudo -Hu $HOMEBREW_OWNER brew $argv
-    end
-end
-
 # Add keg-only apps
 set -q HOMEBREW_KEG_ONLY_APPS || set -U HOMEBREW_KEG_ONLY_APPS ruby curl sqlite
 for app in $HOMEBREW_KEG_ONLY_APPS
