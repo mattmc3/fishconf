@@ -38,13 +38,13 @@ test -d $__fish_cache_dir; or mkdir -p $__fish_cache_dir
 find $__fish_cache_dir -name '*.fish' -type f -mmin +1200 -delete
 
 # Setup homebrew.
-if not test -r $__fish_cache_dir/brew_init.fish
+if not test -s $__fish_cache_dir/brew_init.fish
     if test -e /opt/homebrew/bin/brew
         /opt/homebrew/bin/brew shellenv >$__fish_cache_dir/brew_init.fish
     else if test -e /usr/local/bin/brew
         /usr/local/bin/brew shellenv >$__fish_cache_dir/brew_init.fish
     end
-    test -r $__fish_cache_dir/brew_init.fish; and source $__fish_cache_dir/brew_init.fish
+    source $__fish_cache_dir/brew_init.fish
 end
 
 # Fisher
