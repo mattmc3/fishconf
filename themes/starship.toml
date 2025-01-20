@@ -10,6 +10,7 @@ $shell\
 $python\
 $directory\
 $git_branch${custom.git_status_dirty}$git_status
+$username\
 $character
 """
 
@@ -60,13 +61,16 @@ truncation_length = 0
 truncate_to_repo = false
 truncation_symbol = ""
 
+[username]
+format = "[$user]($style) "
+
 # Right-side prompt items use left space padding
 [git_branch]
 format = '[$branch]($style)'
 style = 'green'
 
 [git_status]
-format = "[($ahead_behind$stashed)]($style)"
+format = "[( $ahead_behind$stashed)]($style)"
 style = "cyan"
 stashed = "≡"
 ahead = "⇡${count}"
