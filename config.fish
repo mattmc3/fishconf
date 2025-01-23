@@ -21,6 +21,11 @@ set -g IWD $PWD
 # Utils
 #
 
+# Initialize direnv.
+if type -q direnv
+    direnv hook fish | source
+end
+
 # Initialize fuzzy finder.
 if type -q fzf
     if not test -r $__fish_cache_dir/fzf_init.fish
