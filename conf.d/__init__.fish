@@ -51,4 +51,6 @@ end
 init_fisher
 
 # Add bin directories to path.
-fish_add_path --prepend (path filter $HOME/bin $HOME/.local/bin)
+fish_add_path --prepend (
+    path filter $HOME/bin $HOME/.local/bin $HOME/.dotnet/tools
+)
