@@ -10,7 +10,7 @@
 #
 
 # Set vars for dotfiles and special dirs.
-set -g ZDOTDIR $XDG_CONFIG_HOME/zsh
+#set -g ZDOTDIR $XDG_CONFIG_HOME/zsh
 set -gx DOTFILES $HOME/.dotfiles
 set -gx MY_PROJECTS $HOME/Projects
 
