@@ -4,7 +4,7 @@ function fish_user_key_bindings
 
     # magic-enter
     set --global MAGIC_ENTER_SHADOWED_BINDS (bind | string match -rg '^bind \\\\r (.+)$')
-    bind \r magic-enter
+    functions -q magic-enter && bind \r magic-enter
 
     # ctrl-k to colorize
     bind \ck colorize_hex
