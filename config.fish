@@ -42,6 +42,11 @@ if type -q zoxide
     source $__fish_cache_dir/zoxide_init.fish
 end
 
+# Initialize prject jumping with 'prj'.
+if type -q prj
+    prj --init fish | source
+end
+
 #
 # Prompt
 #
