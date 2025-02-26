@@ -62,6 +62,9 @@ if type -q starship
     end
     source $__fish_cache_dir/starship_init.fish
     enable_transience
+
+    # Start prompt at the bottom
+    tput cup 9999 0
 end
 
 #
