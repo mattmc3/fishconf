@@ -51,6 +51,12 @@ end
 init_fisher
 
 # Add bin directories to path.
-fish_add_path --prepend (
-    path filter $HOME/bin $HOME/bin/git $HOME/.local/bin $HOME/.dotnet/tools
+set -g prepath (
+    path filter \
+        $HOME/bin \
+        $HOME/bin/git \
+        $HOME/.local/bin \
+        $HOME/.dotnet/tools \
+        /Applications/Rider.app/Contents/MacOS
 )
+fish_add_path --prepend --move $prepath
