@@ -16,8 +16,8 @@ set -q EDITOR; or set -Ux EDITOR vim
 
 # Set browser on macOS.
 switch (uname -s)
-case Darwin
-    set -q BROWSER; or set -Ux BROWSER open
+    case Darwin
+        set -q BROWSER; or set -Ux BROWSER open
 end
 
 # XDG apps
