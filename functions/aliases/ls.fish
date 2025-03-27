@@ -1,8 +1,8 @@
 function ls --description 'ls with color'
     switch (uname -s)
         case Darwin
-            /bin/ls -G $argv
+            /bin/ls -L -G $argv
         case '*'
-            /bin/ls --group-directories-first --color=auto $argv
+            /bin/ls -L --group-directories-first --color=auto $argv
     end
 end
