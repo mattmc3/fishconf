@@ -44,7 +44,7 @@ end
 
 # Initialize prject jumping with 'prj'.
 if type -q prj
-    prj --init fish | source
+    prj -i fish | source
 end
 
 #
