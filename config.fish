@@ -64,7 +64,7 @@ if type -q starship
     enable_transience
 
     # Start prompt at the bottom
-    tput cup 9999 0
+    # tput cup 9999 0
 end
 
 #
