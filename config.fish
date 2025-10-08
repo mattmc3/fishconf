@@ -67,6 +67,8 @@ if type -q starship
     # tput cup 9999 0
 end
 
+fish_set_cursor bar
+
 #
 # Theme
 #
