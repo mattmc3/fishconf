@@ -79,9 +79,11 @@ fish_config theme choose $FISH_THEME
 # Terminal
 #
 
-# Set WezTerm title
-if test -n "$TERM_PROGRAM"
-    set_term_var TERM_CURRENT_SHELL "fish $FISH_VERSION"
+switch (string lower $TERM_PROGRAM)
+    case wezterm
+        set_term_var TERM_CURRENT_SHELL "fish $FISH_VERSION"
+    case vscode
+        source (code --locate-shell-integration-path fish)
 end
 
 #
