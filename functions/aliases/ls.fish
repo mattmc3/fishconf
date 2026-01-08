@@ -3,6 +3,6 @@ function ls --description 'ls with color'
         case Darwin
             /bin/ls -GFh --color=auto $argv
         case '*'
-            /bin/ls -GFh --group-directories-first --color=auto $argv
+            /bin/ls -GFh --color=auto --group-directories-first $argv
     end
 end

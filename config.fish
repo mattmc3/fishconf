@@ -87,6 +87,12 @@ switch (string lower $TERM_PROGRAM)
 end
 
 #
+# Keybindings
+#
+
+set --global fish_key_bindings fish_default_key_bindings
+
+#
 # Local
 #
 
