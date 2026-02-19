@@ -58,6 +58,10 @@ set -g pre_path (
 )
 fish_add_path --prepend --move $pre_path
 
+function _init_post --on-event fish_postinit
+    fish_add_path --prepend --move $pre_path
+end
+
 # Other vars
 set -g OSTYPE (uname -s | string lower)
 set -gx DOTFILES $HOME/.dotfiles
