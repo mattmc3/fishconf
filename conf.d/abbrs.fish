@@ -28,7 +28,18 @@ abbr -a -- zdot 'cd $ZDOTDIR'
 # date/time
 abbr -a -- ds 'date +%Y-%m-%d'
 abbr -a -- ts 'date +%Y-%m-%dT%H:%M:%SZ'
+abbr -a -- isodate 'date +%Y-%m-%dT%H:%M:%S%z'
+abbr -a -- unixepoch 'date +%s'
 abbr -a -- yyyymmdd 'date +%Y%m%d'
+
+# disk usage
+abbr -a -- dud 'du -d 1 -h'
+abbr -a -- duf 'du -sh *'
+abbr -a -- dux 'du -x --max-depth=1 | sort -n'
+
+# misc
+abbr -a -- please sudo
+abbr -a -- print-path 'string join \n $PATH'
 
 # git
 abbr -a -- gclone 'git clone git@github.com:mattmc3/'

@@ -1,4 +1,5 @@
 # golang
+fish_add_path (path filter $HOME/go/bin)
 abbr -a -- gob 'go build'
 abbr -a -- goc 'go clean'
 abbr -a -- god 'go doc'
