@@ -20,12 +20,5 @@ switch (uname -s)
         set -q BROWSER; or set -Ux BROWSER open
 end
 
-# XDG apps
-set -q GNUPGHOME; or set -Ux GNUPGHOME $XDG_DATA_HOME/gnupg
-set -q LESSHISTFILE; or set -Ux LESSHISTFILE $XDG_DATA_HOME/lesshst
-set -q SQLITE_HISTORY; or set -Ux SQLITE_HISTORY $XDG_DATA_HOME/sqlite_history
-set -q WORKON_HOME; or set -Ux WORKON_HOME $XDG_DATA_HOME/venvs
-set -q PYLINTHOME; or set -Ux PYLINTHOME $XDG_CACHE_HOME/pylint
-
 # Other vars
 set -q FISH_THEME; or set -U FISH_THEME tokyonight_night
