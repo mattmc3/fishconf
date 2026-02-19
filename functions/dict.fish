@@ -17,7 +17,7 @@ function __dict_check_dictname -a dictname
 end
 
 function __dict_contains --no-scope-shadowing
-    argparse --name dict --stop-nonopt --exclusive k,v 'k/key' 'v/value' 'i/index' -- $argv
+    argparse --name dict --stop-nonopt --exclusive k,v k/key v/value i/index -- $argv
     or return
     set --local -- dictname $argv[1]
     __dict_check_dictname $dictname; or return $status
@@ -52,7 +52,7 @@ function dict \
     --description "Treat a paired list like a dict" \
     --no-scope-shadowing
 
-    argparse --name dict --ignore-unknown --stop-nonopt 'h/help' -- $argv
+    argparse --name dict --ignore-unknown --stop-nonopt h/help -- $argv
     if set -q _flag_help
         __dict_usage; and return 0
     else if test (count $argv) -eq 0
