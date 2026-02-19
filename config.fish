@@ -14,9 +14,6 @@
 set -gx DOTFILES $HOME/.dotfiles
 set -gx MY_PROJECTS $HOME/Projects
 
-# Set initial working directory.
-set -g IWD $PWD
-
 #
 # Utils
 #
