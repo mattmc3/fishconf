@@ -59,5 +59,6 @@ set -g pre_path (
 fish_add_path --prepend --move $pre_path
 
 # Other vars
+set -g OSTYPE (uname -s | string lower)
 set -gx DOTFILES $HOME/.dotfiles
 set -gx MY_PROJECTS $HOME/Projects
