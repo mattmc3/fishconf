@@ -26,7 +26,7 @@ set -q LS_COLORS || set -gx LS_COLORS \
 # EZA_COLORS extends LS_COLORS with eza-specific keys (permissions, sizes, user/group)
 set -q EZA_COLORS || set -gx EZA_COLORS \
     "$LS_COLORS:or=1;31:fi=0:da=2:sn=33:sb=2:uu=33:un=2:gu=35:gn=2:lp=35:\
-ur=33:uw=31:ux=32:ue=32:gr=2;33:gw=2;31:gx=2;32:tr=2:tw=2:tx=2:xa=2"
+ur=33:uw=31:ux=32:ue=32:gr=2;33:gw=2;31:gx=2;32:tr=2:tx=2:xa=2"
 
 # Other vars
 set -q FISH_THEME || set -U FISH_THEME tokyonight_night
