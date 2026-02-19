@@ -11,6 +11,8 @@ fisher/
 fishprof*.txt
 local/
 plugins/*/
+!plugins/clipboard
 !plugins/python
 !plugins/iwd
+!plugins/reel
 themes
