@@ -1,5 +1,5 @@
 function clone --description 'git clone simplified'
-    set -q MY_PROJECTS; or set MY_PROJECTS $HOME/Projects
+    set -q MY_PROJECTS || set MY_PROJECTS $HOME/Projects
 
     if test (count $argv) -eq 0
         echo >&2 "clone: Expecting a repo argument"

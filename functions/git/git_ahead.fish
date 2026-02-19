@@ -1,5 +1,5 @@
 function git_ahead -a ahead behind diverged none
-    not git_is_repo; and return
+    not git_is_repo && return
 
     set -l commit_count (command git rev-list --count --left-right "@{upstream}...HEAD" 2> /dev/null)
 
@@ -7,12 +7,12 @@ function git_ahead -a ahead behind diverged none
         case ""
             # no upstream
         case "0"\t"0"
-            test -n "$none"; and echo "$none"; or echo ""
+            test -n "$none" && echo "$none" || echo ""
         case "*"\t"0"
-            test -n "$behind"; and echo "$behind"; or echo -
+            test -n "$behind" && echo "$behind" || echo -
         case "0"\t"*"
-            test -n "$ahead"; and echo "$ahead"; or echo "+"
+            test -n "$ahead" && echo "$ahead" || echo "+"
         case "*"
-            test -n "$diverged"; and echo "$diverged"; or echo "±"
+            test -n "$diverged" && echo "$diverged" || echo "±"
     end
 end

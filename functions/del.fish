@@ -1,6 +1,6 @@
 function del --description "safe rm"
     if functions -q trash
-        argparse --name=del r f i -- $argv; or return 1
+        argparse --name=del r f i -- $argv || return 1
         trash $argv
     else if type -q shell-safe-rm
         shell-safe-rm $argv

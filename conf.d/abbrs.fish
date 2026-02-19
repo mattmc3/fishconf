@@ -2,7 +2,7 @@
 # abbrs
 #
 
-set -q MY_ABBRS_INITIALIZED; and return
+set -q MY_ABBRS_INITIALIZED && return
 
 abbr -a -- - 'cd -'
 abbr -a -- nv nvim

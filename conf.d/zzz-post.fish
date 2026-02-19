@@ -3,7 +3,7 @@
 #
 
 # Add local config
-set -q DOTFILES; or set -gx DOTFILES $HOME/.dotfiles
+set -q DOTFILES || set -gx DOTFILES $HOME/.dotfiles
 if test -r $DOTFILES/.local/config/fish/config.fish
     source $DOTFILES/.local/config/fish/config.fish
 end

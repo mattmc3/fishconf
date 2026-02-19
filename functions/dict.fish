@@ -17,10 +17,10 @@ function __dict_check_dictname -a dictname
 end
 
 function __dict_contains --no-scope-shadowing
-    argparse --name dict --stop-nonopt --exclusive k,v k/key v/value i/index -- $argv
-    or return
+    argparse --name dict --stop-nonopt --exclusive k,v k/key v/value i/index -- $argv \
+        || return
     set --local -- dictname $argv[1]
-    __dict_check_dictname $dictname; or return $status
+    __dict_check_dictname $dictname || return $status
     set --local -- thedict $$dictname
 
     set --local start 1
@@ -29,7 +29,7 @@ function __dict_contains --no-scope-shadowing
     if set -q _flag_value
         set start 2
     end
-    if set -q _flag_key; or set -q _flag_value
+    if set -q _flag_key || set -q _flag_value
         set step 2
     end
 
@@ -45,7 +45,7 @@ function __dict_contains --no-scope-shadowing
             set found 1
         end
     end
-    test $found -gt 0; and return 0; or return 1
+    test $found -gt 0 && return 0 || return 1
 end
 
 function dict \
@@ -54,9 +54,9 @@ function dict \
 
     argparse --name dict --ignore-unknown --stop-nonopt h/help -- $argv
     if set -q _flag_help
-        __dict_usage; and return 0
+        __dict_usage && return 0
     else if test (count $argv) -eq 0
-        __dict_usage; and return 1
+        __dict_usage && return 1
     end
 
     set --local subcommand $argv[1]
@@ -71,23 +71,23 @@ function dict \
     if test $subcommand != contains
         set -- dictname $argv[1]
         set -- thedict $$dictname
-        __dict_check_dictname $dictname; or return $status
+        __dict_check_dictname $dictname || return $status
     end
     set --local dictsize (count $thedict)
 
     switch $subcommand
         case keys
-            test $dictsize -gt 0; or return 0
+            test $dictsize -gt 0 || return 0
             for idx in (seq 1 2 $dictsize)
                 echo $thedict[$idx]
             end
         case values
-            test $dictsize -gt 0; or return 0
+            test $dictsize -gt 0 || return 0
             for idx in (seq 2 2 $dictsize)
                 echo $thedict[$idx]
             end
         case get
-            test $dictsize -gt 0; or return 1
+            test $dictsize -gt 0 || return 1
             set --local key $argv[2]
             for idx in (seq 1 2 $dictsize)
                 if test $thedict[$idx] = "$key"
