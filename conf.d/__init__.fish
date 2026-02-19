@@ -37,15 +37,8 @@ test -d $__fish_cache_dir; or mkdir -p $__fish_cache_dir
 # Remove expired cache files.
 find $__fish_cache_dir -name '*.fish' -type f -mmin +1200 -delete
 
-# Setup homebrew.
-if not test -s $__fish_cache_dir/brew_init.fish
-    if test -e /opt/homebrew/bin/brew
-        /opt/homebrew/bin/brew shellenv >$__fish_cache_dir/brew_init.fish
-    else if test -e /usr/local/bin/brew
-        /usr/local/bin/brew shellenv >$__fish_cache_dir/brew_init.fish
-    end
-    source $__fish_cache_dir/brew_init.fish
-end
+# Homebrew
+init_homebrew
 
 # Fisher
 init_fisher
