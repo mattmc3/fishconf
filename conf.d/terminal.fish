@@ -12,7 +12,7 @@ switch (string lower $TERM_PROGRAM)
         end
     case vscode
         if type -q code
-            source_cache vscode_init.fish fish -c \
+            source_cache vscode_init.fish fish --no-config -c \
                 'set -l p (code --locate-shell-integration-path fish 2>/dev/null)
                 test -f $p || exit 1
                 printf "source %s\n" $p'
