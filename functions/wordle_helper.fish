@@ -29,7 +29,7 @@ end
 function wordle_helper -d "Show possible remaining guesses for a Wordle puzzle"
     argparse --name wordle_helper h/help 'g/green=+!_validate_wordle_score' \
         'y/yellow=+!_validate_wordle_score' -- $argv \
-    || return 1
+        || return 1
 
     if test -n "$_flag_help"
         __wordle_helper_usage && return
