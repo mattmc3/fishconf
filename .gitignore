@@ -12,4 +12,5 @@ fishprof*.txt
 local/
 plugins/*/
 !plugins/python
+!plugins/iwd
 themes
