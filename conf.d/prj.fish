@@ -1,4 +1,4 @@
-# Initialize prject jumping with 'prj'.
+# Initialize project jumping with 'prj'.
 if type -q prj
-    prj -i fish | source
+    source_cache prj_init.fish prj -i fish
 end

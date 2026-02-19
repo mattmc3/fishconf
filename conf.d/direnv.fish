@@ -1,4 +1,4 @@
 # Initialize direnv.
 if type -q direnv
-    direnv hook fish | source
+    source_cache direnv_init.fish direnv hook fish
 end
