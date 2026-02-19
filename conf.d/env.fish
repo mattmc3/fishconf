@@ -15,9 +15,8 @@ set -q VISUAL || set -Ux VISUAL code
 set -q EDITOR || set -Ux EDITOR vim
 
 # Set browser on macOS.
-switch (uname -s)
-    case Darwin
-        set -q BROWSER || set -Ux BROWSER open
+if string match -q 'darwin*' $OSTYPE
+    set -q BROWSER || set -Ux BROWSER open
 end
 
 # Other vars
