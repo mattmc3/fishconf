@@ -45,9 +45,9 @@ yellow = '#ebd99c'
 
 [character]
 format = "$symbol "
-success_symbol = "[❱](purple)"
-error_symbol = "[❱](red)"
-vimcmd_symbol = "[❰](cyan)"
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](cyan)"
 
 [python]
 format = '[(\($virtualenv\) )]($style)'
