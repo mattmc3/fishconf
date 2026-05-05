@@ -6,7 +6,7 @@ function fish_user_key_bindings
     bind \ck colorize_hex
 
     # expand ... to ../..
-    bind . expand_dots_to_parent_path
+    #bind . expand_dots_to_parent_path
 
     # add default enter actions
     # add_enter_hook magic-enter

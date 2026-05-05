@@ -5,12 +5,15 @@ mattmc3/macos.fish
 ~/.config/fish/plugins/clipboard
 ~/.config/fish/plugins/direnv
 ~/.config/fish/plugins/environment
+~/.config/fish/plugins/expand-dots
 ~/.config/fish/plugins/extract
 ~/.config/fish/plugins/fancy-ctrl-z
 ~/.config/fish/plugins/fzf
 ~/.config/fish/plugins/homebrew
 ~/.config/fish/plugins/iwd
+~/.config/fish/plugins/magic-enter
 ~/.config/fish/plugins/nim
 ~/.config/fish/plugins/prj
 ~/.config/fish/plugins/python
+~/.config/fish/plugins/strip-dollar-prefix
 ~/.config/fish/plugins/zoxide

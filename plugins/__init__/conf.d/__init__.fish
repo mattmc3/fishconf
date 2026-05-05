@@ -63,3 +63,11 @@ end
 set -g OSTYPE (uname -s | string lower)
 set -gx DOTFILES $HOME/.dotfiles
 set -gx MY_PROJECTS $HOME/Projects
+
+# Fire prerun dispatch events on enter
+if test "$fish_key_bindings" = fish_vi_key_bindings
+    bind -M insert  \r __prerun_dispatch
+    bind -M default \r __prerun_dispatch
+else
+    bind \r __prerun_dispatch
+end
