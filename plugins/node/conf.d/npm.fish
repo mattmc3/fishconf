@@ -1,2 +1,3 @@
 # node
+type -q node || return 1
 fish_add_path (path filter $HOMEBREW_PREFIX/share/npm/bin)

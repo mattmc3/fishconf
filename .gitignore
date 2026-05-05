@@ -1,8 +1,5 @@
 !**/themes/
 .fisher/
-.omf2/
-.reel/
-.tackle/
 *.local
 *.local.*
 *.local/
@@ -10,9 +7,4 @@ fish_variables
 fisher/
 fishprof*.txt
 local/
-plugins/*/
-!plugins/clipboard
-!plugins/python
-!plugins/iwd
-!plugins/reel
 themes
