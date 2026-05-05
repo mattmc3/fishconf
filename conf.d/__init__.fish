@@ -38,9 +38,6 @@ test -d $__fish_cache_dir || mkdir -p $__fish_cache_dir
 find $__fish_cache_dir -name '*.fish' -type f -mmin +1200 -delete &
 disown
 
-# XDG tool vars
-init_xdg
-
 # Homebrew
 init_homebrew
 

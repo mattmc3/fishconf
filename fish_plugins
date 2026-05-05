@@ -19,4 +19,5 @@ mattmc3/macos.fish
 ~/.config/fish/plugins/python
 ~/.config/fish/plugins/strip-dollar-prefix
 ~/.config/fish/plugins/terminal
+~/.config/fish/plugins/xdg-apps
 ~/.config/fish/plugins/zoxide
