@@ -12,10 +12,9 @@ switch (string lower $TERM_PROGRAM)
         end
     case vscode
         if type -q code
-            source_cache vscode_init.fish fish --no-config -c \
-                'set -l p (code --locate-shell-integration-path fish 2>/dev/null)
-                test -f $p || exit 1
-                printf "source \"%s\"\n" $p'
+            set -l shell_integration (code --locate-shell-integration-path fish 2>/dev/null)
+            test -f $shell_integration || return 1
+            source $shell_integration
         end
     case wezterm
         set_term_var TERM_CURRENT_SHELL "fish $FISH_VERSION"

@@ -1,5 +1,6 @@
 jorgebucaran/fisher
 mattmc3/macos.fish
+~/.config/fish/plugins/__init__
 ~/.config/fish/plugins/azure
 ~/.config/fish/plugins/bangbang
 ~/.config/fish/plugins/clipboard
@@ -12,8 +13,10 @@ mattmc3/macos.fish
 ~/.config/fish/plugins/homebrew
 ~/.config/fish/plugins/iwd
 ~/.config/fish/plugins/magic-enter
+~/.config/fish/plugins/network
 ~/.config/fish/plugins/nim
 ~/.config/fish/plugins/prj
 ~/.config/fish/plugins/python
 ~/.config/fish/plugins/strip-dollar-prefix
+~/.config/fish/plugins/terminal
 ~/.config/fish/plugins/zoxide

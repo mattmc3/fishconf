@@ -8,3 +8,4 @@ fisher/
 fishprof*.txt
 local/
 themes
+.custom/
