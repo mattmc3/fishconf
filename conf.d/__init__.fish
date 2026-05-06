@@ -6,7 +6,7 @@
 __init__ xdg
 __init__ cache
 __init__ manpath
-__init__ fnpath
+__init__ config_subdirs
 __init__ path
 __init__ events
 __init__ fisher
