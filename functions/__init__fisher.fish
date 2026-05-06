@@ -1,7 +1,4 @@
-#
-# Setup Fisher for plugins.
-#
-function init_fisher
+function __init__fisher --description 'Bootstrap fisher and source plugin conf.d files'
     set -q fisher_path; or set -gx fisher_path $__fish_config_dir/.fisher
 
     if not contains $fisher_path/functions $fish_function_path
