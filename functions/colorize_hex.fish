@@ -1,19 +1,17 @@
-function colorize_hex -d 'Add background to hex code colors in a command'
+function colorize_hex -d 'Preview hex color codes below the prompt'
     set --local cmd (commandline)
-    set --local colorstrings (string match -ra '[0-9A-F]{6}' -- $cmd)
+    set --local colorstrings (string match -ra '\b[0-9A-Fa-f]{6}\b' -- $cmd)
     if test (count $colorstrings) -eq 0
         return
     end
-    set --local colorized_cmd (
-        string replace -ra '\e\[[^m]*m' '' -- $cmd |
-        string replace -ra '[^[:print:]]' ''
-    )
-    set --local color
+
+    set --local colorized $cmd
     for color in $colorstrings
-        set colorized_cmd (string replace $color (printf '%s%s' (set_color -b $color) $color) -- $colorized_cmd)
-        #set colorized_cmd (string replace $color (printf '%s%s%s' (set_color normal) $color (set_color normal) '.') -- $colorized_cmd)
+        set --local lcolor (string lower $color)
+        set colorized (string replace --all -- $color \
+            (set_color --background $lcolor)"$color"(set_color normal) \
+            $colorized)
     end
-    commandline --replace -- $colorized_cmd
-    #commandline -f suppress-autosuggestion
-    #echo $colorized_cmd
+
+    printf '\e7\n\r\e[K%s\e[K\e8' $colorized
 end
