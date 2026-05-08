@@ -1,5 +1,5 @@
 function add_enter_hook
-    set -q ENTER_HOOKS || set -g ENTER_HOOKS
+    set -q ENTER_HOOKS; or set -g ENTER_HOOKS
     for fn in $argv
         # only add if function exists and isn't already in the list
         if functions -q $fn

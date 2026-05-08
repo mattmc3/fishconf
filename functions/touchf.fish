@@ -3,6 +3,6 @@ function touchf --description 'Make parent dirs and touch a file'
         echo >&2 "touchf: expected 1 argument"
         return 1
     end
-    test -f $argv[1] && return 0
-    mkdir -p (path dirname $argv[1]) && touch $argv[1]
+    test -f $argv[1]; and return 0
+    mkdir -p (path dirname $argv[1]); and touch $argv[1]
 end

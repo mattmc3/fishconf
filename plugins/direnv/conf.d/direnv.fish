@@ -1,2 +1,2 @@
-type -q direnv || return 1
+type -q direnv; or return 1
 direnv hook fish | source

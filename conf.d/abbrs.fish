@@ -2,7 +2,7 @@
 # abbrs
 #
 
-set -q MY_ABBRS_INITIALIZED && return
+set -q MY_ABBRS_INITIALIZED; and return
 
 abbr -a -- - 'cd -'
 abbr -a -- nv nvim
@@ -43,7 +43,7 @@ abbr -a -- print-path 'string join \n $PATH'
 
 # git
 abbr -a -- gclone 'git clone git@github.com:mattmc3/'
-abbr -a -- gwhoami 'echo "user.name:" (git config user.name) && echo "user.email:" (git config user.email)'
+abbr -a -- gwhoami 'echo "user.name:" (git config user.name); and echo "user.email:" (git config user.email)'
 
 # no need to run over-and-over
 set -g MY_ABBRS_INITIALIZED true

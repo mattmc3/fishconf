@@ -1,5 +1,5 @@
 function mkvenv -d 'Create a new Python venv'
-    if not set -q WORKON_HOME && test (count $argv) -gt 0
+    if not set -q WORKON_HOME; and test (count $argv) -gt 0
         echo >&2 '$WORKON_HOME not set.'
         return 1
     end

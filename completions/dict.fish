@@ -1,6 +1,6 @@
 function __dict_complete_keys
     set --local tokens (commandline -opc)
-    if test -n "$tokens[3]" && set -q $tokens[3]
+    if test -n "$tokens[3]"; and set -q $tokens[3]
         dict keys $tokens[3] 2>/dev/null
     end
 end

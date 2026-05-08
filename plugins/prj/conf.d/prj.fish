@@ -1,3 +1,3 @@
 # Initialize project jumper.
-type -q prj || return 1
+type -q prj; or return 1
 prj -i fish | source

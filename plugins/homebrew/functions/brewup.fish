@@ -1,3 +1,3 @@
 function brewup -d 'Update homebrew, upgrade installed packages, and cleanup'
-    brew update && brew upgrade && brew cleanup
+    brew update; and brew upgrade; and brew cleanup
 end

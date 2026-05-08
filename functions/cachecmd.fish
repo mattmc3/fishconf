@@ -9,7 +9,7 @@ function cachecmd --description "Cache a command"
     if not set -q XDG_CACHE_HOME
         set cachedir $HOME/.cache/fish
     end
-    test -d $cachedir || mkdir -p $cachedir
+    test -d $cachedir; or mkdir -p $cachedir
 
     # Remove expired cache files.
     find $cachedir -name $cmdfile -type f -mmin +1200 -delete

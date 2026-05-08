@@ -15,14 +15,14 @@ function funcfresh \
     # see if we can find the file where a function was defined
     set --local fnfile $(functions --details $argv)
     if test -f $fnfile
-        __funcfresh_file $fnfile && return
+        __funcfresh_file $fnfile; and return
     end
 
     # if not, see if we can find that file name
     for dir in $fish_function_path
         set --local fnfile "$dir/$argv.fish"
         if test -f $fnfile
-            __funcfresh_file $fnfile && return
+            __funcfresh_file $fnfile; and return
         end
     end
 
