@@ -23,9 +23,15 @@ function __init__fisher --description 'Bootstrap fisher and source plugin conf.d
         end
     end
 
+    function __init__fisher_source --no-scope-shadowing
+        builtin source $argv
+    end
+
     for file in $fisher_path/conf.d/*.fish
         set --local base (path basename -- $file)
         test -f $__fish_config_dir/conf.d/$base; and continue
-        test -r $file; and builtin source $file
+        test -r $file; and __init__fisher_source $file
     end
+
+    functions -e __init__fisher_source
 end
