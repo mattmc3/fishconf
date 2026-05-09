@@ -1,3 +1,3 @@
 # Initialize fuzzy finder.
 type -q fzf; or return 1
-fzf --fish | source
+source_cache fzf_init.fish fzf --fish

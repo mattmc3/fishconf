@@ -1,2 +1,2 @@
 type -q direnv; or return 1
-direnv hook fish | source
+source_cache direnv_hook.fish direnv hook fish

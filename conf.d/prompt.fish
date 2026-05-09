@@ -8,7 +8,7 @@ set fish_greeting
 # Initialize starship.
 if type -q starship
     set -gx STARSHIP_CONFIG $__fish_config_dir/themes/starship.toml
-    starship init fish --print-full-init | source
+    source_cache starship_init.fish starship init fish --print-full-init
     enable_transience
 
     # Start prompt at the bottom

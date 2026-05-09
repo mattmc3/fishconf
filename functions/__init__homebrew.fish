@@ -1,9 +1,9 @@
 function __init__homebrew --description 'Bootstrap homebrew shellenv + keg-only apps + ruby gems'
     # Bootstrap homebrew shellenv.
     if test -e /opt/homebrew/bin/brew
-        /opt/homebrew/bin/brew shellenv fish | source
+        source_cache brew_shellenv.fish /opt/homebrew/bin/brew shellenv fish
     else if test -e /usr/local/bin/brew
-        /usr/local/bin/brew shellenv fish | source
+        source_cache brew_shellenv.fish /usr/local/bin/brew shellenv fish
     else
         return 1
     end
