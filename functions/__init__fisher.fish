@@ -27,10 +27,18 @@ function __init__fisher --description 'Bootstrap fisher and source plugin conf.d
         builtin source $argv
     end
 
+    set -g __fisher_confd_files
+    set -g __fisher_confd_exit_codes
+
     for file in $fisher_path/conf.d/*.fish
         set --local base (path basename -- $file)
-        test -f $__fish_config_dir/conf.d/$base; and continue
-        test -r $file; and __init__fisher_source $file
+        set -ga __fisher_confd_files $file
+        if test -f $__fish_config_dir/conf.d/$base
+            set -ga __fisher_confd_exit_codes skip
+        else
+            __init__fisher_source $file
+            set -ga __fisher_confd_exit_codes $status
+        end
     end
 
     functions -e __init__fisher_source
