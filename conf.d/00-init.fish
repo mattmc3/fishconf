@@ -9,8 +9,8 @@ __init__ manpath
 __init__ config_subdirs
 __init__ path
 __init__ events
-__init__ fisher
 __init__ homebrew
+__init__ fisher
 
 # Other vars
 set -g OSTYPE (uname -s | string lower)

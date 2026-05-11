@@ -1,6 +1,5 @@
 jorgebucaran/fisher
 mattmc3/macos.fish
-$__fish_config_dir/plugins/__init__
 $__fish_config_dir/plugins/azure
 $__fish_config_dir/plugins/bangbang
 $__fish_config_dir/plugins/clipboard
