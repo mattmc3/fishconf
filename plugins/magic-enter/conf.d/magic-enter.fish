@@ -11,7 +11,11 @@ end
 
 if not functions -q magic-enter-cmd
     function magic-enter-cmd --description "Print the command to run when no command was given"
-        test "$MAGIC_ENTER_ENABLED" -eq 1; or return 1
+        switch "$MAGIC_ENTER_ENABLED"
+        case '1' 'true' 'yes' 'on'
+        case '*'
+            return 1
+        end
         set -l cmd ls
         if command git rev-parse --is-inside-work-tree &>/dev/null
             set cmd "git status -sb"
