@@ -47,5 +47,10 @@ abbr -a -- !! --position anywhere --function last_history_item
 abbr -a -- gclone 'git clone git@github.com:mattmc3/'
 abbr -a -- gwhoami 'echo "user.name:" (git config user.name); and echo "user.email:" (git config user.email)'
 
+# dirstack navigation
+for i in (seq 1 9)
+    abbr -a --position anywhere -- ..$i (string repeat -n $i "../" | string sub -e -1)
+end
+
 # no need to run over-and-over
 set -g MY_ABBRS_INITIALIZED true
