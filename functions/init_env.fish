@@ -2,6 +2,9 @@
 function init_env --description 'Set up common environment variable defaults'
     # These are universals so they can be overridden with globals
 
+    # Mimic Zsh's OSTYPE var.
+    set -q OSTYPE; or set -Ux OSTYPE (uname -s | string lower)
+
     # Editors / pager.
     set -q PAGER; or set -Ux PAGER less
     set -q VISUAL; or set -Ux VISUAL code

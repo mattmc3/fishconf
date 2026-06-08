@@ -23,6 +23,5 @@ init_xdg
 init_homebrew
 init_env
 
-set -g OSTYPE (uname -s | string lower)
 set -gx DOTFILES $HOME/.dotfiles
 set -gx MY_PROJECTS $HOME/Projects

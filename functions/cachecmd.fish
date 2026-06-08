@@ -9,7 +9,7 @@ function cachecmd --description "Cache command output, skip running if fresh"
     set -l cmdfile (string join '_' -- $argv | string replace -ar '[/-]' '_' | string replace -ar '_+' '_' | string replace -r '^_' '').fish
     set -l cachefile $cachedir/$cmdfile
 
-    mkdir -p $cachedir
+    test -d $cachedir; or mkdir -p $cachedir
     test -f $cachefile; or $argv > $cachefile
 
     if $source_it

@@ -37,7 +37,7 @@ end
 
 if type -q duckdb
     set -q DUCKDB_HISTORY; or set -gx DUCKDB_HISTORY $XDG_STATE_HOME/duckdb/history
-    mkdir -p $XDG_STATE_HOME/duckdb
+    test -d $XDG_STATE_HOME/duckdb; or mkdir -p $XDG_STATE_HOME/duckdb
 end
 
 if type -q gem
@@ -52,7 +52,7 @@ end
 
 if type -q gpg
     set -q GNUPGHOME; or set -gx GNUPGHOME $XDG_DATA_HOME/gnupg
-    mkdir -p $GNUPGHOME
+    test -d $GNUPGHOME; or mkdir -p $GNUPGHOME
 end
 
 if type -q jupyter
@@ -91,7 +91,7 @@ if type -q psql
     set -q PSQL_HISTORY; or set -gx PSQL_HISTORY $XDG_STATE_HOME/pg/psql_history
     set -q PGPASSFILE; or set -gx PGPASSFILE $XDG_CONFIG_HOME/pg/pgpass
     set -q PGSERVICEFILE; or set -gx PGSERVICEFILE $XDG_CONFIG_HOME/pg/pg_service.conf
-    mkdir -p $XDG_STATE_HOME/pg
+    test -d $XDG_STATE_HOME/pg; or mkdir -p $XDG_STATE_HOME/pg
 end
 
 if type -q python3
@@ -104,7 +104,7 @@ end
 if type -q redis-cli
     set -q REDISCLI_HISTFILE; or set -gx REDISCLI_HISTFILE $XDG_DATA_HOME/redis/rediscli_history
     set -q REDISCLI_RCFILE; or set -gx REDISCLI_RCFILE $XDG_CONFIG_HOME/redis/redisclirc
-    mkdir -p $XDG_DATA_HOME/redis
+    test -d $XDG_DATA_HOME/redis; or mkdir -p $XDG_DATA_HOME/redis
 end
 
 if type -q rg

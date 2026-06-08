@@ -1,6 +1,4 @@
 # Shell integrations for external tools (skip any that aren't installed).
-# type -q direnv; and direnv hook fish | source
-type -q direnv; and cachecmd --source direnv hook fish
 
 # type -q fzf; and fzf --fish | source
 type -q fzf; and cachecmd --source fzf --fish

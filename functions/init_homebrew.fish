@@ -5,7 +5,7 @@ function init_homebrew --description 'Load homebrew shellenv plus keg-only and g
     # Cache brew shellenv
     set --local brew_shellenv $__fish_config_dir/.cache/brew_shellenv.fish
     if not test -f $brew_shellenv
-        mkdir -p $__fish_config_dir/.cache
+        test -d $__fish_config_dir/.cache; or mkdir -p $__fish_config_dir/.cache
         $brewcmd[1] shellenv fish > $brew_shellenv
         echo "set -gx HOMEBREW_OWNER" (stat -f "%Su" $HOMEBREW_PREFIX 2>/dev/null) >> $brew_shellenv
     end
