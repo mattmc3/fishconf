@@ -15,4 +15,9 @@ if type -q starship
     # tput cup 9999 0
 end
 
+# Cursor
 fish_set_cursor bar
+
+# Theme
+set -q FISH_THEME; or set -U FISH_THEME tokyonight_night
+fish_config theme choose $FISH_THEME

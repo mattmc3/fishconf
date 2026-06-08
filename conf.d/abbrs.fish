@@ -40,6 +40,8 @@ abbr -a -- dux 'du -x --max-depth=1 | sort -n'
 # misc
 abbr -a -- please sudo
 abbr -a -- print-path 'string join \n $PATH'
+# !! expands to the last command (bash-style bang-bang).
+abbr -a -- !! --position anywhere --function last_history_item
 
 # git
 abbr -a -- gclone 'git clone git@github.com:mattmc3/'

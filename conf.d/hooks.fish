@@ -1,4 +1,7 @@
-# Run a default command when Enter is pressed on an empty line.
+# Functions fired on the `prerun` event.
+# Enter is bound to emit `prerun` in functions/init/_finit_prerun_events.fish.
+
+# magic-enter: run a default command when Enter is pressed on an empty line.
 function magic-enter --on-event prerun
     set -l cmd (commandline)
     if test -z "$cmd"; and functions -q magic-enter-cmd
@@ -22,5 +25,13 @@ if not functions -q magic-enter-cmd
             set cmd "git status -sb"
         end
         echo $cmd
+    end
+end
+
+# strip-dollar-prefix: strip a leading "$ " when pasting copied shell commands.
+function strip_dollar_prefix --on-event prerun
+    set -l cmd (commandline)
+    if string match -qr '(^|\n)\$ ' -- $cmd
+        commandline -r -- (string replace -ar '(^|\n)\$ ' '$1' -- $cmd)
     end
 end

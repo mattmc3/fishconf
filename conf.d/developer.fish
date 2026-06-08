@@ -1,4 +1,4 @@
-# Developer language tooling: PATH + env for go, dotnet, node, java.
+# Developer language tooling: PATH + env for go, dotnet, node, java, nim, emacs.
 
 # go
 fish_add_path (path filter $HOME/go/bin)
@@ -16,3 +16,9 @@ end
 if test -x /usr/libexec/java_home
     fish --no-config -c 'printf "set -gx JAVA_HOME %s\n" (/usr/libexec/java_home 2>/dev/null)' | source
 end
+
+# nim
+test -d $HOME/.nimble/bin; and fish_add_path $HOME/.nimble/bin
+
+# emacs
+fish_add_path (path filter $HOME/.emacs.d/bin $XDG_CONFIG_HOME/emacs/bin)
