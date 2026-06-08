@@ -1,3 +1,3 @@
 function flushdns -d 'Flush DNS cache'
-    dscacheutil -flushcache && sudo killall -HUP mDNSResponder
+    dscacheutil -flushcache; and sudo killall -HUP mDNSResponder
 end
