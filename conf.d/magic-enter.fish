@@ -1,3 +1,4 @@
+# Run a default command when Enter is pressed on an empty line.
 function magic-enter --on-event prerun
     set -l cmd (commandline)
     if test -z "$cmd"; and functions -q magic-enter-cmd

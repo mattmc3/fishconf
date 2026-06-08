@@ -1,17 +1,14 @@
-#
-# __init__: Anything that needs to be first.
-#
+# init: runs before every other conf.d file (the 00- prefix wins the sort),
+# so snippets can rely on XDG, PATH, MANPATH and homebrew being ready.
+# Each init_* is a plain function in functions/.
 
-# initialize
-__init__ xdg
-__init__ cache
-__init__ manpath
-__init__ config_subdirs
-__init__ path
-__init__ events
-__init__ homebrew
+init_xdg
+init_manpath
+init_function_subdirs
+init_path
+init_prerun_events
+init_homebrew
 
-# Other vars
 set -g OSTYPE (uname -s | string lower)
 set -gx DOTFILES $HOME/.dotfiles
 set -gx MY_PROJECTS $HOME/Projects
