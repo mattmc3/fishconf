@@ -6,11 +6,22 @@
 # (in functions/init/) and everything else resolve.
 set fish_function_path (path resolve $__fish_config_dir/functions/*/) $fish_function_path
 
-finit xdg
-finit manpath
-finit path
-finit prerun_events
-finit homebrew
+# Homebrew, etc. push their own paths; re-apply prepend to prepath afterwards.
+set -g prepath (path filter $HOME/bin $HOME/.local/bin)
+function prepend_prepath --on-event fish_postinit
+    fish_add_path --prepend --move $prepath
+end
+prepend_prepath
+
+# Initialize manpath
+set -q MANPATH; or set -gx MANPATH ''
+for mp in (path filter $__fish_data_dir/man /usr/local/share/man /usr/share/man)
+    set -ax MANPATH $mp
+end
+
+init_xdg
+init_homebrew
+init_env
 
 set -g OSTYPE (uname -s | string lower)
 set -gx DOTFILES $HOME/.dotfiles

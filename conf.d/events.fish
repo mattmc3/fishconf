@@ -1,5 +1,21 @@
 # Functions fired on the `prerun` event.
-# Enter is bound to emit `prerun` in functions/init/_finit_prerun_events.fish.
+function __prerun_dispatch --description 'Fire prerun events before a command executes'
+    set -g __prerun_cancel 0
+    emit prerun
+    if test "$__prerun_cancel" = 1
+        commandline -f repaint
+        return
+    end
+    commandline -f execute
+end
+
+# Bind enter to prerun
+if test "$fish_key_bindings" = fish_vi_key_bindings
+    bind -M insert  \r __prerun_dispatch
+    bind -M default \r __prerun_dispatch
+else
+    bind \r __prerun_dispatch
+end
 
 # magic-enter: run a default command when Enter is pressed on an empty line.
 function magic-enter --on-event prerun

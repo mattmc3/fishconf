@@ -1,4 +1,5 @@
 !**/themes/
+.cache/
 .fisher/
 *.local
 *.local.*

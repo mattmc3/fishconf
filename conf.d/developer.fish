@@ -13,9 +13,7 @@ if type -q node
 end
 
 # java
-if test -x /usr/libexec/java_home
-    fish --no-config -c 'printf "set -gx JAVA_HOME %s\n" (/usr/libexec/java_home 2>/dev/null)' | source
-end
+set_java_home
 
 # nim
 test -d $HOME/.nimble/bin; and fish_add_path $HOME/.nimble/bin
