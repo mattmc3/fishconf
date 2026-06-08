@@ -1,21 +1,9 @@
-function cachecmd --description "Cache a command"
-    set --local cmdfile (
-        string join '_' -- $argv |
-        string replace -ar '[/-]' '_' |
-        string replace -ar '_+' '_' |
-        string replace -r '^_' ''
-    ).fish
-    set --local cachedir $XDG_CACHE_HOME/fish
-    if not set -q XDG_CACHE_HOME
-        set cachedir $HOME/.cache/fish
-    end
+function cachecmd --description "Cache command output, skip running if fresh"
+    set -l cachedir $__fish_config_dir/.cache
+    set -l cmdfile (string join '_' -- $argv | string replace -ar '[/-]' '_' | string replace -ar '_+' '_' | string replace -r '^_' '').fish
+    set -l cachefile $cachedir/$cmdfile
+
     test -d $cachedir; or mkdir -p $cachedir
-
-    # Remove expired cache files.
-    find $cachedir -name $cmdfile -type f -mmin +1200 -delete
-
-    if not test -f $cachedir/$cmdfile
-        $argv >$cachedir/$cmdfile
-    end
-    cat $cachedir/$cmdfile
+    test -f $cachefile; or $argv > $cachefile
+    cat $cachefile
 end

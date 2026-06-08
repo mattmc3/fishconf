@@ -1,5 +1,8 @@
-function clean_cache --description 'Clean stale entries in fish cache'
+function clean_cache -a max_age_hours --description 'Clean stale entries in fish cache'
+    if test -z $max_age_hours
+        set max_age_hours 20
+    end
+    set -l max_age_minutes (math "$max_age_hours * 60")
     mkdir -p $__fish_config_dir/.cache
-    find $__fish_config_dir/.cache -name '*.fish' -type f -mmin +1200 -delete &
-    disown
+    find $__fish_config_dir/.cache -name '*.fish' -type f -mmin +$max_age_minutes -delete
 end

@@ -9,5 +9,7 @@ function fbench \
     end
     echo "Writing fish profile file to $outfile"
     fish --profile-startup=$outfile -c exit
-    awk 'NR==1 || $3==">"{print}' $outfile
+    echo "Profile: $outfile"
+    echo "Top slow calls (>1000μs):"
+    grep -E "^\s+[0-9]{4,}" $outfile | head -25
 end

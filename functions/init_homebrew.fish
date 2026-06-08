@@ -12,7 +12,8 @@ function init_homebrew --description 'Load homebrew shellenv plus keg-only and g
 
     # Alias brew if there's a different owner
     set -gx HOMEBREW_OWNER (stat -f "%Su" $HOMEBREW_PREFIX 2>/dev/null)
-    if test -n "$HOMEBREW_OWNER"; and test (whoami) != "$HOMEBREW_OWNER"
+    set -q USER; or set -gx USER (whoami)
+    if test -n "$HOMEBREW_OWNER"; and test "$USER" != "$HOMEBREW_OWNER"
         function brew
             command sudo -Hu $HOMEBREW_OWNER brew $argv
         end
