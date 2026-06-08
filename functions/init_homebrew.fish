@@ -7,11 +7,11 @@ function init_homebrew --description 'Load homebrew shellenv plus keg-only and g
     if not test -f $brew_shellenv
         mkdir -p $__fish_config_dir/.cache
         $brewcmd[1] shellenv fish > $brew_shellenv
+        echo "set -gx HOMEBREW_OWNER" (stat -f "%Su" $HOMEBREW_PREFIX 2>/dev/null) >> $brew_shellenv
     end
     source $brew_shellenv
 
     # Alias brew if there's a different owner
-    set -gx HOMEBREW_OWNER (stat -f "%Su" $HOMEBREW_PREFIX 2>/dev/null)
     set -q USER; or set -gx USER (whoami)
     if test -n "$HOMEBREW_OWNER"; and test "$USER" != "$HOMEBREW_OWNER"
         function brew
