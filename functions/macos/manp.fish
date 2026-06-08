@@ -3,5 +3,5 @@ function manp -d 'Open a specified man page in Preview'
         echo "Usage: manp <manpage>" >&2
         return 1
     end
-    man -t $argv | open -f -a Preview
+    mandoc -T pdf (/usr/bin/man -w $argv) | open -fa Preview
 end
