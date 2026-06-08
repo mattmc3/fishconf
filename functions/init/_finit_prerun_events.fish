@@ -1,4 +1,4 @@
-function init_prerun_events --description 'Bind Enter to emit a prerun event (magic-enter, strip-dollar-prefix)'
+function _finit_prerun_events --description 'Bind Enter to emit a prerun event (magic-enter, strip-dollar-prefix)'
     function __prerun_dispatch --description 'Fire prerun events before a command executes'
         set -g __prerun_cancel 0
         emit prerun

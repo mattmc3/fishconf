@@ -1,4 +1,4 @@
-function init_homebrew --description 'Load homebrew shellenv plus keg-only and gem bin dirs'
+function _finit_homebrew --description 'Load homebrew shellenv plus keg-only and gem bin dirs'
     if test -e /opt/homebrew/bin/brew
         /opt/homebrew/bin/brew shellenv fish | source
     else if test -e /usr/local/bin/brew

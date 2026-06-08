@@ -1,4 +1,4 @@
-function init_xdg --description 'Set up XDG base directories'
+function _finit_xdg --description 'Set up XDG base directories'
     set -q XDG_CONFIG_HOME; or set -gx XDG_CONFIG_HOME $HOME/.config
     set -q XDG_DATA_HOME; or set -gx XDG_DATA_HOME $HOME/.local/share
     set -q XDG_STATE_HOME; or set -gx XDG_STATE_HOME $HOME/.local/state
