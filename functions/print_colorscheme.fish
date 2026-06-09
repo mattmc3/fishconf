@@ -1,27 +1,25 @@
 function print_colorscheme \
     --description "Print color scheme"
 
-    # piped/redirected input
-    set --local color
-    if not [ -t 0 ]
-        while read -l color
-            set argv $argv $color
-        end
-    end
-
-    if [ (count $argv) -eq 0 ]
-        return 1
-    end
+    argparse \
+        'black=' 'red=' 'green=' 'yellow=' \
+        'blue=' 'magenta=' 'cyan=' 'white=' \
+        'brblack=' 'brred=' 'brgreen=' 'bryellow=' \
+        'brblue=' 'brmagenta=' 'brcyan=' 'brwhite=' \
+        -- $argv
+    or return
 
     set --local colornames black red green yellow blue magenta cyan white \
         brblack brred brgreen bryellow brblue brmagenta brcyan brwhite
-    for i in (seq 1 (count $argv))
-        set colorid (math "($i-1) % "(count $colornames)" + 1")
-        set color $argv[$i]
-        if test "$color" != ""
-            printf '%s%-10s%s %s  %s  %s\n' \
-                (set_color $color) $colornames[$colorid] (set_color normal) \
-                (set_color --background $color) $color (set_color normal)
-        end
+
+    for name in $colornames
+        set --local flagvar "_flag_$name"
+        set --local color $$flagvar
+        set --local display (if test -n "$color"; echo $color; else; echo $name; end)
+        printf '%-12s %s%-12s%s %s     %s  %s\n' \
+            $name \
+            (set_color $display) $name (set_color normal) \
+            (set_color --background $display) (set_color normal) \
+            $color
     end
 end
