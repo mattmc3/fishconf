@@ -52,5 +52,12 @@ for i in (seq 1 9)
     abbr -a --position anywhere -- ..$i (string repeat -n $i "../" | string sub -e -1)
 end
 
+# typos
+abbr -a -- cd.. "cd .."
+abbr -a -- which type
+
+# homebrew
+abbr -a -- brewup "brew update; and brew upgrade; and brew cleanup"
+
 # no need to run over-and-over
 set -g MY_ABBRS_INITIALIZED true
